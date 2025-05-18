@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories | CodeInsight</title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS for scroll animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="categories.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <i class="fas fa-code"></i>
+                <span>CodeInsight</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../articles/articles.html">Articles</a></li>
+                    <li><a href="categories.html" class="active">Categories</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="container">
+            <h1>Browse by Category</h1>
+            <p>Explore our collection of programming tutorials organized by topic</p>
+        </div>
+    </section>
+
+    <section class="categories-overview">
+        <div class="container">
+            <div class="categories-stats">
+                <div class="stat">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Articles</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">50k+</div>
+                    <div class="stat-label">Monthly Readers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories-grid-section">
+        <div class="container">
+            <!-- Category Card: Algorithms -->
+            <div class="category-card" data-aos="fade-up">
+                <div class="category-icon">
+                    <i class="fas fa-sitemap"></i>
+                </div>
+                <div class="category-content">
+                    <h2>Algorithms</h2>
+                    <p>Explore the fundamental algorithms that power modern computing, from sorting and searching to dynamic programming and graph algorithms.</p>
+                    <div class="category-meta">
+                        <span><i class="far fa-file-alt"></i> 22 articles</span>
+                        <span><i class="far fa-eye"></i> 15.2K views</span>
+                    </div>
+                    <div class="popular-tags">
+                        <span class="tag">Recursion</span>
+                        <span class="tag">Big O</span>
+                        <span class="tag">Dynamic Programming</span>
+                    </div>
+                    <a href="#" class="category-btn">View Articles <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="featured-articles">
+                    <h3>Featured Articles</h3>
+                    <ul>
+                        <li>
+                            <a href="blog-post.html">
+                                <i class="fas fa-star"></i>
+                                <span>Understanding Recursion</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>Demystifying Big O Notation</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>Introduction to Graph Algorithms</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Category Card: Algorithms -->
+            <div class="category-card" data-aos="fade-up">
+                <div class="category-icon">
+                    <i class="fas fa-sitemap"></i>
+                </div>
+                <div class="category-content">
+                    <h2>Algorithms</h2>
+                    <p>Explore the fundamental algorithms that power modern computing, from sorting and searching to dynamic programming and graph algorithms.</p>
+                    <div class="category-meta">
+                        <span><i class="far fa-file-alt"></i> 22 articles</span>
+                        <span><i class="far fa-eye"></i> 15.2K views</span>
+                    </div>
+                    <div class="popular-tags">
+                        <span class="tag">Recursion</span>
+                        <span class="tag">Big O</span>
+                        <span class="tag">Dynamic Programming</span>
+                    </div>
+                    <a href="#" class="category-btn">View Articles <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="featured-articles">
+                    <h3>Featured Articles</h3>
+                    <ul>
+                        <li>
+                            <a href="blog-post.html">
+                                <i class="fas fa-star"></i>
+                                <span>Understanding Recursion</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>Demystifying Big O Notation</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>Introduction to Graph Algorithms</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Category Card: Data Structures -->
+            <div class="category-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="category-icon">
+                    <i class="fas fa-sitemap"></i>
+                </div>
+                <div class="category-content">
+                    <h2>Data Structures</h2>
+                    <p>Learn about the various ways to organize and store data efficiently, from arrays and linked lists to trees, graphs, and hash tables.</p>
+                    <div class="category-meta">
+                        <span><i class="far fa-file-alt"></i> 18 articles</span>
+                        <span><i class="far fa-eye"></i> 12.8K views</span>
+                    </div>
+                    <div class="popular-tags">
+                        <span class="tag">Arrays</span>
+                        <span class="tag">Binary Trees</span>
+                        <span class="tag">Hash Tables</span>
+                    </div>
+                    <a href="#" class="category-btn">View Articles <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="featured-articles">
+                    <h3>Featured Articles</h3>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>Binary Trees: Implementation and Traversal</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>Hash Tables Explained: From Theory to Implementation</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>Understanding Linked Lists</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Category Card: JavaScript -->
+            <div class="category-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="category-icon">
+                    <i class="fab fa-js"></i>
+                </div>
+                <div class="category-content">
+                    <h2>JavaScript</h2>
+                    <p>Master the language of the web with tutorials on core JavaScript concepts, asynchronous programming, functional approaches, and modern ES6+ features.</p>
+                    <div class="category-meta">
+                        <span><i class="far fa-file-alt"></i> 25 articles</span>
+                        <span><i class="far fa-eye"></i> 18.5K views</span>
+                    </div>
+                    <div class="popular-tags">
+                        <span class="tag">Promises</span>
+                        <span class="tag">Async/Await</span>
+                        <span class="tag">Functional</span>
+                    </div>
+                    <a href="#" class="category-btn">View Articles <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="featured-articles">
+                    <h3>Featured Articles</h3>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>Mastering JavaScript Promises</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>Thinking Functionally: Pure Functions and Immutability</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>ES6+ Features You Should Be Using Daily</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Category Card: React -->
+            <div class="category-card" data-aos="fade-up">
+                <div class="category-icon">
+                    <i class="fab fa-react"></i>
+                </div>
+                <div class="category-content">
+                    <h2>React</h2>
+                    <p>Build modern, component-based user interfaces with React. Learn about hooks, state management, performance optimization, and more.</p>
+                    <div class="category-meta">
+                        <span><i class="far fa-file-alt"></i> 19 articles</span>
+                        <span><i class="far fa-eye"></i> 14.3K views</span>
+                    </div>
+                    <div class="popular-tags">
+                        <span class="tag">Hooks</span>
+                        <span class="tag">Context API</span>
+                        <span class="tag">Redux</span>
+                    </div>
+                    <a href="#" class="category-btn">View Articles <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="featured-articles">
+                    <h3>Featured Articles</h3>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>Understanding React Hooks: useState and useEffect</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>State Management in React: Context API vs. Redux</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>Building Custom Hooks for Reusable Logic</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Category Card: Python -->
+            <div class="category-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="category-icon">
+                    <i class="fab fa-python"></i>
+                </div>
+                <div class="category-content">
+                    <h2>Python</h2>
+                    <p>From basic syntax to advanced features, learn how to use Python for web development, data science, automation, and more.</p>
+                    <div class="category-meta">
+                        <span><i class="far fa-file-alt"></i> 20 articles</span>
+                        <span><i class="far fa-eye"></i> 13.7K views</span>
+                    </div>
+                    <div class="popular-tags">
+                        <span class="tag">Generators</span>
+                        <span class="tag">Decorators</span>
+                        <span class="tag">Data Science</span>
+                    </div>
+                    <a href="#" class="category-btn">View Articles <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="featured-articles">
+                    <h3>Featured Articles</h3>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>Python Generators and Yield Statements</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>Mastering Python Decorators</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>Python for Data Analysis: Pandas Fundamentals</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Category Card: DevOps -->
+            <div class="category-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="category-icon">
+                    <i class="fas fa-server"></i>
+                </div>
+                <div class="category-content">
+                    <h2>DevOps</h2>
+                    <p>Learn about containerization, CI/CD pipelines, cloud deployment, infrastructure as code, and other modern DevOps practices.</p>
+                    <div class="category-meta">
+                        <span><i class="far fa-file-alt"></i> 15 articles</span>
+                        <span><i class="far fa-eye"></i> 10.9K views</span>
+                    </div>
+                    <div class="popular-tags">
+                        <span class="tag">Docker</span>
+                        <span class="tag">CI/CD</span>
+                        <span class="tag">Kubernetes</span>
+                    </div>
+                    <a href="#" class="category-btn">View Articles <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="featured-articles">
+                    <h3>Featured Articles</h3>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>Containerization with Docker: A Beginner's Guide</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>Building CI/CD Pipelines with GitHub Actions</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>Kubernetes Fundamentals: Managing Containerized Applications</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Category Card: Databases -->
+            <div class="category-card" data-aos="fade-up">
+                <div class="category-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <div class="category-content">
+                    <h2>Databases</h2>
+                    <p>Explore relational and NoSQL databases, learn SQL, database design principles, optimization techniques, and data modeling.</p>
+                    <div class="category-meta">
+                        <span><i class="far fa-file-alt"></i> 16 articles</span>
+                        <span><i class="far fa-eye"></i> 11.5K views</span>
+                    </div>
+                    <div class="popular-tags">
+                        <span class="tag">SQL</span>
+                        <span class="tag">NoSQL</span>
+                        <span class="tag">MongoDB</span>
+                    </div>
+                    <a href="#" class="category-btn">View Articles <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="featured-articles">
+                    <h3>Featured Articles</h3>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>SQL Query Optimization Techniques</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>NoSQL Database Types and When to Use Them</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>Database Normalization Explained</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Category Card: System Design -->
+            <div class="category-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="category-icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <div class="category-content">
+                    <h2>System Design</h2>
+                    <p>Learn how to design scalable, robust software systems. Covers architecture patterns, microservices, distributed systems, and more.</p>
+                    <div class="category-meta">
+                        <span><i class="far fa-file-alt"></i> 14 articles</span>
+                        <span><i class="far fa-eye"></i> 12.2K views</span>
+                    </div>
+                    <div class="popular-tags">
+                        <span class="tag">Microservices</span>
+                        <span class="tag">Scalability</span>
+                        <span class="tag">Design Patterns</span>
+                    </div>
+                    <a href="#" class="category-btn">View Articles <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="featured-articles">
+                    <h3>Featured Articles</h3>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>Microservices vs. Monoliths: Architecture Tradeoffs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>Designing for Scalability: Horizontal vs. Vertical Scaling</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-star"></i>
+                                <span>System Design Interview: A Step-by-Step Guide</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills-path">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Learning Paths</h2>
+                <p>Follow these curated learning paths to master a specific skill</p>
+            </div>
+            
+            <div class="paths-grid">
+                <div class="path-card" data-aos="fade-up">
+                    <div class="path-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="path-content">
+                        <h3>Frontend Developer Path</h3>
+                        <p>Master HTML, CSS, JavaScript, and modern frameworks to build stunning user interfaces.</p>
+                        <div class="path-meta">
+                            <span><i class="far fa-clock"></i> 12 weeks</span>
+                            <span><i class="far fa-file-alt"></i> 25 articles</span>
+                        </div>
+                        <a href="#" class="path-btn">Start Learning <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="path-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="path-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="path-content">
+                        <h3>Backend Developer Path</h3>
+                        <p>Learn server-side programming, databases, API design, and deployment strategies.</p>
+                        <div class="path-meta">
+                            <span><i class="far fa-clock"></i> 14 weeks</span>
+                            <span><i class="far fa-file-alt"></i> 28 articles</span>
+                        </div>
+                        <a href="#" class="path-btn">Start Learning <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="path-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="path-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="path-content">
+                        <h3>Full-Stack Developer Path</h3>
+                        <p>Become a versatile developer who can build complete applications from frontend to backend.</p>
+                        <div class="path-meta">
+                            <span><i class="far fa-clock"></i> 20 weeks</span>
+                            <span><i class="far fa-file-alt"></i> 40 articles</span>
+                        </div>
+                        <a href="#" class="path-btn">Start Learning <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content" data-aos="fade-up">
+                <div class="newsletter-text">
+                    <h2>Stay Updated with Latest Programming Insights</h2>
+                    <p>Join our newsletter and get fresh coding tips, tutorials, and articles delivered straight to your inbox. No spam, just valuable content.</p>
+                </div>
+                <form class="newsletter-form">
+                    <div class="form-group">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </div>
+                    <div class="form-privacy">
+                        <label>
+                            <input type="checkbox" required>
+                            <span>I agree to receive emails and accept the <a href="#">Privacy Policy</a></span>
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-code"></i>
+                        <span>CodeInsight</span>
+                    </div>
+                    <p>Demystifying programming concepts one article at a time.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Content</h4>
+                        <ul>
+                            <li><a href="#">Articles</a></li>
+                            <li><a href="#">Tutorials</a></li>
+                            <li><a href="#">Resources</a></li>
+                            <li><a href="#">Challenges</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Categories</h4>
+                        <ul>
+                            <li><a href="#">Algorithms</a></li>
+                            <li><a href="#">Data Structures</a></li>
+                            <li><a href="#">Web Development</a></li>
+                            <li><a href="#">DevOps</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Contributors</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 CodeInsight. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="categories.js"></script>
+</body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeInsight | Understanding Recursion</title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Prism.js for code highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <!-- AOS for scroll animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <i class="fas fa-code"></i>
+                <span>CodeInsight</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Understanding Recursion</h1>
+            <div class="hero-meta">
+                <div>
+                    <i class="far fa-calendar"></i>
+                    <span>May 16, 2025</span>
+                </div>
+                <div>
+                    <i class="far fa-clock"></i>
+                    <span>8 min read</span>
+                </div>
+                <div>
+                    <i class="far fa-folder"></i>
+                    <span>Algorithms</span>
+                </div>
+            </div>
+            <p>Explore the elegant and powerful concept of recursion in programming, with clear examples and visualizations to help solidify your understanding.</p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <article class="article" data-aos="fade-up">
+                <div class="article-content">
+                    <div class="article-section">
+                        <h2>What is Recursion?</h2>
+                        <p>Recursion is a programming technique where a function calls itself to solve a problem. It's a powerful concept that allows us to break down complex problems into simpler ones, following the principle of "divide and conquer."</p>
+                        <p>At its core, recursion involves:</p>
+                        <ol>
+                            <li>A <span class="inlineCode">base case</span> that stops the recursion</li>
+                            <li>A <span class="inlineCode">recursive case</span> where the function calls itself with a simpler version of the problem</li>
+                        </ol>
+                        
+                        <div class="concept-visualization">
+                            <img src="/api/placeholder/800/400" alt="Recursion visualization showing nested function calls">
+                            <p class="img-caption">Visual representation of recursive function calls</p>
+                        </div>
+                        
+                        <div class="key-points">
+                            <h4>Key Concepts</h4>
+                            <ul>
+                                <li>Each recursive call creates a new execution context</li>
+                                <li>The base case prevents infinite recursion</li>
+                                <li>Recursion can often replace complex loops</li>
+                                <li>Many algorithms in computer science are naturally recursive</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>A Simple Example: Factorial</h2>
+                        <p>Let's start with a classic example: calculating the factorial of a number. The factorial of a non-negative integer n (denoted as n!) is the product of all positive integers less than or equal to n.</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fab fa-js"></i>
+                                    <span>JavaScript</span>
+                                </div>
+                                <button class="copy-btn" data-code="factorial">
+                                    <i class="far fa-copy"></i>
+                                    <span>Copy</span>
+                                </button>
+                            </div>
+<pre><code class="language-javascript">function factorial(n) {
+    // Base case
+    if (n === 0 || n === 1) {
+        return 1;
+    }
+    
+    // Recursive case
+    return n * factorial(n - 1);
+}
+
+console.log(factorial(5)); // Output: 120
+// 5 * 4 * 3 * 2 * 1 = 120</code></pre>
+                        </div>
+                        
+                        <p>Let's break down what happens when we call <span class="inlineCode">factorial(5)</span>:</p>
+                        <ol>
+                            <li><span class="inlineCode">factorial(5)</span> returns <span class="inlineCode">5 * factorial(4)</span></li>
+                            <li><span class="inlineCode">factorial(4)</span> returns <span class="inlineCode">4 * factorial(3)</span></li>
+                            <li><span class="inlineCode">factorial(3)</span> returns <span class="inlineCode">3 * factorial(2)</span></li>
+                            <li><span class="inlineCode">factorial(2)</span> returns <span class="inlineCode">2 * factorial(1)</span></li>
+                            <li><span class="inlineCode">factorial(1)</span> returns <span class="inlineCode">1</span> (base case)</li>
+                            <li>Then we work back up: <span class="inlineCode">2 * 1 = 2</span></li>
+                            <li><span class="inlineCode">3 * 2 = 6</span></li>
+                            <li><span class="inlineCode">4 * 6 = 24</span></li>
+                            <li><span class="inlineCode">5 * 24 = 120</span></li>
+                        </ol>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Fibonacci Sequence</h2>
+                        <p>Another classic example of recursion is computing numbers in the Fibonacci sequence, where each number is the sum of the two preceding ones.</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fab fa-python"></i>
+                                    <span>Python</span>
+                                </div>
+                                <button class="copy-btn" data-code="fibonacci">
+                                    <i class="far fa-copy"></i>
+                                    <span>Copy</span>
+                                </button>
+                            </div>
+<pre><code class="language-python">def fibonacci(n):
+    # Base cases
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    
+    # Recursive case
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+# Print the first 10 Fibonacci numbers
+for i in range(10):
+    print(fibonacci(i), end=" ")
+# Output: 0 1 1 2 3 5 8 13 21 34</code></pre>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Warning</h4>
+                            <p>This naive recursive implementation of Fibonacci has exponential time complexity O(2^n). For larger values of n, it becomes extremely inefficient as it recalculates the same values multiple times.</p>
+                        </div>
+                        
+                        <div class="concept-visualization">
+                            <img src="/api/placeholder/800/500" alt="Fibonacci recursive call tree">
+                            <p class="img-caption">Fibonacci recursive call tree showing repeated calculations</p>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Improved Fibonacci with Memoization</h2>
+                        <p>We can dramatically improve the performance of our Fibonacci function using a technique called memoization, which stores previously calculated results to avoid redundant calculations.</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fab fa-python"></i>
+                                    <span>Python</span>
+                                </div>
+                                <button class="copy-btn" data-code="fibonacci-memo">
+                                    <i class="far fa-copy"></i>
+                                    <span>Copy</span>
+                                </button>
+                            </div>
+<pre><code class="language-python">def fibonacci_memo(n, memo={}):
+    # Check if we've already calculated this value
+    if n in memo:
+        return memo[n]
+    
+    # Base cases
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    
+    # Calculate and store the result
+    memo[n] = fibonacci_memo(n - 1, memo) + fibonacci_memo(n - 2, memo)
+    return memo[n]
+
+# Print the first 10 Fibonacci numbers
+for i in range(10):
+    print(fibonacci_memo(i), end=" ")
+# Output: 0 1 1 2 3 5 8 13 21 34</code></pre>
+                        </div>
+                        
+                        <div class="tip-box">
+                            <h4><i class="fas fa-lightbulb"></i> Pro Tip</h4>
+                            <p>Memoization reduces the time complexity from O(2^n) to O(n), making it feasible to calculate much larger Fibonacci numbers. This technique of storing previously computed results is a form of dynamic programming.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Recursion vs. Iteration</h2>
+                        <p>While recursion provides elegant solutions to many problems, it's important to understand its trade-offs compared to iterative approaches:</p>
+                        
+                        <div class="comparison-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Aspect</th>
+                                        <th>Recursion</th>
+                                        <th>Iteration</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Memory Usage</td>
+                                        <td>Higher (stack frames)</td>
+                                        <td>Lower</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Code Readability</td>
+                                        <td>Often more elegant</td>
+                                        <td>Can be more verbose</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Performance</td>
+                                        <td>Generally slower</td>
+                                        <td>Usually faster</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Risk of Errors</td>
+                                        <td>Stack overflow possible</td>
+                                        <td>Infinite loops possible</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <p>Here's the same factorial function implemented iteratively:</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fab fa-js"></i>
+                                    <span>JavaScript</span>
+                                </div>
+                                <button class="copy-btn" data-code="factorial-iterative">
+                                    <i class="far fa-copy"></i>
+                                    <span>Copy</span>
+                                </button>
+                            </div>
+<pre><code class="language-javascript">function factorialIterative(n) {
+    let result = 1;
+    
+    for (let i = 2; i <= n; i++) {
+        result *= i;
+    }
+    
+    return result;
+}
+
+console.log(factorialIterative(5)); // Output: 120</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>When to Use Recursion</h2>
+                        <p>Recursion shines in certain types of problems:</p>
+                        <ul>
+                            <li>Tree and graph traversals</li>
+                            <li>Divide and conquer algorithms</li>
+                            <li>Backtracking problems</li>
+                            <li>Problems with recursive mathematical definitions</li>
+                            <li>When the iterative solution would be complex and hard to understand</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tags">
+                        <span class="tag">Recursion</span>
+                        <span class="tag">Algorithms</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Dynamic Programming</span>
+                    </div>
+                    
+                    <div class="author-section">
+                        <div class="author-avatar">
+                            <img src="/api/placeholder/160/160" alt="Author avatar">
+                        </div>
+                        <div class="author-info">
+                            <h4>Jane Coder</h4>
+                            <p>Senior Software Engineer specializing in algorithms and data structures. Passionate about clear explanations and visual learning.</p>
+                            <div class="author-social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            <div class="related-posts" data-aos="fade-up">
+                <h3>Related Articles</h3>
+                <div class="posts-grid">
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="/api/placeholder/400/200" alt="Binary search visualization">
+                        </div>
+                        <div class="post-content">
+                            <h4>Understanding Binary Search</h4>
+                            <p>Dive into one of the most efficient searching algorithms in computer science.</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="/api/placeholder/400/200" alt="Dynamic programming concept">
+                        </div>
+                        <div class="post-content">
+                            <h4>Introduction to Dynamic Programming</h4>
+                            <p>Master the art of solving complex problems by breaking them down into subproblems.</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="/api/placeholder/400/200" alt="Tree traversal algorithms">
+                        </div>
+                        <div class="post-content">
+                            <h4>Tree Traversal Techniques</h4>
+                            <p>Learn different ways to visit all nodes in a tree data structure.</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-code"></i>
+                    <span>CodeInsight</span>
+                </div>
+                <p>Demystifying programming concepts one article at a time.</p>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Content</h4>
+                        <ul>
+                            <li><a href="#">Articles</a></li>
+                            <li><a href="#">Tutorials</a></li>
+                            <li><a href="#">Resources</a></li>
+                            <li><a href="#">Challenges</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="#">Newsletter</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">GitHub</a></li>
+                            <li><a href="#">Discord</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CodeInsight. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

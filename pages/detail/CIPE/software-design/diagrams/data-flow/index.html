@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeInsight | 자료 흐름도(DFD) 이해하기</title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Prism.js for code highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <!-- AOS for scroll animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- mermaid.js for diagrams -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <i class="fas fa-code"></i>
+                <span>CodeInsight</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Articles</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>자료 흐름도(DFD) 이해하기</h1>
+            <div class="hero-meta">
+                <div>
+                    <i class="far fa-calendar"></i>
+                    <span>May 18, 2025</span>
+                </div>
+                <div>
+                    <i class="far fa-clock"></i>
+                    <span>8 min read</span>
+                </div>
+                <div>
+                    <i class="far fa-folder"></i>
+                    <span>시스템 분석 및 설계</span>
+                </div>
+                <div>
+                    <i class="fas fa-language"></i>
+                    <a href="#">ENG</a>
+                </div>
+            </div>
+            <p>자료 흐름도(DFD)는 시스템 내에서 데이터가 어떻게 이동하는지 시각적으로 보여주는 강력한 도구입니다. 프로세스, 데이터 흐름, 데이터 저장소, 터미네이터 등의 구성 요소를 통해 복잡한 시스템을 직관적으로 이해할 수 있습니다.</p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <article class="article" data-aos="fade-up">
+                <div class="article-content">
+                    <div class="article-section">
+                        <h2>자료 흐름도(DFD)란 무엇인가?</h2>
+                        <p>자료 흐름도(Data Flow Diagram, DFD)는 시스템 내에서 데이터가 어떻게 이동하고 처리되는지를 시각적으로 표현하는 모델링 도구입니다. 이는 시스템 분석가와 설계자가 시스템의 구조와 데이터 흐름을 이해하고 문서화하는 데 사용됩니다.</p>
+                        
+                        <div class="key-points">
+                            <h4>자료 흐름도의 주요 장점</h4>
+                            <ul>
+                                <li><strong>가시성:</strong> 복잡한 시스템을 쉽게 이해할 수 있는 시각적 표현 제공</li>
+                                <li><strong>커뮤니케이션:</strong> 기술적/비기술적 이해관계자 간의 효과적인 소통 도구</li>
+                                <li><strong>단순성:</strong> 시스템의 논리적 관점에 집중하여 불필요한 구현 세부 사항 제거</li>
+                            </ul>
+                        </div>
+                        
+                        <p>자료 흐름도는 다음과 같은 네 가지 핵심 구성 요소로 이루어집니다:</p>
+                        
+                        <ol>
+                            <li><span class="inlineCode">프로세스(Process)</span> - 데이터를 변환하거나 처리하는 작업</li>
+                            <li><span class="inlineCode">데이터 흐름(Data Flow)</span> - 한 지점에서 다른 지점으로 이동하는 데이터</li>
+                            <li><span class="inlineCode">데이터 저장소(Data Store)</span> - 데이터가 저장되는 위치</li>
+                            <li><span class="inlineCode">터미네이터(Terminator)</span> - 시스템 외부에 있는 데이터 출처나 목적지</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>1. 프로세스(Process)</h2>
+                        <p>프로세스는 자료 흐름도의 가장 중요한 구성 요소 중 하나로, 데이터를 변환하거나 처리하는 작업을 의미합니다. 이는 입력 데이터를 받아 출력 데이터로 변환하는 작업이라고 생각할 수 있습니다.</p>
+                        
+                        <h3>프로세스의 특징:</h3>
+                        <ul>
+                            <li>데이터에 대한 어떤 작업이 수행되는지 나타냄</li>
+                            <li>동사(verb)로 이름을 짓는 것이 일반적 (예: '고객 정보 검증', '주문 처리')</li>
+                            <li>항상 입력 데이터를 받아 출력 데이터를 생성해야 함</li>
+                        </ul>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fas fa-object-group"></i>
+                                    <span>프로세스 표기법</span>
+                                </div>
+                                <button class="copy-btn" data-code="process-notation">
+                                    <i class="far fa-copy"></i>
+                                    <span>복사</span>
+                                </button>
+                            </div>
+                            <pre><code class="language-text">
+┌─────────────────┐
+│       1        │ ← 프로세스 번호
+│                │
+│   주문 접수    │ ← 프로세스 이름
+│                │
+└─────────────────┘
+
+또는 타원/원형으로 표현:
+
+   ╭───────────╮
+  │     2      │
+  │            │
+  │  결제 처리  │
+  │            │
+   ╰───────────╯
+                        </code></pre>
+                        </div>
+                        
+                        <p>예를 들어, 온라인 쇼핑몰 시스템에서 다음과 같은 프로세스들이 있을 수 있습니다:</p>
+                        <ul>
+                            <li><strong>주문 접수:</strong> 고객의 주문 정보를 받아 처리</li>
+                            <li><strong>재고 확인:</strong> 주문된 상품의 재고 상태 확인</li>
+                            <li><strong>결제 처리:</strong> 고객의 결제 정보를 처리하고 검증</li>
+                            <li><strong>배송 준비:</strong> 배송을 위한 정보 생성 및 처리</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>2. 데이터 흐름(Data Flow)</h2>
+                        <p>데이터 흐름은 한 지점에서 다른 지점으로 이동하는 데이터를 나타냅니다. 이는 프로세스, 데이터 저장소, 외부 개체(터미네이터) 사이의 데이터 이동을 보여줍니다.</p>
+                        
+                        <h3>데이터 흐름의 특징:</h3>
+                        <ul>
+                            <li>항상 방향성이 있음 (화살표로 표시)</li>
+                            <li>명사(noun)로 이름을 짓는 것이 일반적 (예: '주문 정보', '결제 내역')</li>
+                            <li>단일 데이터 항목 또는 데이터 그룹을 나타낼 수 있음</li>
+                        </ul>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fas fa-object-group"></i>
+                                    <span>데이터 흐름 표기법</span>
+                                </div>
+                                <button class="copy-btn" data-code="data-flow-notation">
+                                    <i class="far fa-copy"></i>
+                                    <span>복사</span>
+                                </button>
+                            </div>
+                            <pre><code class="language-text">
+프로세스 A         프로세스 B
+┌────────┐        ┌────────┐
+│        │        │        │
+│        │        │        │
+└────────┘        └────────┘
+     │                 ▲  
+     │                 │
+     │    주문 정보    │
+     │                 │
+     └────────────────┘
+                        </code></pre>
+                        </div>
+                        
+                        <p>온라인 쇼핑몰 예시에서 데이터 흐름의 예:</p>
+                        <ul>
+                            <li><strong>고객 정보:</strong> 고객으로부터 '고객 정보 확인' 프로세스로</li>
+                            <li><strong>주문 상세:</strong> '주문 접수' 프로세스에서 '재고 확인' 프로세스로</li>
+                            <li><strong>결제 내역:</strong> '결제 처리' 프로세스에서 결제 데이터베이스로</li>
+                            <li><strong>배송 주소:</strong> 고객 데이터베이스에서 '배송 준비' 프로세스로</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>3. 데이터 저장소(Data Store)</h2>
+                        <p>데이터 저장소는 시스템 내에서 데이터가 보관되는 장소를 나타냅니다. 이는 데이터베이스, 파일, 테이블 등 데이터가 일정 기간 동안 저장되는 모든 유형의 저장소를 포함합니다.</p>
+                        
+                        <h3>데이터 저장소의 특징:</h3>
+                        <ul>
+                            <li>수동적인 요소로, 데이터를 변환하지 않음</li>
+                            <li>최소한 하나의 입력 데이터 흐름과 하나의 출력 데이터 흐름이 있어야 함</li>
+                            <li>보통 복수형 명사로 이름을 짓는 것이 일반적 (예: '고객들', '주문들')</li>
+                        </ul>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fas fa-object-group"></i>
+                                    <span>데이터 저장소 표기법</span>
+                                </div>
+                                <button class="copy-btn" data-code="data-store-notation">
+                                    <i class="far fa-copy"></i>
+                                    <span>복사</span>
+                                </button>
+                            </div>
+                            <pre><code class="language-text">
+┌─────────────────────────────────────┐
+│ D1 고객 데이터베이스                │
+└─────────────────────────────────────┘
+
+또는 평행선으로 표현:
+
+─────────────────────────────────────
+ D2 주문 데이터베이스
+─────────────────────────────────────
+                        </code></pre>
+                        </div>
+                        
+                        <p>온라인 쇼핑몰 예시에서 데이터 저장소의 예:</p>
+                        <ul>
+                            <li><strong>D1 고객 데이터베이스:</strong> 고객 정보(이름, 연락처, 주소 등) 저장</li>
+                            <li><strong>D2 상품 카탈로그:</strong> 모든 상품 정보와 재고 현황 저장</li>
+                            <li><strong>D3 주문 내역:</strong> 처리된 모든 주문의 세부 정보 저장</li>
+                            <li><strong>D4 결제 기록:</strong> 모든 결제 트랜잭션 세부 정보 저장</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>4. 터미네이터(Terminator)</h2>
+                        <p>터미네이터(또는 외부 개체)는 시스템 경계 외부에 있는 데이터의 출처나 목적지를 나타냅니다. 이는 시스템과 상호작용하지만 시스템의 직접적인 부분이 아닌 사람, 조직, 또는 다른 시스템을 포함합니다.</p>
+                        
+                        <h3>터미네이터의 특징:</h3>
+                        <ul>
+                            <li>시스템 범위 밖에 있는 개체</li>
+                            <li>시스템과 데이터를 주고받음</li>
+                            <li>시스템에 의해 변경되거나 제어되지 않음</li>
+                            <li>보통 명사로 이름을 짓는 것이 일반적 (예: '고객', '공급업체')</li>
+                        </ul>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fas fa-object-group"></i>
+                                    <span>터미네이터 표기법</span>
+                                </div>
+                                <button class="copy-btn" data-code="terminator-notation">
+                                    <i class="far fa-copy"></i>
+                                    <span>복사</span>
+                                </button>
+                            </div>
+                            <pre><code class="language-text">
+┌─────────────────┐
+│                 │
+│      고객       │
+│                 │
+└─────────────────┘
+                        </code></pre>
+                        </div>
+                        
+                        <p>온라인 쇼핑몰 예시에서 터미네이터의 예:</p>
+                        <ul>
+                            <li><strong>고객:</strong> 주문을 제출하고 결제하는 사람</li>
+                            <li><strong>공급업체:</strong> 상품을 제공하는 회사나 조직</li>
+                            <li><strong>배송 회사:</strong> 주문된 상품을 배달하는 외부 서비스</li>
+                            <li><strong>결제 게이트웨이:</strong> 결제를 처리하는 외부 시스템</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>자료 흐름도의 계층 구조</h2>
+                        <p>자료 흐름도는 다양한 수준의 상세함을 보여주기 위해 여러 계층으로 구성될 수 있습니다. 이를 통해 시스템의 '확대(zoom-in)' 및 '축소(zoom-out)' 뷰를 제공합니다.</p>
+                        
+                        <h3>DFD의 계층 레벨:</h3>
+                        <ol>
+                            <li><strong>레벨 0 (상황도 또는 문맥도):</strong> 전체 시스템을 하나의 프로세스로 표현하고 주요 입력, 출력, 외부 개체를 보여줌</li>
+                            <li><strong>레벨 1:</strong> 레벨 0의 주요 프로세스를 더 작은 프로세스로 분해하여, 주요 프로세스와 데이터 저장소 간의 관계를 보여줌</li>
+                            <li><strong>레벨 2 이상:</strong> 레벨 1의 각 프로세스를 더 작은 하위 프로세스로 세분화하여 추가적인 세부 정보 제공</li>
+                        </ol>
+                        
+                        <div class="mermaid-diagram">
+                            <div class="mermaid">
+                            graph TD
+                                subgraph "레벨 0 (상황도)"
+                                    A[고객] -->|주문 정보| B((온라인 쇼핑몰 시스템))
+                                    B -->|주문 확인| A
+                                    C[공급업체] -->|재고 업데이트| B
+                                    B -->|주문 요청| C
+                                    D[배송 회사] -->|배송 상태| B
+                                    B -->|배송 요청| D
+                                end
+                            </div>
+                            <p class="img-caption">레벨 0 DFD: 전체 시스템을 하나의 프로세스로 표현</p>
+                        </div>
+                        
+                        <div class="mermaid-diagram">
+                            <div class="mermaid">
+                            graph TD
+                                A[고객] -->|고객 정보| P1((1. 고객 등록))
+                                P1 -->|저장| DS1[(D1 고객 DB)]
+                                A -->|주문 정보| P2((2. 주문 처리))
+                                DS1 -->|고객 정보 조회| P2
+                                P2 -->|주문 저장| DS2[(D2 주문 DB)]
+                                P2 -->|재고 확인| P3((3. 재고 관리))
+                                P3 -->|재고 정보| DS3[(D3 재고 DB)]
+                                B[공급업체] -->|재고 업데이트| P3
+                                P2 -->|결제 요청| P4((4. 결제 처리))
+                                P4 -->|결제 정보| DS4[(D4 결제 DB)]
+                                P4 -->|결제 확인| A
+                                P2 -->|배송 요청| P5((5. 배송 관리))
+                                DS2 -->|주문 정보| P5
+                                P5 -->|배송 요청| C[배송 회사]
+                                C -->|배송 상태| P5
+                                P5 -->|배송 상태 업데이트| DS2
+                            </div>
+                            <p class="img-caption">레벨 1 DFD: 주요 프로세스와 데이터 저장소 간의 관계를 더 자세히 보여줌</p>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>실제 예제: 피자 주문 시스템</h2>
+                        <p>피자 주문 시스템을 통해 자료 흐름도의 구성 요소들이 어떻게 상호작용하는지 살펴보겠습니다.</p>
+                        
+                        <div class="custom-diagram" id="pizza-dfd-example">
+                            <h3>레벨 0 DFD - 피자 주문 시스템</h3>
+                            <!-- 다이어그램은 JavaScript로 SVG를 생성할 예정 -->
+                        </div>
+                        
+                        <div class="key-points">
+                            <h4>레벨 0 DFD의 주요 구성 요소</h4>
+                            <ul>
+                                <li><strong>터미네이터:</strong> 고객, 배달원 - 시스템과 상호작용하는 외부 개체</li>
+                                <li><strong>프로세스:</strong> 피자 주문 시스템 - 중앙 처리 단위</li>
+                                <li><strong>데이터 흐름:</strong> 주문 요청, 영수증, 배달 정보, 배달 확인 - 데이터의 이동</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="custom-diagram" id="pizza-dfd-level1">
+                            <h3>레벨 1 DFD - 피자 주문 시스템</h3>
+                            <!-- 다이어그램은 JavaScript로 SVG를 생성할 예정 -->
+                        </div>
+                        
+                        <div class="key-points">
+                            <h4>레벨 1 DFD의 주요 구성 요소</h4>
+                            <ul>
+                                <li><strong>터미네이터:</strong> 고객, 배달원 - 외부 개체</li>
+                                <li><strong>프로세스:</strong> 주문 접수, 피자 제작, 배달 준비 - 주요 처리 단계</li>
+                                <li><strong>데이터 저장소:</strong> 주문 데이터베이스, 고객 정보 데이터베이스 - 데이터 보관 장소</li>
+                                <li><strong>데이터 흐름:</strong> 주문 요청, 제작 지시, 완성된 피자, 배달 정보 등 - 정보의 이동</li>
+                            </ul>
+                        </div>
+                        
+                        <p>이 예제에서 볼 수 있듯이, 레벨이 깊어질수록 시스템의 세부 사항이 더 명확하게 표현됩니다. 레벨 0은 시스템의 대략적인 개요를 보여주는 반면, 레벨 1은 각 프로세스의 세부 단계와 데이터 저장소를 보여주어 시스템의 내부 작동을 더 잘 이해할 수 있게 해줍니다.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>자료 흐름도 작성 지침</h2>
+                        <p>효과적인 자료 흐름도를 작성하기 위한 몇 가지 중요한 지침을 살펴보겠습니다.</p>
+                        
+                        <div class="key-points">
+                            <h4>자료 흐름도 작성 모범 사례</h4>
+                            <ul>
+                                <li><strong>명확한 이름 사용:</strong> 모든 구성 요소에 명확하고 설명적인 이름을 사용합니다.</li>
+                                <li><strong>균형 있는 입력/출력:</strong> 모든 프로세스는 최소한 하나의 입력과 하나의 출력이 있어야 합니다.</li>
+                                <li><strong>데이터 저장소의 적절한 연결:</strong> 데이터 저장소는 직접 연결되지 않으며, 항상 프로세스를 통해 데이터가 이동해야 합니다.</li>
+                                <li><strong>터미네이터 간 직접 연결 금지:</strong> 터미네이터끼리 직접 연결되지 않습니다. 데이터는 항상 시스템을 통해 이동해야 합니다.</li>
+                                <li><strong>과도한 복잡성 피하기:</strong> 각 다이어그램에 너무 많은 프로세스(일반적으로 7±2개 이내)를 포함하지 않도록 합니다.</li>
+                                <li><strong>적절한 번호 매기기:</strong> 프로세스와 데이터 저장소에 일관된 번호 체계를 사용합니다.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tip-box">
+                            <h4><i class="fas fa-lightbulb"></i> 전문가 팁</h4>
+                            <p>자료 흐름도를 작성할 때는 먼저 레벨 0(상황도)부터 시작하여 전체 시스템의 범위를 정의한 다음, 점진적으로 더 자세한 레벨로 확장하는 것이 좋습니다. 이렇게 하면 큰 그림을 먼저 이해한 후 세부 사항에 집중할 수 있습니다.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>DFD vs 다른 모델링 도구</h2>
+                        
+                        <div class="comparison-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>모델링 도구</th>
+                                        <th>주요 초점</th>
+                                        <th>장점</th>
+                                        <th>한계</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>자료 흐름도 (DFD)</td>
+                                        <td>데이터 흐름 및 변환</td>
+                                        <td>데이터 중심, 직관적, 여러 레벨의 추상화</td>
+                                        <td>시간적 측면이나 제어 흐름을 잘 표현하지 못함</td>
+                                    </tr>
+                                    <tr>
+                                        <td>UML 다이어그램</td>
+                                        <td>객체 구조 및 상호작용</td>
+                                        <td>객체 지향, 다양한 다이어그램 유형</td>
+                                        <td>초보자에게 복잡할 수 있음</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ER 다이어그램</td>
+                                        <td>데이터 구조 및 관계</td>
+                                        <td>데이터베이스 설계에 적합</td>
+                                        <td>프로세스나 기능을 표현하지 않음</td>
+                                    </tr>
+                                    <tr>
+                                        <td>순서도 (Flowchart)</td>
+                                        <td>프로세스 흐름 및 결정</td>
+                                        <td>알고리즘 표현에 적합</td>
+                                        <td>데이터 구조나 저장을 표현하지 않음</td>
+                                    </tr>
+                                    <tr>
+                                        <td>BPMN</td>
+                                        <td>비즈니스 프로세스</td>
+                                        <td>비즈니스 흐름 표현에 최적화</td>
+                                        <td>기술적 세부 사항을 표현하지 않음</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <p>각각의 모델링 도구는 서로 다른 관점에서 시스템을 바라보며, 특정 상황에 더 적합할 수 있습니다. 자료 흐름도는 특히 데이터가 시스템을 통해 어떻게 흐르고 변환되는지 이해하는 데 뛰어난 도구입니다.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>인터랙티브: 자신만의 DFD 만들기</h2>
+                        <p>지금까지 배운 자료 흐름도의 구성 요소와 원칙을 활용하여 간단한 자료 흐름도를 만들어 보세요. 아래 인터랙티브 도구를 사용하여 자신만의 DFD를 설계해 보세요.</p>
+                        
+                        <div class="interactive-demo">
+                            <h3>Try It: 간단한 DFD 만들기</h3>
+                            <p>아래의 간단한 도구를 사용하여 기본적인 DFD 구성 요소를 만들어 보세요.</p>
+                            
+                            <div class="dfd-builder">
+                                <div class="builder-controls">
+                                    <div class="form-group">
+                                        <label for="component-type">구성 요소 유형:</label>
+                                        <select id="component-type">
+                                            <option value="process">프로세스 (Process)</option>
+                                            <option value="datastore">데이터 저장소 (Data Store)</option>
+                                            <option value="terminator">터미네이터 (Terminator)</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="component-name">이름:</label>
+                                        <input type="text" id="component-name" placeholder="예: 주문 처리">
+                                    </div>
+                                    
+                                    <div class="form-group process-number" style="display: none;">
+                                        <label for="process-number">프로세스 번호:</label>
+                                        <input type="text" id="process-number" placeholder="예: 1">
+                                    </div>
+                                    
+                                    <div class="form-group datastore-number" style="display: none;">
+                                        <label for="datastore-number">저장소 번호:</label>
+                                        <input type="text" id="datastore-number" placeholder="예: D1">
+                                    </div>
+                                    
+                                    <button id="add-component" class="generate-btn">구성 요소 추가</button>
+                                </div>
+                                
+                                <div class="dfd-canvas">
+                                    <div class="canvas-placeholder">여기에 구성 요소가 표시됩니다.</div>
+                                    <div id="dfd-components"></div>
+                                </div>
+                                
+                                <button id="clear-canvas" class="reset-btn">캔버스 초기화</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>자료 흐름도의 실제 응용</h2>
+                        <p>자료 흐름도는 다양한 산업 분야에서 시스템 분석 및 설계에 적용됩니다. 몇 가지 실제 응용 사례를 살펴보겠습니다.</p>
+                        
+                        <h3>소프트웨어 개발:</h3>
+                        <ul>
+                            <li>요구사항 분석 및 문서화</li>
+                            <li>시스템 아키텍처 계획</li>
+                            <li>모듈 간 인터페이스 정의</li>
+                            <li>데이터 흐름 최적화</li>
+                        </ul>
+                        
+                        <h3>비즈니스 프로세스 개선:</h3>
+                        <ul>
+                            <li>현재 프로세스 매핑 및 분석</li>
+                            <li>비효율성 및 병목 현상 식별</li>
+                            <li>프로세스 재설계 및 자동화 기회 발견</li>
+                        </ul>
+                        
+                        <h3>데이터 관리:</h3>
+                        <ul>
+                            <li>데이터 흐름 추적</li>
+                            <li>데이터 거버넌스 계획</li>
+                            <li>보안 및 개인정보 보호 계획</li>
+                        </ul>
+                        
+                        <div class="tip-box">
+                            <h4><i class="fas fa-lightbulb"></i> 실제 사례</h4>
+                            <p>대형 전자상거래 기업은 자료 흐름도를 사용하여 주문 처리 시스템을 재설계했습니다. 이를 통해 시스템의 병목 현상을 식별하고, 데이터 중복을 줄였으며, 고객 주문 처리 시간을 30% 단축할 수 있었습니다.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tags">
+                        <span class="tag">자료 흐름도</span>
+                        <span class="tag">시스템 분석</span>
+                        <span class="tag">데이터 모델링</span>
+                        <span class="tag">프로세스 설계</span>
+                        <span class="tag">소프트웨어 개발</span>
+                    </div>
+                    
+                    <div class="author-section">
+                        <div class="author-avatar">
+                            <img src="/api/placeholder/160/160" alt="저자 아바타">
+                        </div>
+                        <div class="author-info">
+                            <h4>이지원</h4>
+                            <p>시스템 분석 및 설계를 전문으로 하는 소프트웨어 아키텍트. 복잡한 시스템을 단순화하고 시각화하는 방법에 대한 깊은 지식을 가지고 있습니다.</p>
+                            <div class="author-social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            <div class="related-posts" data-aos="fade-up">
+                <h3>관련 기사</h3>
+                <div class="posts-grid">
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="/api/placeholder/400/200" alt="UML 다이어그램">
+                        </div>
+                        <div class="post-content">
+                            <h4>UML 다이어그램 소개</h4>
+                            <p>UML을 사용하여 소프트웨어 시스템을 효과적으로 시각화하고 문서화하는 방법을 알아보세요.</p>
+                            <a href="#" class="read-more">더 읽기 →</a>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="/api/placeholder/400/200" alt="ER 다이어그램">
+                        </div>
+                        <div class="post-content">
+                            <h4>ER 다이어그램 작성 가이드</h4>
+                            <p>데이터베이스 설계를 위한 Entity-Relationship 다이어그램을 효과적으로 작성하는 방법</p>
+                            <a href="#" class="read-more">더 읽기 →</a>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="/api/placeholder/400/200" alt="시스템 모델링">
+                        </div>
+                        <div class="post-content">
+                            <h4>시스템 모델링 방법론 비교</h4>
+                            <p>다양한 시스템 모델링 방법론의 장단점과 적절한 사용 상황에 대한 분석</p>
+                            <a href="#" class="read-more">더 읽기 →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-code"></i>
+                    <span>CodeInsight</span>
+                </div>
+                <p>프로그래밍 개념을 하나씩 명확하게 설명합니다.</p>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>콘텐츠</h4>
+                        <ul>
+                            <li><a href="#">기사</a></li>
+                            <li><a href="#">튜토리얼</a></li>
+                            <li><a href="#">리소스</a></li>
+                            <li><a href="#">도전 과제</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>연결</h4>
+                        <ul>
+                            <li><a href="#">뉴스레터</a></li>
+                            <li><a href="#">트위터</a></li>
+                            <li><a href="#">깃허브</a></li>
+                            <li><a href="#">디스코드</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>법률</h4>
+                        <ul>
+                            <li><a href="#">개인정보 정책</a></li>
+                            <li><a href="#">서비스 약관</a></li>
+                            <li><a href="#">쿠키 정책</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CodeInsight. 모든 권리 보유.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+    
+    <!-- Initialize Mermaid diagrams -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: 'dark',
+                themeVariables: {
+                    primaryColor: '#6366f1',
+                    primaryTextColor: '#f3f4f6',
+                    primaryBorderColor: '#4b5563',
+                    lineColor: '#9ca3af',
+                    secondaryColor: '#10b981',
+                    tertiaryColor: '#374151'
+                }
+            });
+        });
+    </script>
+</body>
+</html>

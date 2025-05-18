@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeInsight | Understanding the Coad-Yourdon Methodology</title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Prism.js for code highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <!-- AOS for scroll animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- mermaid.js for diagrams -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <i class="fas fa-code"></i>
+                <span>CodeInsight</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Understanding the Coad-Yourdon Methodology</h1>
+            <div class="hero-meta">
+                <div>
+                    <i class="far fa-calendar"></i>
+                    <span>May 16, 2025</span>
+                </div>
+                <div>
+                    <i class="far fa-clock"></i>
+                    <span>10 min read</span>
+                </div>
+                <div>
+                    <i class="far fa-folder"></i>
+                    <span>CIPE</span>
+                </div>
+                <div>
+                    <i class="fas fa-language"></i>
+                    <a href="./korean/index.html">KOR</a>
+                </div>
+            </div>
+            <p>Discover how the Coad-Yourdon methodology revolutionized object-oriented analysis with its intuitive approach to modeling complex systems through visual representations and structured processes.</p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <article class="article" data-aos="fade-up">
+                <div class="article-content">
+                    <div class="article-section">
+                        <h2>What is the Coad-Yourdon Methodology?</h2>
+                        <p>The Coad-Yourdon methodology is an object-oriented analysis and design approach developed by Peter Coad and Edward Yourdon in the early 1990s. This methodology provides a systematic framework for understanding and modeling complex systems from an object-oriented perspective.</p>
+                        
+                        <div class="key-points">
+                            <h4>Core Philosophy</h4>
+                            <ul>
+                                <li><strong>Simplicity:</strong> Representing complex systems in easily understandable structures</li>
+                                <li><strong>Stability:</strong> Creating models that remain robust even when the system changes</li>
+                                <li><strong>Reusability:</strong> Promoting the reuse of objects and components for increased development efficiency</li>
+                            </ul>
+                        </div>
+                        
+                        <p>What makes the Coad-Yourdon methodology particularly valuable is its use of Entity-Relationship (E-R) diagrams to model object behaviors. The methodology consists of six key processes:</p>
+                        
+                        <ol>
+                            <li><span class="inlineCode">Object Identification</span> - Finding important entities in the system</li>
+                            <li><span class="inlineCode">Structure Identification</span> - Determining relationships and hierarchies</li>
+                            <li><span class="inlineCode">Subject Definition</span> - Organizing related objects into logical groups</li>
+                            <li><span class="inlineCode">Attribute Definition</span> - Defining data properties for each object</li>
+                            <li><span class="inlineCode">Relationship Definition</span> - Describing connections between objects</li>
+                            <li><span class="inlineCode">Service Definition</span> - Specifying operations that objects can perform</li>
+                        </ol>
+                        
+                        <div class="concept-visualization">
+                            <img src="/api/placeholder/800/400" alt="Coad-Yourdon methodology overview showing the six key processes">
+                            <p class="img-caption">The six key processes of the Coad-Yourdon methodology</p>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>1. Object Identification</h2>
+                        <p>Object identification is the process of finding important entities in the system that will be represented as objects. An object combines data (attributes) and behavior (services) into a single unit.</p>
+                        
+                        <h3>How to Identify Objects:</h3>
+                        <ul>
+                            <li>Analyze requirement documents for key nouns</li>
+                            <li>Use CRC (Class-Responsibility-Collaboration) cards</li>
+                            <li>Conduct brainstorming sessions and interview domain experts</li>
+                        </ul>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fas fa-object-group"></i>
+                                    <span>Object Notation</span>
+                                </div>
+                                <button class="copy-btn" data-code="object-notation">
+                                    <i class="far fa-copy"></i>
+                                    <span>Copy</span>
+                                </button>
+                            </div>
+<pre><code class="language-text">┌─────────────────┐
+│     Member      │ ← Class name
+├─────────────────┤
+│ - memberId      │ 
+│ - name          │ ← Attribute area
+│ - contact       │
+├─────────────────┤
+│ + borrowBook()  │ ← Service (behavior) area
+│ + returnBook()  │
+└─────────────────┘</code></pre>
+                        </div>
+                        
+                        <p>In a library system example, we might identify these key objects:</p>
+                        <ul>
+                            <li><strong>Member:</strong> A person who uses the library services</li>
+                            <li><strong>Book:</strong> Material that can be borrowed</li>
+                            <li><strong>Librarian:</strong> Staff who manages the library</li>
+                            <li><strong>Loan:</strong> A record of a member borrowing a book</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>2. Structure Identification</h2>
+                        <p>Structure identification involves determining the relationships between objects, especially generalization/specialization (inheritance) and whole/part (aggregation) relationships.</p>
+                        
+                        <h3>Key Relationship Types:</h3>
+                        <ul>
+                            <li><strong>Inheritance (is-a):</strong> Identifying parent-child class relationships</li>
+                            <li><strong>Aggregation (has-a):</strong> Identifying when one object contains others</li>
+                        </ul>
+                        
+                        <div class="mermaid-diagram">
+                            <div class="mermaid">
+                            classDiagram
+                                class LibraryItem {
+                                    +itemId: String
+                                    +title: String
+                                    +status: Status
+                                    +checkOut()
+                                    +checkIn()
+                                }
+                                class Book {
+                                    +author: String
+                                    +isbn: String
+                                }
+                                class Periodical {
+                                    +issueNo: Integer
+                                    +pubDate: Date
+                                }
+                                LibraryItem <|-- Book
+                                LibraryItem <|-- Periodical
+                            </div>
+                            <p class="img-caption">Inheritance relationship diagram showing LibraryItem as a parent class</p>
+                        </div>
+                        
+                        <div class="mermaid-diagram">
+                            <div class="mermaid">
+                            classDiagram
+                                class Library {
+                                    +name: String
+                                    +location: String
+                                }
+                                class Department {
+                                    +name: String
+                                    +floor: Integer
+                                }
+                                Library "1" o-- "*" Department : contains
+                            </div>
+                            <p class="img-caption">Aggregation relationship between Library and Department (whole-part relationship)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>3. Subject Definition</h2>
+                        <p>Subject definition involves organizing related objects into logical groups or subsystems, making complex systems more manageable.</p>
+                        
+                        <h3>Grouping Criteria:</h3>
+                        <ul>
+                            <li>Functional relatedness</li>
+                            <li>Domain area</li>
+                            <li>Business process alignment</li>
+                        </ul>
+                        
+                        <div class="concept-visualization">
+                            <img src="/api/placeholder/800/300" alt="Subject definition diagram showing object grouping">
+                            <p class="img-caption">Subjects group related objects into logical subsystems</p>
+                        </div>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fas fa-object-group"></i>
+                                    <span>Subject Notation</span>
+                                </div>
+                                <button class="copy-btn" data-code="subject-notation">
+                                    <i class="far fa-copy"></i>
+                                    <span>Copy</span>
+                                </button>
+                            </div>
+                            <pre><code class="language-text">
+┌─────────────────────────────────────────────┐
+│           Resource Management System         │ ← Subject
+│                                             │
+│  ┌─────────┐  ┌───────────┐  ┌──────────┐  │
+│  │  Book   │  │Periodical │  │ E-Book   │  │ ← Related objects
+│  └─────────┘  └───────────┘  └──────────┘  │
+└─────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────┐
+│           User Management System            │ ← Another subject
+│                                             │
+│  ┌─────────┐  ┌───────────┐  ┌──────────┐  │
+│  │ Member  │  │ Librarian │  │  Guest   │  │ ← Related objects
+│  └─────────┘  └───────────┘  └──────────┘  │
+└─────────────────────────────────────────────┘
+                            </code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>4. Attribute Definition</h2>
+                        <p>Attributes are data items that represent the state and characteristics of an object. Each object can have multiple attributes.</p>
+                        
+                        <h3>Attribute Types:</h3>
+                        <ul>
+                            <li><strong>Primary keys:</strong> Uniquely identify an object</li>
+                            <li><strong>Required attributes:</strong> Must have values</li>
+                            <li><strong>Optional attributes:</strong> May or may not have values</li>
+                            <li><strong>Derived attributes:</strong> Can be calculated from other attributes</li>
+                        </ul>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fas fa-object-group"></i>
+                                    <span>Attribute Notation</span>
+                                </div>
+                                <button class="copy-btn" data-code="attribute-notation">
+                                    <i class="far fa-copy"></i>
+                                    <span>Copy</span>
+                                </button>
+                            </div>
+                            <pre><code class="language-text">
+┌───────────────────────────────┐
+│           Book                │
+├───────────────────────────────┤
+│ - isbn: String {PK}           │ ← Primary key attribute
+│ - title: String {not null}    │ ← Required attribute
+│ - author: String {not null}   │
+│ - publisher: String           │ ← Regular attribute
+│ - publicationYear: Integer    │
+│ - price: Decimal              │
+│ - availableCount: Integer     │ ← Derived attribute
+├───────────────────────────────┤
+│ + getAvailability(): Boolean  │
+└───────────────────────────────┘
+                            </code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>5. Relationship Definition</h2>
+                        <p>Relationships represent connections between objects. The Coad-Yourdon methodology uses E-R diagrams to visualize these relationships.</p>
+                        
+                        <h3>Relationship Types:</h3>
+                        <ul>
+                            <li><strong>One-to-one (1:1):</strong> One object is related to exactly one other object</li>
+                            <li><strong>One-to-many (1:*):</strong> One object is related to multiple objects</li>
+                            <li><strong>Many-to-many (*:*):</strong> Multiple objects are related to multiple other objects</li>
+                        </ul>
+                        
+                        <div class="mermaid-diagram">
+                            <div class="mermaid">
+                            classDiagram
+                                class Member {
+                                    +memberId: String
+                                    +name: String
+                                    +borrowBook()
+                                }
+                                class Loan {
+                                    +loanId: String
+                                    +issueDate: Date
+                                    +dueDate: Date
+                                    +renew()
+                                }
+                                class Book {
+                                    +isbn: String
+                                    +title: String
+                                    +checkStatus()
+                                }
+                                Member "1" --> "*" Loan : borrows
+                                Loan "*" --> "1" Book : references
+                            </div>
+                            <p class="img-caption">Relationship diagram showing connections between Member, Loan, and Book</p>
+                        </div>
+                        
+                        <div class="tip-box">
+                            <h4><i class="fas fa-lightbulb"></i> Pro Tip</h4>
+                            <p>When defining relationships, always specify the cardinality (1:1, 1:*, *:*) and direction to make the model clearer. Also, consider giving each relationship a name that describes its purpose, like "borrows" or "manages".</p>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>6. Service Definition</h2>
+                        <p>Services define the behaviors or operations that an object can perform. They represent the functional aspect of an object.</p>
+                        
+                        <h3>Service Elements:</h3>
+                        <ul>
+                            <li>Input parameters</li>
+                            <li>Return values</li>
+                            <li>Visibility (public, private)</li>
+                            <li>Service interactions</li>
+                        </ul>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fas fa-object-group"></i>
+                                    <span>Service Notation</span>
+                                </div>
+                                <button class="copy-btn" data-code="service-notation">
+                                    <i class="far fa-copy"></i>
+                                    <span>Copy</span>
+                                </button>
+                            </div>
+                            <pre><code class="language-text">
+┌───────────────────────────────────────────────────┐
+│                   Member                          │
+├───────────────────────────────────────────────────┤
+│- memberId: String                                 │
+│- name: String                                     │
+│- email: String                                    │
+├───────────────────────────────────────────────────┤
+│+ borrowBook(bookId: String): Loan                 │ ← Method with parameters
+│+ returnBook(loanId: String): Boolean              │
+│+ searchBooks(keyword: String): List<Book>         │ ← Return type
+│+ updateProfile(name: String, email: String): void │
+│- validateMemberStatus(): Boolean                  │ ← Private method
+└───────────────────────────────────────────────────┘
+                            </code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Practical Example: Library Management System</h2>
+                        <p>Let's look at a complete example of the Coad-Yourdon methodology applied to a library management system.</p>
+                        
+                        <div class="mermaid-diagram">
+                            <div class="mermaid">
+                            classDiagram
+                                class Person {
+                                    +id: String
+                                    +name: String
+                                    +contact: String
+                                    +register()
+                                    +updateInfo()
+                                }
+                                class Member {
+                                    +memberId: String
+                                    +status: Status
+                                    +borrowBook()
+                                    +returnBook()
+                                }
+                                class Librarian {
+                                    +staffId: String
+                                    +department: String
+                                    +addBook()
+                                    +issueCard()
+                                }
+                                class Loan {
+                                    +loanId: String
+                                    +issueDate: Date
+                                    +dueDate: Date
+                                    +returnDate: Date
+                                    +create()
+                                    +renew()
+                                    +complete()
+                                }
+                                class LibraryItem {
+                                    +itemId: String
+                                    +title: String
+                                    +status: Status
+                                    +checkOut()
+                                    +checkIn()
+                                }
+                                class Book {
+                                    +isbn: String
+                                    +author: String
+                                    +reserve()
+                                }
+                                class Periodical {
+                                    +issueNo: Integer
+                                    +publicationDate: Date
+                                    +archive()
+                                }
+                                class Reservation {
+                                    +reserveId: String
+                                    +reserveDate: Date
+                                    +status: Status
+                                    +create()
+                                    +cancel()
+                                    +convert()
+                                }
+                                
+                                Person <|-- Member
+                                Person <|-- Librarian
+                                Member "1" --> "*" Loan : borrows
+                                Loan "*" --> "1" LibraryItem : references
+                                LibraryItem <|-- Book
+                                LibraryItem <|-- Periodical
+                                Member "1" --> "*" Reservation : makes
+                                Book "1" --> "*" Reservation : has
+                                Librarian --> LibraryItem : manages
+                            </div>
+                            <p class="img-caption">Complete E-R diagram for a library management system using Coad-Yourdon methodology</p>
+                        </div>
+                        
+                        <p>This diagram demonstrates how all six steps of the Coad-Yourdon methodology come together:</p>
+                        <ol>
+                            <li><strong>Object Identification:</strong> Person, Member, Librarian, Loan, LibraryItem, etc.</li>
+                            <li><strong>Structure Identification:</strong> Person→Member/Librarian, LibraryItem→Book/Periodical</li>
+                            <li><strong>Subject Definition:</strong> The entire system is a "Library Management System"</li>
+                            <li><strong>Attribute Definition:</strong> Each object has its own attributes (id, name, etc.)</li>
+                            <li><strong>Relationship Definition:</strong> borrows, references, manages, etc.</li>
+                            <li><strong>Service Definition:</strong> borrowBook(), checkOut(), etc.</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Advantages and Limitations</h2>
+                        
+                        <div class="comparison-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Advantages</th>
+                                        <th>Limitations</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Intuitive visual representation</td>
+                                        <td>Limited support for complex dynamic behaviors</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Systematic approach to OO analysis</td>
+                                        <td>Doesn't address implementation details</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Focus on both data and behavior</td>
+                                        <td>May not scale well for very large systems</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Natural transition to design phase</td>
+                                        <td>Less popular than UML in modern development</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Legacy and Modern Impact</h2>
+                        <p>Although Coad-Yourdon methodology has been largely superseded by the Unified Modeling Language (UML), its concepts and approach to object-oriented analysis had a significant impact on the field. Many of its principles influenced the development of UML.</p>
+                        
+                        <div class="key-points">
+                            <h4>Lasting Contributions</h4>
+                            <ul>
+                                <li>Emphasis on visual modeling of systems</li>
+                                <li>Integration of data and behavior in objects</li>
+                                <li>Structured approach to system analysis</li>
+                                <li>Focus on reusability and modularity</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="tags">
+                        <span class="tag">Object-Oriented Analysis</span>
+                        <span class="tag">System Design</span>
+                        <span class="tag">E-R Diagrams</span>
+                        <span class="tag">Modeling</span>
+                        <span class="tag">Coad-Yourdon</span>
+                    </div>
+                    
+                    <div class="author-section">
+                        <div class="author-avatar">
+                            <img src="/api/placeholder/160/160" alt="Author avatar">
+                        </div>
+                        <div class="author-info">
+                            <h4>Alex Chen</h4>
+                            <p>Senior Systems Analyst specializing in software architecture and object-oriented methodologies. Passionate about bridging the gap between theory and practical implementation.</p>
+                            <div class="author-social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            <div class="related-posts" data-aos="fade-up">
+                <h3>Related Articles</h3>
+                <div class="posts-grid">
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="/api/placeholder/400/200" alt="UML diagrams">
+                        </div>
+                        <div class="post-content">
+                            <h4>Introduction to UML Diagrams</h4>
+                            <p>Learn how to use UML to visualize and document software systems effectively.</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="/api/placeholder/400/200" alt="Domain-driven design">
+                        </div>
+                        <div class="post-content">
+                            <h4>Domain-Driven Design Principles</h4>
+                            <p>Explore how to align your software models with business domains for better architecture.</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="/api/placeholder/400/200" alt="Software architecture patterns">
+                        </div>
+                        <div class="post-content">
+                            <h4>Evolution of OO Design Methodologies</h4>
+                            <p>A historical look at how object-oriented design approaches have evolved over time.</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-code"></i>
+                    <span>CodeInsight</span>
+                </div>
+                <p>Demystifying programming concepts one article at a time.</p>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Content</h4>
+                        <ul>
+                            <li><a href="#">Articles</a></li>
+                            <li><a href="#">Tutorials</a></li>
+                            <li><a href="#">Resources</a></li>
+                            <li><a href="#">Challenges</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="#">Newsletter</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">GitHub</a></li>
+                            <li><a href="#">Discord</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CodeInsight. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+    
+    <!-- Initialize Mermaid diagrams -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: 'dark',
+                themeVariables: {
+                    primaryColor: '#6366f1',
+                    primaryTextColor: '#f3f4f6',
+                    primaryBorderColor: '#4b5563',
+                    lineColor: '#9ca3af',
+                    secondaryColor: '#10b981',
+                    tertiaryColor: '#374151'
+                }
+            });
+        });
+    </script>
+</body>
+</html>

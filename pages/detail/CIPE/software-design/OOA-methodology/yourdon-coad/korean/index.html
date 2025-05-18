@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeInsight | 코드-유돈 방법론 이해하기</title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Prism.js for code highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <!-- AOS for scroll animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- mermaid.js for diagrams -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <i class="fas fa-code"></i>
+                <span>CodeInsight</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="../../../../../../../index.html">Home</a></li>
+                    <li><a href="../../../../../../articles/articles.html">Articles</a></li>
+                    <li><a href="../../../../../../categories/categories.html">Categories</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Coad-Yourdon 방법론 이해하기</h1>
+            <div class="hero-meta">
+                <div>
+                    <i class="far fa-calendar"></i>
+                    <span>May 17, 2025</span>
+                </div>
+                <div>
+                    <i class="far fa-clock"></i>
+                    <span>10 min read</span>
+                </div>
+                <div>
+                    <i class="far fa-folder"></i>
+                    <span>CIPE</span>
+                </div>
+                <div>
+                    <i class="fas fa-language"></i>
+                    <a href="../index.html">ENG</a>
+                </div>
+            </div>
+            <p>Coad-Yourdon 방법론이 시각적 표현과 구조화된 프로세스를 통해 복잡한 시스템을 모델링하는 직관적인 접근 방식으로 객체 지향 분석을 어떻게 혁신했는지 알아보세요.</p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <article class="article" data-aos="fade-up">
+                <div class="article-content">
+                    <div class="article-section">
+                        <h2>Coad-Yourdon 방법론이란 무엇인가?</h2>
+                        <p>Coad-Yourdon 방법론은 1990년대 초 피터 코드와 에드워드 유돈이 개발한 객체 지향 분석 및 설계 접근 방식입니다. 이 방법론은 객체 지향적 관점에서 복잡한 시스템을 이해하고 모델링하기 위한 체계적인 프레임워크를 제공합니다.</p>
+                        
+                        <div class="key-points">
+                            <h4>핵심 철학</h4>
+                            <ul>
+                                <li><strong>단순성:</strong> 복잡한 시스템을 쉽게 이해할 수 있는 구조로 표현</li>
+                                <li><strong>안정성:</strong> 시스템이 변경되어도 견고하게 유지되는 모델 생성</li>
+                                <li><strong>재사용성:</strong> 개발 효율성 향상을 위한 객체 및 컴포넌트의 재사용 촉진</li>
+                            </ul>
+                        </div>
+                        
+                        <p>코드-유돈 방법론이 특히 가치 있는 이유는 객체 동작을 모델링하기 위해 엔티티-관계(E-R) 다이어그램을 사용한다는 점입니다. 이 방법론은 다음과 같은 여섯 가지 핵심 프로세스로 구성됩니다:</p>
+                        
+                        <ol>
+                            <li><span class="inlineCode">객체 식별</span> - 시스템에서 중요한 엔티티 찾기</li>
+                            <li><span class="inlineCode">구조 식별</span> - 관계 및 계층 구조 결정</li>
+                            <li><span class="inlineCode">주제 정의</span> - 관련 객체를 논리적 그룹으로 조직화</li>
+                            <li><span class="inlineCode">속성 정의</span> - 각 객체에 대한 데이터 속성 정의</li>
+                            <li><span class="inlineCode">관계 정의</span> - 객체 간 연결 설명</li>
+                            <li><span class="inlineCode">서비스 정의</span> - 객체가 수행할 수 있는 작업 지정</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>1. 객체 식별</h2>
+                        <p>객체 식별은 객체로 표현될 시스템에서 중요한 엔티티를 찾는 과정입니다. 객체는 데이터(속성)와 동작(서비스)을 하나의 단위로 결합합니다.</p>
+                        
+                        <h3>객체 식별 방법:</h3>
+                        <ul>
+                            <li>주요 명사를 찾기 위해 요구사항 문서 분석</li>
+                            <li>CRC(클래스-책임-협력) 카드 사용</li>
+                            <li>브레인스토밍 세션 진행 및 도메인 전문가 인터뷰</li>
+                        </ul>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fas fa-object-group"></i>
+                                    <span>객체 표기법</span>
+                                </div>
+                                <button class="copy-btn" data-code="object-notation">
+                                    <i class="far fa-copy"></i>
+                                    <span>복사</span>
+                                </button>
+                            </div>
+                            <pre><code class="language-text">
+┌─────────────────┐
+│     Member      │ ← Class name
+├─────────────────┤
+│ - memberId      │ 
+│ - name          │ ← Attribute area
+│ - contact       │
+├─────────────────┤
+│ + borrowBook()  │ ← Service (behavior) area
+│ + returnBook()  │
+└─────────────────┘
+                        </code></pre>
+                        </div>
+                        
+                        <p>도서관 시스템 예시에서 다음과 같은 주요 객체를 식별할 수 있습니다:</p>
+                        <ul>
+                            <li><strong>회원:</strong> 도서관 서비스를 이용하는 사람</li>
+                            <li><strong>책:</strong> 대출할 수 있는 자료</li>
+                            <li><strong>사서:</strong> 도서관을 관리하는 직원</li>
+                            <li><strong>대출:</strong> 회원이 책을 빌린 기록</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>2. 구조 식별</h2>
+                        <p>구조 식별은 객체 간의 관계, 특히 일반화/특수화(상속) 및 전체/부분(집합) 관계를 결정하는 것을 포함합니다.</p>
+                        
+                        <h3>주요 관계 유형:</h3>
+                        <ul>
+                            <li><strong>상속(is-a):</strong> 부모-자식 클래스 관계 식별</li>
+                            <li><strong>집합(has-a):</strong> 한 객체가 다른 객체를 포함하는 경우 식별</li>
+                        </ul>
+                        
+                        <div class="mermaid-diagram">
+                            <div class="mermaid">
+                            classDiagram
+                                class LibraryItem {
+                                    +itemId: String
+                                    +title: String
+                                    +status: Status
+                                    +checkOut()
+                                    +checkIn()
+                                }
+                                class Book {
+                                    +author: String
+                                    +isbn: String
+                                }
+                                class Periodical {
+                                    +issueNo: Integer
+                                    +pubDate: Date
+                                }
+                                LibraryItem <|-- Book
+                                LibraryItem <|-- Periodical
+                            </div>
+                            <p class="img-caption">LibraryItem을 부모 클래스로 보여주는 상속 관계 다이어그램</p>
+                        </div>
+                        
+                        <div class="mermaid-diagram">
+                            <div class="mermaid">
+                            classDiagram
+                                class Library {
+                                    +name: String
+                                    +location: String
+                                }
+                                class Department {
+                                    +name: String
+                                    +floor: Integer
+                                }
+                                Library "1" o-- "*" Department : contains
+                            </div>
+                            <p class="img-caption">도서관과, 부서 간의 집합 관계(전체-부분 관계)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>3. 주제 정의</h2>
+                        <p>주제 정의는 관련 객체를 논리적 그룹이나 하위 시스템으로 구성하여 복잡한 시스템을 더 관리하기 쉽게 만드는 것을 포함합니다.</p>
+                        
+                        <h3>그룹화 기준:</h3>
+                        <ul>
+                            <li>기능적 연관성</li>
+                            <li>도메인 영역</li>
+                            <li>비즈니스 프로세스 정렬</li>
+                        </ul>
+                        
+                        <div class="concept-visualization">
+                            <p class="img-caption">주제는 관련 객체를 논리적 하위 시스템으로 그룹화합니다</p>
+                        </div>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fas fa-object-group"></i>
+                                    <span>주제 표기법</span>
+                                </div>
+                                <button class="copy-btn" data-code="subject-notation">
+                                    <i class="far fa-copy"></i>
+                                    <span>복사</span>
+                                </button>
+                            </div>
+                            <pre><code class="language-text">
+도서관 관리 시스템템 ← Subject
+┌─────────────────────────────────────────────┐
+│  ┌─────────┐  ┌───────────┐  ┌──────────┐   │
+│  │  Book   │  │Periodical │  │ E-Book   │   │ ← Related objects
+│  └─────────┘  └───────────┘  └──────────┘   │
+└─────────────────────────────────────────────┘
+
+고객 관리 시스템템 ← Another subject
+┌─────────────────────────────────────────────┐
+│  ┌─────────┐  ┌───────────┐  ┌──────────┐   │
+│  │ Member  │  │ Librarian │  │  Guest   │   │ ← Related objects
+│  └─────────┘  └───────────┘  └──────────┘   │
+└─────────────────────────────────────────────┘
+                            </code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>4. 속성 정의</h2>
+                        <p>속성은 객체의 상태와 특성을 나타내는 데이터 항목입니다. 각 객체는 여러 속성을 가질 수 있습니다.</p>
+                        
+                        <h3>속성 유형:</h3>
+                        <ul>
+                            <li><strong>기본 키:</strong> 객체를 고유하게 식별</li>
+                            <li><strong>필수 속성:</strong> 값이 있어야 함</li>
+                            <li><strong>선택적 속성:</strong> 값이 있거나 없을 수 있음</li>
+                            <li><strong>파생 속성:</strong> 다른 속성에서 계산할 수 있음</li>
+                        </ul>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fas fa-object-group"></i>
+                                    <span>속성 표기법</span>
+                                </div>
+                                <button class="copy-btn" data-code="attribute-notation">
+                                    <i class="far fa-copy"></i>
+                                    <span>복사</span>
+                                </button>
+                            </div>
+                            <pre><code class="language-text">
+┌───────────────────────────────┐
+│           Book                │
+├───────────────────────────────┤
+│ - isbn: String {PK}           │ ← Primary key attribute
+│ - title: String {not null}    │ ← Required attribute
+│ - author: String {not null}   │
+│ - publisher: String           │ ← Regular attribute
+│ - publicationYear: Integer    │
+│ - price: Decimal              │
+│ - availableCount: Integer     │ ← Derived attribute
+├───────────────────────────────┤
+│ + getAvailability(): Boolean  │
+└───────────────────────────────┘
+                            </code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>5. 관계 정의</h2>
+                        <p>관계는 객체 간의 연결을 나타냅니다. 코드-유돈 방법론은 이러한 관계를 시각화하기 위해 E-R 다이어그램을 사용합니다.</p>
+                        
+                        <h3>관계 유형:</h3>
+                        <ul>
+                            <li><strong>일대일(1:1):</strong> 한 객체가 정확히 하나의 다른 객체와 관련됨</li>
+                            <li><strong>일대다(1:*):</strong> 한 객체가 여러 객체와 관련됨</li>
+                            <li><strong>다대다(*:*):</strong> 여러 객체가 여러 다른 객체와 관련됨</li>
+                        </ul>
+                        
+                        <div class="mermaid-diagram">
+                            <div class="mermaid">
+                            classDiagram
+                                class Member {
+                                    +memberId: String
+                                    +name: String
+                                    +borrowBook()
+                                }
+                                class Loan {
+                                    +loanId: String
+                                    +issueDate: Date
+                                    +dueDate: Date
+                                    +renew()
+                                }
+                                class Book {
+                                    +isbn: String
+                                    +title: String
+                                    +checkStatus()
+                                }
+                                Member "1" --> "*" Loan : borrows
+                                Loan "*" --> "1" Book : references
+                            </div>
+                            <p class="img-caption">회원, 대출, 책 간의 연결을 보여주는 관계 다이어그램</p>
+                        </div>
+                        
+                        <div class="tip-box">
+                            <h4><i class="fas fa-lightbulb"></i> 전문가 팁</h4>
+                            <p>관계를 정의할 때 모델을 더 명확하게 만들기 위해 항상 카디널리티(1:1, 1:*, *:*)와 방향을 지정하세요. 또한 "대여" 또는 "관리"와 같이 관계의 목적을 설명하는 이름을 각 관계에 부여하는 것을 고려하세요.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>6. 서비스 정의</h2>
+                        <p>서비스는 객체가 수행할 수 있는 동작이나 작업을 정의합니다. 이들은 객체의 기능적 측면을 나타냅니다.</p>
+                        
+                        <h3>서비스 요소:</h3>
+                        <ul>
+                            <li>입력 매개변수</li>
+                            <li>반환 값</li>
+                            <li>가시성(공개, 비공개)</li>
+                            <li>서비스 상호작용</li>
+                        </ul>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fas fa-object-group"></i>
+                                    <span>서비스 표기법</span>
+                                </div>
+                                <button class="copy-btn" data-code="service-notation">
+                                    <i class="far fa-copy"></i>
+                                    <span>복사</span>
+                                </button>
+                            </div>
+                            <pre><code class="language-text">
+┌───────────────────────────────────────────────────┐
+│                   Member                          │
+├───────────────────────────────────────────────────┤
+│- memberId: String                                 │
+│- name: String                                     │
+│- email: String                                    │
+├───────────────────────────────────────────────────┤
+│+ borrowBook(bookId: String): Loan                 │ ← Method with parameters
+│+ returnBook(loanId: String): Boolean              │
+│+ searchBooks(keyword: String): List               │ ← Return type
+│+ updateProfile(name: String, email: String): void │
+│- validateMemberStatus(): Boolean                  │ ← Private method
+└───────────────────────────────────────────────────┘
+                            </code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>실제 예제: 도서관 관리 시스템</h2>
+                        <p>도서관 관리 시스템에 적용된 코드-유돈 방법론의 완전한 예를 살펴보겠습니다.</p>
+                        
+                        <div class="mermaid-diagram">
+                            <div class="mermaid">
+                            classDiagram
+                                class Person {
+                                    +id: String
+                                    +name: String
+                                    +contact: String
+                                    +register()
+                                    +updateInfo()
+                                }
+                                class Member {
+                                    +memberId: String
+                                    +status: Status
+                                    +borrowBook()
+                                    +returnBook()
+                                }
+                                class Librarian {
+                                    +staffId: String
+                                    +department: String
+                                    +addBook()
+                                    +issueCard()
+                                }
+                                class Loan {
+                                    +loanId: String
+                                    +issueDate: Date
+                                    +dueDate: Date
+                                    +returnDate: Date
+                                    +create()
+                                    +renew()
+                                    +complete()
+                                }
+                                class LibraryItem {
+                                    +itemId: String
+                                    +title: String
+                                    +status: Status
+                                    +checkOut()
+                                    +checkIn()
+                                }
+                                class Book {
+                                    +isbn: String
+                                    +author: String
+                                    +reserve()
+                                }
+                                class Periodical {
+                                    +issueNo: Integer
+                                    +publicationDate: Date
+                                    +archive()
+                                }
+                                class Reservation {
+                                    +reserveId: String
+                                    +reserveDate: Date
+                                    +status: Status
+                                    +create()
+                                    +cancel()
+                                    +convert()
+                                }
+                                
+                                Person <|-- Member
+                                Person <|-- Librarian
+                                Member "1" --> "*" Loan : borrows
+                                Loan "*" --> "1" LibraryItem : references
+                                LibraryItem <|-- Book
+                                LibraryItem <|-- Periodical
+                                Member "1" --> "*" Reservation : makes
+                                Book "1" --> "*" Reservation : has
+                                Librarian --> LibraryItem : manages
+                            </div>
+                            <p class="img-caption">코드-유돈 방법론을 사용한 도서관 관리 시스템에 대한 완전한 E-R 다이어그램</p>
+                        </div>
+                        
+                        <p>이 다이어그램은 코드-유돈 방법론의 모든 여섯 단계가 어떻게 결합되는지 보여줍니다:</p>
+                        <ol>
+                            <li><strong>객체 식별:</strong> 사람, 회원, 사서, 대출, 도서관 항목 등</li>
+                            <li><strong>구조 식별:</strong> 사람→회원/사서, 도서관항목→책/정기물</li>
+                            <li><strong>주제 정의:</strong> 전체 시스템은 "도서관 관리 시스템"</li>
+                            <li><strong>속성 정의:</strong> 각 객체는 자체 속성(아이디, 이름 등)을 가짐</li>
+                            <li><strong>관계 정의:</strong> 대여, 참조, 관리 등</li>
+                            <li><strong>서비스 정의:</strong> 책대여(), 대출(), 등</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>장점과 한계</h2>
+                        
+                        <div class="comparison-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>장점</th>
+                                        <th>한계</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>직관적인 시각적 표현</td>
+                                        <td>복잡한 동적 동작에 대한 제한된 지원</td>
+                                    </tr>
+                                    <tr>
+                                        <td>객체 지향 분석에 대한 체계적 접근</td>
+                                        <td>구현 세부사항을 다루지 않음</td>
+                                    </tr>
+                                    <tr>
+                                        <td>데이터와 동작 모두에 중점</td>
+                                        <td>매우 큰 시스템에는 잘 확장되지 않을 수 있음</td>
+                                    </tr>
+                                    <tr>
+                                        <td>설계 단계로의 자연스러운 전환</td>
+                                        <td>현대 개발에서 UML보다 덜 인기 있음</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>유산과 현대적 영향</h2>
+                        <p>코드-유돈 방법론은 대부분 통합 모델링 언어(UML)로 대체되었지만, 객체 지향 분석에 대한 그 개념과 접근 방식은 이 분야에 상당한 영향을 미쳤습니다. 그 원칙 중 많은 부분이 UML 개발에 영향을 미쳤습니다.</p>
+                        
+                        <div class="key-points">
+                            <h4>지속적인 기여</h4>
+                            <ul>
+                                <li>시스템의 시각적 모델링 강조</li>
+                                <li>객체에서 데이터와 동작의 통합</li>
+                                <li>시스템 분석에 대한 구조화된 접근</li>
+                                <li>재사용성과 모듈성에 중점</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="tags">
+                        <span class="tag">객체 지향 분석</span>
+                        <span class="tag">시스템 설계</span>
+                        <span class="tag">E-R 다이어그램</span>
+                        <span class="tag">모델링</span>
+                        <span class="tag">코드-유돈</span>
+                    </div>
+                    
+                    <div class="author-section">
+                        <div class="author-avatar">
+                            <img src="/api/placeholder/160/160" alt="저자 아바타">
+                        </div>
+                        <div class="author-info">
+                            <h4>알렉스 첸</h4>
+                            <p>소프트웨어 아키텍처와 객체 지향 방법론을 전문으로 하는 선임 시스템 분석가. 이론과 실용적 구현 사이의 격차를 좁히는 데 열정을 가지고 있습니다.</p>
+                            <div class="author-social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            <div class="related-posts" data-aos="fade-up">
+                <h3>관련 기사</h3>
+                <div class="posts-grid">
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="/api/placeholder/400/200" alt="UML 다이어그램">
+                        </div>
+                        <div class="post-content">
+                            <h4>UML 다이어그램 소개</h4>
+                            <p>UML을 사용하여 소프트웨어 시스템을 효과적으로 시각화하고 문서화하는 방법을 알아보세요.</p>
+                            <a href="#" class="read-more">더 읽기 →</a>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="/api/placeholder/400/200" alt="도메인 주도 설계">
+                        </div>
+                        <div class="post-content">
+                            <h4>도메인 주도 설계 원칙</h4>
+                            <p>더 나은 아키텍처를 위해 소프트웨어 모델을 비즈니스 도메인과 어떻게 정렬하는지 탐색해보세요.</p>
+                            <a href="#" class="read-more">더 읽기 →</a>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="/api/placeholder/400/200" alt="소프트웨어 아키텍처 패턴">
+                        </div>
+                        <div class="post-content">
+                            <h4>객체 지향 설계 방법론의 발전</h4>
+                            <p>객체 지향 설계 접근 방식이 시간이 지남에 따라 어떻게 발전해 왔는지에 대한 역사적 고찰.</p>
+                            <a href="#" class="read-more">더 읽기 →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-code"></i>
+                    <span>CodeInsight</span>
+                </div>
+                <p>프로그래밍 개념을 하나씩 명확하게 설명합니다.</p>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>콘텐츠</h4>
+                        <ul>
+                            <li><a href="#">기사</a></li>
+                            <li><a href="#">튜토리얼</a></li>
+                            <li><a href="#">리소스</a></li>
+                            <li><a href="#">도전 과제</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>연결</h4>
+                        <ul>
+                            <li><a href="#">뉴스레터</a></li>
+                            <li><a href="#">트위터</a></li>
+                            <li><a href="#">깃허브</a></li>
+                            <li><a href="#">디스코드</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>법률</h4>
+                        <ul>
+                            <li><a href="#">개인정보 정책</a></li>
+                            <li><a href="#">서비스 약관</a></li>
+                            <li><a href="#">쿠키 정책</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CodeInsight. 모든 권리 보유.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+    
+    <!-- Initialize Mermaid diagrams -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: 'dark',
+                themeVariables: {
+                    primaryColor: '#6366f1',
+                    primaryTextColor: '#f3f4f6',
+                    primaryBorderColor: '#4b5563',
+                    lineColor: '#9ca3af',
+                    secondaryColor: '#10b981',
+                    tertiaryColor: '#374151'
+                }
+            });
+        });
+    </script>
+</body>
+</html>

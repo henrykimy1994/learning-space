@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeInsight | Programming Concepts Explained</title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS for scroll animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <i class="fas fa-code"></i>
+                <span>CodeInsight</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="./pages/articles/articles.html">Articles</a></li>
+                    <li><a href="./pages/categories/categories.html">Categories</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <div class="hero-text" data-aos="fade-right">
+                <h1>Programming Concepts <span>Explained</span></h1>
+                <p>Clear, concise, and visual explanations of complex programming topics for developers at all levels.</p>
+                <div class="hero-btns">
+                    <a href="#featured" class="btn btn-primary">Explore Topics</a>
+                    <a href="#newsletter" class="btn btn-secondary">Subscribe</a>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left">
+                <img src="/api/placeholder/600/500" alt="Programming concept visualization">
+                <div class="code-snippet">
+                    <pre><code>function explore() {
+  const concepts = [
+    "Recursion",
+    "Promises",
+    "Algorithms"
+  ];
+  
+  return concepts.map(
+    concept => learn(concept)
+  );
+}</code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100">
+                <path fill="#111827" fill-opacity="1" d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,42.7C672,32,768,32,864,37.3C960,43,1056,53,1152,58.7C1248,64,1344,64,1392,64L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <section id="featured" class="featured">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Featured Articles</h2>
+                <p>Dive into our most popular programming concepts</p>
+            </div>
+            
+            <div class="featured-grid">
+                <div class="featured-card" data-aos="fade-up">
+                    <div class="card-image">
+                        <img src="/api/placeholder/400/250" alt="Recursion visualization">
+                        <div class="card-category">Algorithms</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Understanding Recursion</h3>
+                        <p>Explore the elegant and powerful concept of recursion in programming, with clear examples and visualizations.</p>
+                        <div class="card-meta">
+                            <span><i class="far fa-calendar"></i> May 16, 2025</span>
+                            <span><i class="far fa-clock"></i> 8 min read</span>
+                        </div>
+                        <a href="./pages/detail/index.html" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="featured-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-image">
+                        <img src="/api/placeholder/400/250" alt="Promises diagram">
+                        <div class="card-category">JavaScript</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Mastering JavaScript Promises</h3>
+                        <p>Understand the asynchronous nature of JavaScript and how to leverage promises for cleaner, more maintainable code.</p>
+                        <div class="card-meta">
+                            <span><i class="far fa-calendar"></i> May 10, 2025</span>
+                            <span><i class="far fa-clock"></i> 12 min read</span>
+                        </div>
+                        <a href="./pages/detail/index.html" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="featured-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-image">
+                        <img src="/api/placeholder/400/250" alt="Big O notation graph">
+                        <div class="card-category">Complexity</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Demystifying Big O Notation</h3>
+                        <p>Learn how to analyze and optimize your algorithms with a clear understanding of time and space complexity.</p>
+                        <div class="card-meta">
+                            <span><i class="far fa-calendar"></i> May 5, 2025</span>
+                            <span><i class="far fa-clock"></i> 10 min read</span>
+                        </div>
+                        <a href="./pages/detail/index.html" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="see-all-container" data-aos="fade-up">
+                <a href="#" class="btn btn-outline">See All Articles</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Browse by Category</h2>
+                <p>Find exactly what you're looking for</p>
+            </div>
+            
+            <div class="category-grid" data-aos="fade-up">
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Programming Languages</h3>
+                    <p>25 articles</p>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h3>Data Structures</h3>
+                    <p>18 articles</p>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Algorithms</h3>
+                    <p>22 articles</p>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Databases</h3>
+                    <p>15 articles</p>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Backend Development</h3>
+                    <p>20 articles</p>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Frontend Development</h3>
+                    <p>19 articles</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content" data-aos="zoom-in">
+                <div class="cta-text">
+                    <h2>Level Up Your Coding Skills</h2>
+                    <p>Join thousands of developers who've accelerated their learning journey with our visual, practical approach to programming concepts.</p>
+                </div>
+                <div class="cta-stats">
+                    <div class="stat">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Articles</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">50k+</div>
+                        <div class="stat-label">Readers</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">4.9/5</div>
+                        <div class="stat-label">Rating</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="latest-articles">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Latest Articles</h2>
+                <p>Fresh content to keep you at the cutting edge</p>
+            </div>
+            
+            <div class="articles-grid">
+                <div class="article-card" data-aos="fade-up">
+                    <div class="article-image">
+                        <img src="/api/placeholder/400/200" alt="GraphQL architecture">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-category">API Design</div>
+                        <h3>GraphQL vs REST: A Practical Comparison</h3>
+                        <p>Explore the differences, advantages, and use cases for these two popular API architectures.</p>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> May 14, 2025</span>
+                            <span><i class="far fa-clock"></i> 9 min read</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="article-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="article-image">
+                        <img src="/api/placeholder/400/200" alt="Docker containers">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-category">DevOps</div>
+                        <h3>Containerization with Docker: A Beginner's Guide</h3>
+                        <p>Learn the fundamentals of Docker and how it's revolutionizing application deployment.</p>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> May 12, 2025</span>
+                            <span><i class="far fa-clock"></i> 11 min read</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="article-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="article-image">
+                        <img src="/api/placeholder/400/200" alt="Functional programming">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-category">Paradigms</div>
+                        <h3>Thinking Functionally: Pure Functions and Immutability</h3>
+                        <p>Understand the core principles of functional programming and how they lead to more maintainable code.</p>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> May 8, 2025</span>
+                            <span><i class="far fa-clock"></i> 7 min read</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="article-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="article-image">
+                        <img src="/api/placeholder/400/200" alt="React hooks diagram">
+                    </div>
+                    <div class="article-content">
+                        <div class="article-category">React</div>
+                        <h3>Understanding React Hooks: useState and useEffect</h3>
+                        <p>Master the fundamentals of React's hook system for more efficient component development.</p>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> May 6, 2025</span>
+                            <span><i class="far fa-clock"></i> 8 min read</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="newsletter" class="newsletter">
+        <div class="container">
+            <div class="newsletter-content" data-aos="fade-up">
+                <div class="newsletter-text">
+                    <h2>Stay Updated with Latest Programming Insights</h2>
+                    <p>Join our newsletter and get fresh coding tips, tutorials, and articles delivered straight to your inbox. No spam, just valuable content.</p>
+                </div>
+                <form class="newsletter-form">
+                    <div class="form-group">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </div>
+                    <div class="form-privacy">
+                        <label>
+                            <input type="checkbox" required>
+                            <span>I agree to receive emails and accept the <a href="#">Privacy Policy</a></span>
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>What Our Readers Say</h2>
+                <p>Feedback from our community of developers</p>
+            </div>
+            
+            <div class="testimonial-slider" data-aos="fade-up">
+                <div class="testimonial-track">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"CodeInsight's explanation of recursion finally made it click for me. The visual aids and step-by-step breakdowns are incredibly helpful."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="/api/placeholder/60/60" alt="Testimonial author">
+                            <div class="author-info">
+                                <h4>Alex Johnson</h4>
+                                <p>Frontend Developer</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"I've been programming for years but never truly understood Big O notation until I read your article. Now I can analyze algorithm efficiency with confidence."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="/api/placeholder/60/60" alt="Testimonial author">
+                            <div class="author-info">
+                                <h4>Samantha Lee</h4>
+                                <p>Software Engineer</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"The JavaScript Promises article saved me hours of debugging. Your code examples are practical and the diagrams make complex concepts easy to grasp."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="/api/placeholder/60/60" alt="Testimonial author">
+                            <div class="author-info">
+                                <h4>Michael Rodriguez</h4>
+                                <p>Full-Stack Developer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-controls">
+                    <button class="control-prev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="control-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <button class="control-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-code"></i>
+                        <span>CodeInsight</span>
+                    </div>
+                    <p>Demystifying programming concepts one article at a time.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Content</h4>
+                        <ul>
+                            <li><a href="#">Articles</a></li>
+                            <li><a href="#">Tutorials</a></li>
+                            <li><a href="#">Resources</a></li>
+                            <li><a href="#">Challenges</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Categories</h4>
+                        <ul>
+                            <li><a href="#">Algorithms</a></li>
+                            <li><a href="#">Data Structures</a></li>
+                            <li><a href="#">Web Development</a></li>
+                            <li><a href="#">DevOps</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Contributors</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 CodeInsight. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="homepage.js"></script>
+</body>
+</html>
