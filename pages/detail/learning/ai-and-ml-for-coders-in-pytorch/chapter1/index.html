@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeInsight | Understanding Traditional Programming vs Machine Learning</title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Prism.js for code highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <!-- AOS for scroll animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- mermaid.js for diagrams -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <i class="fas fa-code"></i>
+                <span>CodeInsight</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Articles</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Traditional Programming vs Machine Learning</h1>
+            <div class="hero-meta">
+                <div>
+                    <i class="far fa-calendar"></i>
+                    <span>May 19, 2025</span>
+                </div>
+                <div>
+                    <i class="far fa-clock"></i>
+                    <span>8 min read</span>
+                </div>
+                <div>
+                    <i class="far fa-folder"></i>
+                    <span>Machine Learning</span>
+                </div>
+                <div>
+                    <i class="fas fa-language"></i>
+                    <a href="#">KOR</a>
+                </div>
+            </div>
+            <p>Explore the fundamental differences between traditional programming and machine learning, and learn how PyTorch empowers developers to create intelligent systems that can learn from data.</p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <article class="article" data-aos="fade-up">
+                <div class="article-content">
+                    <div class="article-section">
+                        <h2>Understanding Programming Paradigms</h2>
+                        <p>Programming has evolved significantly over the decades, branching into various paradigms that solve problems in different ways. Two major approaches stand out in modern software development: traditional programming and machine learning.</p>
+                        
+                        <div class="key-points">
+                            <h4>Key Differences</h4>
+                            <ul>
+                                <li><strong>Traditional Programming:</strong> Explicit rules to transform data into answers</li>
+                                <li><strong>Machine Learning:</strong> Implicit rules derived from data and expected answers</li>
+                                <li><strong>Approach:</strong> One is rule-driven, the other is data-driven</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Traditional Programming</h2>
+                        <p>Traditional programming involves writing rules, expressed in a programming language, that act on data to produce answers. This approach has been the backbone of software development for decades and applies to almost any scenario where explicit logic can be coded.</p>
+                        
+                        <div class="mermaid-diagram">
+                            <div class="mermaid">
+                            flowchart LR
+                                Data[Data] --> Rules[Rules/Logic]
+                                Rules --> Answers[Answers]
+                                style Rules fill:#6366f1,color:#fff
+                            </div>
+                            <p class="img-caption">Traditional programming flow: we define the rules that transform data into answers</p>
+                        </div>
+                        
+                        <h3>Strengths of Traditional Programming:</h3>
+                        <ul>
+                            <li>Precise control over program behavior</li>
+                            <li>Transparent and easily interpretable logic</li>
+                            <li>No need for large amounts of data</li>
+                            <li>Established methodologies and best practices</li>
+                        </ul>
+                        
+                        <div class="tip-box">
+                            <h4><i class="fas fa-lightbulb"></i> Traditional Programming Use Cases</h4>
+                            <p>Traditional programming excels at tasks with clear, rule-based logic such as accounting systems, inventory management, operating systems, and user interfaces. Any scenario where a programmer can articulate exact steps to solve a problem is a good fit for this approach.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Machine Learning</h2>
+                        <p>Machine learning flips the traditional programming paradigm. Instead of writing explicit rules, we provide data and the answers we expect, allowing the computer to figure out what the rules might be. This approach enables systems to learn patterns that would be difficult or impossible to code explicitly.</p>
+                        
+                        <div class="mermaid-diagram">
+                            <div class="mermaid">
+                            flowchart LR
+                                Data[Data] & Answers[Expected Answers] --> ML[Machine Learning]
+                                ML --> Rules[Derived Rules]
+                                style ML fill:#10b981,color:#fff
+                            </div>
+                            <p class="img-caption">Machine learning flow: the system derives rules from data and expected answers</p>
+                        </div>
+                        
+                        <h3>Limitations of Traditional Programming:</h3>
+                        <p>Traditional programming reaches its limits when:</p>
+                        <ul>
+                            <li>The rules are too complex to articulate explicitly</li>
+                            <li>The rules change frequently based on new data</li>
+                            <li>The problem involves pattern recognition in unstructured data</li>
+                            <li>The solution space is too large to explore programmatically</li>
+                        </ul>
+                        
+                        <p>Machine learning overcomes these limitations by deriving rules from data, making it well-suited for complex pattern recognition tasks like image classification, natural language processing, and predictive analytics.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Key Machine Learning Concepts</h2>
+                        
+                        <h3>Training vs. Inference</h3>
+                        <div class="comparison-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Training</th>
+                                        <th>Inference</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>The process of creating machine learning models</td>
+                                        <td>The process of using trained models to make predictions</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Requires labeled data (input and expected output)</td>
+                                        <td>Only requires input data</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Computationally intensive</td>
+                                        <td>Usually less resource-intensive</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Learning phase</td>
+                                        <td>Application phase</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <h3>Approaches to Model Training</h3>
+                        <ul>
+                            <li><strong>Training from scratch:</strong> Creating a model entirely from scratch, using your own data</li>
+                            <li><strong>Pre-trained models:</strong> Using someone else's model that has already been trained</li>
+                            <li><strong>Transfer learning:</strong> Using parts of another model that have already been trained and building on top of them</li>
+                        </ul>
+                        
+                        <h3>Hardware Used for Machine Learning</h3>
+                        <ul>
+                            <li><strong>CPU:</strong> General-purpose processors, suitable for small-scale ML tasks</li>
+                            <li><strong>GPU:</strong> Graphics Processing Units, excel at parallel computations needed for deep learning</li>
+                            <li><strong>TPU:</strong> Tensor Processing Units, specialized hardware designed specifically for ML workloads</li>
+                            <li><strong>Distributed systems:</strong> Multiple chips working together for parallel training</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Introduction to PyTorch</h2>
+                        <p>PyTorch is an open-source machine learning framework that has become one of the leading tools for deep learning research and application development. Originally developed by Meta AI (formerly Facebook AI Research), it is now maintained under the Linux Foundation.</p>
+                        
+                        <div class="key-points">
+                            <h4>PyTorch Timeline</h4>
+                            <ul>
+                                <li><strong>Origins:</strong> Evolved from Torch, a machine learning framework based on the Lua programming language</li>
+                                <li><strong>2017:</strong> Development moved to PyTorch, providing a Python interface</li>
+                                <li><strong>Current:</strong> One of the most popular frameworks for both research and production applications</li>
+                            </ul>
+                        </div>
+                        
+                        <h3>Key Features of PyTorch:</h3>
+                        <ul>
+                            <li>Dynamic computational graph (unlike static graphs in some other frameworks)</li>
+                            <li>Strong GPU acceleration support</li>
+                            <li>Pythonic programming interface</li>
+                            <li>Rich ecosystem of libraries and tools</li>
+                            <li>Seamless transition between research and production</li>
+                        </ul>
+                        
+                        <h3>Getting Started with PyTorch</h3>
+                        <p>To begin using PyTorch, you'll need to set up your environment:</p>
+                        <ol>
+                            <li>Install Python (version 3.7 or higher recommended)</li>
+                            <li>Install PyTorch using pip or conda</li>
+                            <li>Choose a development environment (PyCharm, Jupyter, Google Colab, etc.)</li>
+                        </ol>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fab fa-python"></i>
+                                    <span>PyTorch Installation</span>
+                                </div>
+                                <button class="copy-btn" data-code="pytorch-install">
+                                    <i class="far fa-copy"></i>
+                                    <span>Copy</span>
+                                </button>
+                            </div>
+                            <pre><code class="language-bash">
+# For CPU-only installation
+pip install torch torchvision torchaudio
+
+# For CUDA-enabled installation (GPU support)
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+                            </code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>A Simple PyTorch Example</h2>
+                        <p>Let's walk through a basic example of using PyTorch to create a simple linear model. This demonstrates the fundamental workflow of building, training, and using a machine learning model.</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fab fa-python"></i>
+                                    <span>PyTorch Linear Model</span>
+                                </div>
+                                <button class="copy-btn" data-code="pytorch-linear">
+                                    <i class="far fa-copy"></i>
+                                    <span>Copy</span>
+                                </button>
+                            </div>
+                            <pre><code class="language-python">
+# 📦 Import required libraries
+import torch                    # Core PyTorch library
+import torch.nn as nn           # Tools for building neural networks
+import torch.optim as optim     # Tools for optimization (e.g., gradient descent)
+import numpy as np              # General-purpose numerical operations (optional here)
+
+# 🧠 STEP 1: Build a simple linear model
+# What we're doing: telling PyTorch to create a model that learns the relationship between input (x) and output (y).
+# We use a neural network with just one neuron, which means it will learn a formula like: y = weight * x + bias
+
+# nn.Linear(1, 1) → means:
+#   - 1 input feature (x)
+#   - 1 output feature (predicted y)
+# The model is wrapped inside nn.Sequential to make it flexible for adding layers in the future
+model = nn.Sequential(nn.Linear(1, 1))
+
+# 🧪 STEP 2: Define a loss function
+# The model makes guesses, and we want to know how far those guesses are from the actual answers.
+# We'll use Mean Squared Error (MSE) to measure this:
+#   MSE = average of (y_actual - y_predicted)^2
+# A perfect guess has a loss of 0. Higher loss means the guess was more wrong.
+criterion = nn.MSELoss()
+
+# 🔧 STEP 3: Define the optimizer
+# After knowing how bad the guess is (loss), we want to help the model do better.
+# To do that, we adjust the internal values (weight and bias).
+# The optimizer does this for us using a method called gradient descent.
+
+# SGD (Stochastic Gradient Descent) is one of the most common optimizers.
+# lr = 0.01 → "learning rate" means we make small changes at a time.
+# Large learning rate = faster but risk of overshooting
+# Small learning rate = slower but more stable
+optimizer = optim.SGD(model.parameters(), lr=0.01)
+
+# 📊 STEP 4: Prepare training data
+# We give the model examples of input (x) and the correct output (y)
+# In this case, we are teaching the model a simple pattern: y = 2x + 1
+
+# PyTorch expects input data to be in tensor format.
+# Tensors are like flexible versions of arrays, used in deep learning frameworks.
+xs = torch.tensor([[-1.0], [0.0], [1.0], [2.0], [3.0], [4.0]], dtype=torch.float32)
+ys = torch.tensor([[-3.0], [-1.0], [1.0], [3.0], [5.0], [7.0]], dtype=torch.float32)
+
+# 🔁 STEP 5: Training loop
+# Here's where the model learns.
+# We go through the training data many times (500 epochs), and each time we:
+#   - Let the model make guesses
+#   - Measure how wrong those guesses were
+#   - Use the error to adjust the internal weight and bias (learning)
+for epoch in range(500):
+
+    # 🔄 Step 1: Clear previous gradients
+    # Every time we calculate gradients (the direction and amount to adjust), PyTorch adds them up by default.
+    # So we need to reset them to 0 before each new learning step.
+    optimizer.zero_grad()
+
+    # 🔮 Step 2: Forward pass — make predictions with the current model
+    # The model tries to guess the y-values based on its current weight and bias.
+    outputs = model(xs)
+
+    # 📏 Step 3: Calculate how wrong the model's guesses are
+    # Compare predicted outputs with actual answers and compute the average error.
+    loss = criterion(outputs, ys)
+
+    # 🧮 Step 4: Backward pass — compute gradients
+    # PyTorch uses calculus to compute how the weight and bias should change to reduce the error.
+    # This is called "backpropagation"
+    loss.backward()
+
+    # 🔧 Step 5: Update model parameters
+    # Now that we have the direction to go (gradients), the optimizer will take a small step in that direction.
+    # This updates the weight and bias so the model can guess better next time.
+    optimizer.step()
+
+    # 🖨️ (Optional) Print the loss every 25 steps or in the final 10 steps
+    # This helps track progress and shows the loss going down
+    if epoch % 25 == 0 or epoch >= 490:
+        print(f"Epoch {epoch:3d} → Loss: {loss:.4e}")
+
+# 🔮 STEP 6: Make a prediction after training
+# Now the model has learned — we can test it by giving it a new x-value.
+
+# We use torch.no_grad() to tell PyTorch:
+#   - We're done training
+#   - Don't calculate gradients anymore
+#   - Save memory and speed up prediction
+with torch.no_grad():
+    # Predict y for x = 10
+    prediction = model(torch.tensor([[10.0]], dtype=torch.float32))
+    print(f"\nPrediction for x=10.0: {prediction.item():.4f}")
+
+# 📢 STEP 7: View what the model actually learned
+# The model has internal values: weight and bias. Let's extract them.
+
+# model[0] refers to the first (and only) layer — our linear layer
+linear = model[0]
+
+# The learned weight and bias are stored in the layer's parameters
+weight = linear.weight.item()
+bias = linear.bias.item()
+
+# Print the final learned formula
+# If everything worked, it should be very close to: y = 2x + 1
+print(f"Learned formula: y = {weight:.4f} * x + {bias:.4f}")
+                            </code></pre>
+                        </div>
+                        
+                        <h3>Understanding the PyTorch Example</h3>
+                        <p>This example demonstrates a key concept: the model is learning the relationship y = 2x + 1 from the provided data points, without us explicitly programming that formula. This is the essence of machine learning - the system discovers patterns in data.</p>
+                        
+                        <div class="key-points">
+                            <h4>Key Components Explained</h4>
+                            <ul>
+                                <li><strong>Model:</strong> A linear function that transforms inputs to outputs</li>
+                                <li><strong>Loss Function:</strong> Measures how far predictions are from actual values</li>
+                                <li><strong>Optimizer:</strong> Updates model parameters to minimize the loss</li>
+                                <li><strong>Training Loop:</strong> Iterative process of prediction, error measurement, and adjustment</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Visualizing the Learning Process</h2>
+                        <p>Let's visualize how the model learns over time to understand the training process better:</p>
+                        
+                        <div class="mermaid-diagram">
+                            <div class="mermaid">
+                            flowchart TD
+                                A[Initialize Model] --> B[Make Predictions]
+                                B --> C[Calculate Loss]
+                                C --> D[Compute Gradients]
+                                D --> E[Update Parameters]
+                                E -->|Repeat| B
+                                E -->|Convergence| F[Final Model]
+                                style A fill:#6366f1,color:#fff
+                                style F fill:#10b981,color:#fff
+                            </div>
+                            <p class="img-caption">The iterative training process in machine learning</p>
+                        </div>
+                        
+                        <p>As training progresses, the model's predictions get closer to the actual values. With each epoch, the loss (error) decreases until the model converges to a solution that closely approximates the true relationship in the data.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Conclusion and Further Learning</h2>
+                        <p>The shift from traditional programming to machine learning represents a fundamental change in how we approach problem-solving with computers. Rather than explicitly coding every rule, we can now create systems that learn from data, opening up possibilities for solving complex problems that were previously intractable.</p>
+                        
+                        <p>PyTorch provides a powerful yet accessible framework for building machine learning models. The example we've explored is just the beginning - PyTorch supports a wide range of machine learning techniques, from basic linear models to complex deep learning architectures.</p>
+                        
+                        <div class="tip-box">
+                            <h4><i class="fas fa-lightbulb"></i> Next Steps</h4>
+                            <p>To continue your machine learning journey, consider exploring:</p>
+                            <ul>
+                                <li>More complex neural network architectures</li>
+                                <li>Working with real-world datasets</li>
+                                <li>Computer vision and natural language processing applications</li>
+                                <li>Deployment of models to production environments</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="tags">
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Neural Networks</span>
+                        <span class="tag">Programming Paradigms</span>
+                        <span class="tag">Data Science</span>
+                    </div>
+                    
+                    <div class="author-section">
+                        <div class="author-avatar">
+                            <img src="/api/placeholder/160/160" alt="Author Avatar">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Machine Learning Engineer specializing in deep learning and computer vision. Passionate about making complex technical concepts accessible to developers at all skill levels.</p>
+                            <div class="author-social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            <div class="related-posts" data-aos="fade-up">
+                <h3>Related Articles</h3>
+                <div class="posts-grid">
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="/api/placeholder/400/200" alt="Deep Learning Fundamentals">
+                        </div>
+                        <div class="post-content">
+                            <h4>Deep Learning Fundamentals</h4>
+                            <p>Explore the core concepts behind neural networks and how they mimic human brain function to solve complex problems.</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="/api/placeholder/400/200" alt="Computer Vision with PyTorch">
+                        </div>
+                        <div class="post-content">
+                            <h4>Computer Vision with PyTorch</h4>
+                            <p>Learn how to build image classification and object detection systems using PyTorch's vision libraries.</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="/api/placeholder/400/200" alt="Software Design Patterns">
+                        </div>
+                        <div class="post-content">
+                            <h4>Modern Software Design Patterns</h4>
+                            <p>A comprehensive guide to implementing classic and modern design patterns in your software projects.</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-code"></i>
+                    <span>CodeInsight</span>
+                </div>
+                <p>Explaining programming concepts one article at a time.</p>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Content</h4>
+                        <ul>
+                            <li><a href="#">Articles</a></li>
+                            <li><a href="#">Tutorials</a></li>
+                            <li><a href="#">Resources</a></li>
+                            <li><a href="#">Challenges</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="#">Newsletter</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">GitHub</a></li>
+                            <li><a href="#">Discord</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CodeInsight. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+    
+    <!-- Initialize Mermaid diagrams -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: 'dark',
+                themeVariables: {
+                    primaryColor: '#6366f1',
+                    primaryTextColor: '#f3f4f6',
+                    primaryBorderColor: '#4b5563',
+                    lineColor: '#9ca3af',
+                    secondaryColor: '#10b981',
+                    tertiaryColor: '#374151'
+                }
+            });
+        });
+    </script>
+</body>
+</html>
