@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeInsight | 소프트웨어 개발 단계와 요구 분석 과정 완벽 가이드</title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Prism.js for code highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <!-- AOS for scroll animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- mermaid.js for diagrams -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <i class="fas fa-code"></i>
+                <span>CodeInsight</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/pages/articles/articles.html">Articles</a></li>
+                    <li><a href="/pages/categories/categories.html">Categories</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>소프트웨어 개발 단계와 요구 분석 과정</h1>
+            <div class="hero-meta">
+                <div>
+                    <i class="far fa-calendar"></i>
+                    <span>May 31, 2025</span>
+                </div>
+                <div>
+                    <i class="far fa-clock"></i>
+                    <span>15 min read</span>
+                </div>
+                <div>
+                    <i class="far fa-folder"></i>
+                    <span>소프트웨어 엔지니어링</span>
+                </div>
+                <div>
+                    <i class="fas fa-language"></i>
+                    <a href="../index.html">ENG</a>
+                </div>
+            </div>
+            <p>소프트웨어 개발 생명주기의 핵심 단계들과 요구 분석 과정의 중요성을 실제 프로젝트 사례와 함께 상세히 알아보세요. 문제 정답은 ②번 - 요구 분석이 가장 많은 비용이 드는 단계가 아닌 이유를 논리적으로 설명합니다.</p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <article class="article" data-aos="fade-up">
+                <div class="article-content">
+                    <div class="article-section">
+                        <h2>📝 문제 분석: 정답은 ②번</h2>
+                        <p><strong>소프트웨어 개발 단계에서 요구 분석 과정에 대한 설명으로 거리가 먼 것은?</strong></p>
+                        
+                        <div class="key-points">
+                            <h4>정답: ② 개발 비용이 가장 많이 소요되는 단계이다</h4>
+                            <ul>
+                                <li><strong>요구 분석:</strong> 전체 개발 비용의 10-15%만 차지</li>
+                                <li><strong>실제 최고비용 단계:</strong> 구현(코딩) 단계가 40-50%로 가장 많은 비용 소요</li>
+                                <li><strong>비용 대비 효과:</strong> 요구 분석은 적은 비용으로 큰 영향을 미치는 단계</li>
+                            </ul>
+                        </div>
+                        
+                        <p>이제 왜 ②번이 틀렸는지, 그리고 다른 선택지들이 왜 올바른 설명인지 체계적으로 분석해보겠습니다. 소프트웨어 개발 생명주기(SDLC)의 각 단계별 특성과 비용 구조를 통해 요구 분석의 진정한 역할을 이해할 수 있습니다.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>소프트웨어 개발 생명주기(SDLC) 개요</h2>
+                        <p>소프트웨어 개발 생명주기는 요구 분석부터 유지보수까지의 체계적인 프로세스입니다. 각 단계는 고유한 목적과 비용 구조를 가지고 있습니다.</p>
+                        
+                        <h3>SDLC의 주요 단계:</h3>
+                        <ul>
+                            <li><span class="inlineCode">요구 분석</span> - 사용자 요구사항 수집 및 분석</li>
+                            <li><span class="inlineCode">시스템 설계</span> - 아키텍처 및 상세 설계</li>
+                            <li><span class="inlineCode">구현</span> - 실제 코딩 및 프로그래밍</li>
+                            <li><span class="inlineCode">테스트</span> - 품질 보증 및 검증</li>
+                            <li><span class="inlineCode">배포</span> - 시스템 설치 및 운영</li>
+                            <li><span class="inlineCode">유지보수</span> - 지속적인 개선 및 수정</li>
+                        </ul>
+                        
+                        <div class="mermaid-diagram">
+                            <div class="mermaid">
+                            graph TD
+                                A[요구 분석<br/>10-15%] --> B[시스템 설계<br/>20-25%]
+                                B --> C[구현/코딩<br/>40-50%]
+                                C --> D[테스트<br/>15-20%]
+                                D --> E[배포<br/>3-5%]
+                                E --> F[유지보수<br/>지속적]
+                                
+                                style A fill:#e1f5fe
+                                style B fill:#f3e5f5
+                                style C fill:#ffebee
+                                style D fill:#fff3e0
+                                style E fill:#e8f5e8
+                                style F fill:#f1f8e9
+                            </div>
+                            <p class="img-caption">소프트웨어 개발 단계별 비용 비율 - 구현 단계가 가장 많은 비용을 차지</p>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>요구 분석 과정의 핵심 활동</h2>
+                        <p>요구 분석은 성공적인 소프트웨어 개발의 기초가 되는 단계입니다. 비용은 적게 들지만 프로젝트 전체에 미치는 영향은 매우 큽니다.</p>
+                        
+                        <h3>요구 분석의 주요 활동:</h3>
+                        <ul>
+                            <li>이해관계자 식별 및 인터뷰</li>
+                            <li>기능 요구사항 정의</li>
+                            <li>비기능 요구사항 명세</li>
+                            <li>요구사항 문서화 및 검증</li>
+                        </ul>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fas fa-sitemap"></i>
+                                    <span>요구사항 명세 예시</span>
+                                </div>
+                                <button class="copy-btn" data-code="requirements-spec">
+                                    <i class="far fa-copy"></i>
+                                    <span>복사</span>
+                                </button>
+                            </div>
+                            <pre><code class="language-text">
+기능 요구사항:
+FR-001: 사용자는 이메일과 비밀번호로 로그인할 수 있어야 한다
+FR-002: 사용자는 상품을 장바구니에 담을 수 있어야 한다
+FR-003: 관리자는 주문 현황을 실시간으로 조회할 수 있어야 한다
+
+비기능 요구사항:
+NFR-001: 시스템은 동시 사용자 1000명을 지원해야 한다
+NFR-002: 페이지 로딩 시간은 3초 이내여야 한다
+NFR-003: 99.9% 가용성을 보장해야 한다
+                        </code></pre>
+                        </div>
+                        
+                        <div class="tip-box">
+                            <h4><i class="fas fa-lightbulb"></i> 요구 분석의 중요성</h4>
+                            <p>IBM 연구에 따르면, 요구사항 단계에서 발견되지 않은 오류를 나중에 수정하는 비용은 초기 단계에서 수정하는 비용의 100배에 달할 수 있습니다. 이는 요구 분석의 철저함이 얼마나 중요한지를 보여줍니다.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>선택지 ①번 분석: 문서화의 유지보수 활용성</h2>
+                        <p><strong>① "분석 결과의 문서화를 통해 향후 유지보수에 유용하게 활용할 수 있다"</strong> - 이는 <span style="color: #10b981; font-weight: 600;">올바른 설명</span>입니다.</p>
+                        
+                        <h3>왜 올바른가?</h3>
+                        <ul>
+                            <li><strong>추적 가능성:</strong> 요구사항 문서는 각 기능이 왜 구현되었는지 추적할 수 있게 합니다</li>
+                            <li><strong>변경 관리:</strong> 시스템 수정 시 원래 요구사항을 참조하여 영향도를 분석할 수 있습니다</li>
+                            <li><strong>지식 보존:</strong> 프로젝트 참여자가 바뀌어도 시스템에 대한 이해를 유지할 수 있습니다</li>
+                            <li><strong>법적 근거:</strong> 계약 분쟁 시 요구사항 문서가 중요한 증거 자료가 됩니다</li>
+                        </ul>
+                        
+                        <div class="mermaid-diagram">
+                            <div class="mermaid">
+                            graph LR
+                                A[요구사항 문서] --> B[기능 추적]
+                                A --> C[변경 관리]
+                                A --> D[지식 보존]
+                                A --> E[품질 보증]
+                                
+                                B --> B1[각 기능의 근거]
+                                C --> C1[영향도 분석]
+                                D --> D1[팀원 교체 대응]
+                                E --> E1[검증 기준]
+                                
+                                style A fill:#e1f5fe
+                                style B fill:#e8f5e8
+                                style C fill:#fff3e0
+                                style D fill:#f3e5f5
+                                style E fill:#fce4ec
+                            </div>
+                            <p class="img-caption">요구사항 문서화가 유지보수에 기여하는 방식</p>
+                        </div>
+                        
+                        <div class="key-points">
+                            <h4>실제 프로젝트 사례: 대형 은행 시스템</h4>
+                            <ul>
+                                <li>3년 전 구축된 인터넷뱅킹 시스템의 보안 요구사항 문서가 모바일 앱 개발 시 그대로 활용됨</li>
+                                <li>문서화된 규정 덕분에 6개월의 개발 기간을 3개월로 단축</li>
+                                <li>일관된 보안 정책 적용으로 시스템 전체의 신뢰성 향상</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>선택지 ②번 분석: 개발 비용 구조의 실상</h2>
+                        <p><strong>② "개발 비용이 가장 많이 소요되는 단계이다"</strong> - 이는 <span style="color: #ef4444; font-weight: 600;">잘못된 설명</span>입니다. (정답)</p>
+                        
+                        <h3>왜 잘못되었는가?</h3>
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 비용 구조의 오해</h4>
+                            <p>요구 분석은 전체 개발 비용의 10-15%만 차지하며, 실제로 가장 많은 비용이 소요되는 단계는 <strong>구현(코딩) 단계</strong>로 전체의 40-50%를 차지합니다.</p>
+                        </div>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <span>실제 프로젝트 비용 분석</span>
+                                </div>
+                                <button class="copy-btn" data-code="cost-analysis">
+                                    <i class="far fa-copy"></i>
+                                    <span>복사</span>
+                                </button>
+                            </div>
+                            <pre><code class="language-text">
+중소기업 ERP 시스템 개발 프로젝트 (총 2억원, 12개월)
+
+요구 분석      : 2개월,  3,000만원 (15%)
+시스템 설계    : 2개월,  4,000만원 (20%)
+구현/코딩      : 6개월,  9,000만원 (45%) ← 최고 비용
+테스트         : 1.5개월, 2,500만원 (12.5%)
+배포           : 0.5개월, 1,500만원 (7.5%)
+
+결론: 구현 단계가 요구 분석 대비 3배 많은 비용 소요
+                        </code></pre>
+                        </div>
+                        
+                        <h3>각 단계별 비용이 다른 이유:</h3>
+                        <ul>
+                            <li><strong>요구 분석:</strong> 주로 회의, 문서 작성, 검토 등의 지적 활동</li>
+                            <li><strong>구현:</strong> 대량의 코드 작성, 복잡한 로직 구현, 다수의 개발자 투입</li>
+                            <li><strong>테스트:</strong> 반복적인 테스트 케이스 실행, 버그 수정</li>
+                        </ul>
+                        
+                        <div class="comparison-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>단계</th>
+                                        <th>주요 자원</th>
+                                        <th>비용 비율</th>
+                                        <th>인력 투입</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="background-color: rgba(16, 185, 129, 0.1);">
+                                        <td><strong>요구 분석</strong></td>
+                                        <td>분석가 1-2명</td>
+                                        <td>10-15%</td>
+                                        <td>소규모</td>
+                                    </tr>
+                                    <tr style="background-color: rgba(239, 68, 68, 0.1);">
+                                        <td><strong>구현</strong></td>
+                                        <td>개발자 5-10명</td>
+                                        <td>40-50%</td>
+                                        <td>대규모</td>
+                                    </tr>
+                                    <tr>
+                                        <td>테스트</td>
+                                        <td>테스터 2-3명</td>
+                                        <td>15-20%</td>
+                                        <td>중간규모</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>선택지 ③번 분석: 자료흐름도와 자료 사전</h2>
+                        <p><strong>③ "자료흐름도, 자료 사전 등이 출력물로 이용될 수 있다"</strong> - 이는 <span style="color: #10b981; font-weight: 600;">올바른 설명</span>입니다.</p>
+                        
+                        <h3>주요 산출물들:</h3>
+                        <ul>
+                            <li><strong>DFD (Data Flow Diagram):</strong> 시스템 내 데이터의 흐름을 시각적으로 표현</li>
+                            <li><strong>자료 사전:</strong> 시스템에서 사용되는 모든 데이터 요소의 정의와 속성 명세</li>
+                            <li><strong>ERD (Entity Relationship Diagram):</strong> 데이터베이스 구조 설계</li>
+                            <li><strong>유스케이스 다이어그램:</strong> 사용자와 시스템 간의 상호작용 표현</li>
+                        </ul>
+                        
+                        <div class="mermaid-diagram">
+                            <div class="mermaid">
+                            graph TD
+                                A[고객 주문] --> B[주문 처리]
+                                B --> C[재고 확인]
+                                C --> D[결제 처리]
+                                D --> E[배송 준비]
+                                
+                                B --> F[(주문 DB)]
+                                C --> G[(재고 DB)]
+                                D --> H[(결제 DB)]
+                                
+                                style A fill:#e1f5fe
+                                style B fill:#e8f5e8
+                                style C fill:#fff3e0
+                                style D fill:#f3e5f5
+                                style E fill:#fce4ec
+                            </div>
+                            <p class="img-caption">온라인 쇼핑몰의 주문 처리 DFD 예시</p>
+                        </div>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fas fa-database"></i>
+                                    <span>자료 사전 예시</span>
+                                </div>
+                                <button class="copy-btn" data-code="data-dictionary">
+                                    <i class="far fa-copy"></i>
+                                    <span>복사</span>
+                                </button>
+                            </div>
+                            <pre><code class="language-text">
+데이터 요소명: 주문정보
+구성: 주문번호 + 고객번호 + 상품코드 + 수량 + 주문일시
+
+주문번호 = 영문자(1) + 숫자(8) {형식: O12345678}
+고객번호 = 숫자(10) {범위: 1000000000-9999999999}
+상품코드 = 영문자(3) + 숫자(6) {형식: ABC123456}
+수량 = 숫자(3) {범위: 1-999}
+주문일시 = 날짜시간 {형식: YYYY-MM-DD HH:MM:SS}
+                        </code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>선택지 ④번 분석: 소단위 명세서(Mini-Spec)</h2>
+                        <p><strong>④ "보다 구체적인 명세를 위해 소단위 명세서(Mini-Spec)가 활용될 수 있다"</strong> - 이는 <span style="color: #10b981; font-weight: 600;">올바른 설명</span>입니다.</p>
+                        
+                        <h3>Mini-Spec의 역할:</h3>
+                        <ul>
+                            <li><strong>상세 명세:</strong> DFD의 최하위 프로세스를 구체적으로 기술</li>
+                            <li><strong>처리 로직:</strong> 복잡한 비즈니스 규칙과 계산 방법을 명확히 정의</li>
+                            <li><strong>개발 가이드:</strong> 프로그래머가 실제 코드를 작성할 때 참조할 수 있는 상세한 지침</li>
+                            <li><strong>검증 기준:</strong> 구현된 기능이 요구사항을 만족하는지 확인하는 기준</li>
+                        </ul>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fas fa-file-alt"></i>
+                                    <span>Mini-Spec 예시: 할인 계산</span>
+                                </div>
+                                <button class="copy-btn" data-code="mini-spec">
+                                    <i class="far fa-copy"></i>
+                                    <span>복사</span>
+                                </button>
+                            </div>
+                            <pre><code class="language-text">
+프로세스: 주문 할인금액 계산
+입력: 주문금액, 고객등급, 쿠폰정보, 상품카테고리
+출력: 최종할인금액
+
+처리 규칙:
+1. 고객등급별 기본할인 적용
+   - 일반고객(NORMAL): 0%
+   - VIP고객(VIP): 5%
+   - VVIP고객(VVIP): 10%
+
+2. 상품카테고리별 추가할인
+   - 전자제품: 추가 3%
+   - 의류: 추가 5%
+   - 기타: 추가할인 없음
+
+3. 쿠폰할인 적용
+   - 쿠폰이 있는 경우: 쿠폰할인율 추가 적용
+   - 최대할인한도: 주문금액의 50%
+
+4. 최종계산
+   할인금액 = MIN((기본할인 + 카테고리할인 + 쿠폰할인), 주문금액 × 0.5)
+                        </code></pre>
+                        </div>
+                        
+                        <div class="key-points">
+                            <h4>실제 적용 사례: 신용카드 포인트 시스템</h4>
+                            <ul>
+                                <li>복잡한 적립 규칙(카드 종류별, 가맹점별, 시간대별 차등 적립)을 Mini-Spec으로 상세 명세</li>
+                                <li>개발자들이 일관된 로직으로 구현할 수 있도록 가이드 제공</li>
+                                <li>테스트 케이스 작성 시 검증 기준으로 활용</li>
+                                <li>결과: 개발 오류 70% 감소, 테스트 기간 30% 단축</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>실제 프로젝트 사례: 병원 정보 시스템</h2>
+                        <p>15억원 규모의 대형 병원 정보 시스템 개발 프로젝트를 통해 각 단계별 비용과 요구 분석의 실제 역할을 살펴보겠습니다.</p>
+                        
+                        <div class="mermaid-diagram">
+                            <div class="mermaid">
+                            gantt
+                                title 병원정보시스템 개발 일정 및 비용
+                                dateFormat X
+                                axisFormat %s개월
+                                
+                                section 요구분석
+                                요구사항 수집      :1, 3
+                                문서화 및 검증     :3, 1
+                                
+                                section 설계
+                                아키텍처 설계      :4, 2
+                                상세 설계         :6, 2
+                                
+                                section 구현
+                                핵심 모듈 개발     :8, 4
+                                인터페이스 개발    :10, 3
+                                통합             :13, 1
+                                
+                                section 테스트
+                                단위 테스트       :12, 2
+                                시스템 테스트     :14, 2
+                                사용자 테스트     :16, 1
+                            </div>
+                            <p class="img-caption">18개월 개발 프로젝트의 실제 일정과 단계별 비중</p>
+                        </div>
+                        
+                        <div class="comparison-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>개발 단계</th>
+                                        <th>기간</th>
+                                        <th>투입 인원</th>
+                                        <th>비용</th>
+                                        <th>비율</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="background-color: rgba(16, 185, 129, 0.1);">
+                                        <td><strong>요구 분석</strong></td>
+                                        <td>3개월</td>
+                                        <td>분석가 2명, PM 1명</td>
+                                        <td>1.8억원</td>
+                                        <td>12%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>시스템 설계</td>
+                                        <td>4개월</td>
+                                        <td>아키텍트 1명, 설계자 3명</td>
+                                        <td>3.3억원</td>
+                                        <td>22%</td>
+                                    </tr>
+                                    <tr style="background-color: rgba(239, 68, 68, 0.1);">
+                                        <td><strong>구현/코딩</strong></td>
+                                        <td>8개월</td>
+                                        <td>개발자 12명</td>
+                                        <td>6.9억원</td>
+                                        <td>46%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>테스트</td>
+                                        <td>3개월</td>
+                                        <td>테스터 4명, QA 2명</td>
+                                        <td>3.0억원</td>
+                                        <td>20%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="key-points">
+                            <h4>프로젝트 성과</h4>
+                            <ul>
+                                <li><strong>요구사항 만족도:</strong> 98% (철저한 초기 분석의 결과)</li>
+                                <li><strong>일정 준수:</strong> 5% 지연 (업계 평균 30% 대비 우수)</li>
+                                <li><strong>예산 관리:</strong> 3% 초과 (업계 평균 20% 대비 우수)</li>
+                                <li><strong>성공 요인:</strong> 체계적인 요구 분석으로 개발 중 변경사항 최소화</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>요구 분석 vs 다른 단계 비교</h2>
+                        <p>각 개발 단계의 특성을 비교하여 요구 분석이 왜 비용 최대 단계가 아닌지 명확히 이해해보겠습니다.</p>
+                        
+                        <div class="comparison-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>구분</th>
+                                        <th>요구 분석</th>
+                                        <th>시스템 설계</th>
+                                        <th>구현/코딩</th>
+                                        <th>테스트</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>주요 활동</strong></td>
+                                        <td>요구사항 수집, 분석, 문서화</td>
+                                        <td>아키텍처 설계, UI/UX 설계</td>
+                                        <td>코딩, 모듈 개발, 통합</td>
+                                        <td>테스트 케이스 작성, 실행</td>
+                                    </tr>
+                                    <tr style="background-color: rgba(239, 68, 68, 0.1);">
+                                        <td><strong>비용 비율</strong></td>
+                                        <td>10-15%</td>
+                                        <td>20-25%</td>
+                                        <td><strong>40-50%</strong></td>
+                                        <td>15-20%</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>투입 인력</strong></td>
+                                        <td>1-3명</td>
+                                        <td>2-5명</td>
+                                        <td>5-15명</td>
+                                        <td>2-6명</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>작업 성격</strong></td>
+                                        <td>지적, 창의적</td>
+                                        <td>논리적, 체계적</td>
+                                        <td>반복적, 집약적</td>
+                                        <td>검증적, 분석적</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>위험도</strong></td>
+                                        <td>높음 (초기 실수의 파급효과)</td>
+                                        <td>중간</td>
+                                        <td>중간</td>
+                                        <td>낮음</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="tip-box">
+                            <h4><i class="fas fa-lightbulb"></i> 핵심 인사이트</h4>
+                            <p>요구 분석은 <strong>"적은 비용으로 큰 영향을 미치는"</strong> 단계입니다. 전체 비용의 10-15%만 투입되지만, 이 단계에서의 실수는 후속 단계에서 기하급수적으로 큰 비용을 발생시킬 수 있습니다. 따라서 비용 효율성이 가장 높은 단계라고 할 수 있습니다.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>요구 분석 베스트 프랙티스</h2>
+                        <p>성공적인 요구 분석을 위한 실무 노하우와 주의사항을 정리했습니다.</p>
+                        
+                        <h3>효과적인 요구사항 수집 기법:</h3>
+                        <ul>
+                            <li><strong>인터뷰:</strong> 핵심 사용자와 1:1 심층 인터뷰</li>
+                            <li><strong>워크샵:</strong> 이해관계자들이 함께 참여하는 집단 세션</li>
+                            <li><strong>관찰:</strong> 실제 업무 환경에서 작업 과정 관찰</li>
+                            <li><strong>프로토타이핑:</strong> 시각적 모형을 통한 요구사항 구체화</li>
+                        </ul>
+                        
+                        <div class="key-points">
+                            <h4>SMART 원칙 적용</h4>
+                            <ul>
+                                <li><strong>Specific (구체적):</strong> 모호하지 않고 명확한 표현</li>
+                                <li><strong>Measurable (측정가능):</strong> 정량적으로 평가 가능한 기준</li>
+                                <li><strong>Achievable (달성가능):</strong> 기술적으로 실현 가능한 수준</li>
+                                <li><strong>Relevant (연관성):</strong> 비즈니스 목표와 연결</li>
+                                <li><strong>Time-bound (시한설정):</strong> 명확한 완료 기한</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 주요 위험 요소</h4>
+                            <ul>
+                                <li><strong>요구사항 변경:</strong> 변경 관리 프로세스 수립 필요</li>
+                                <li><strong>이해관계자 갈등:</strong> 우선순위 매트릭스 활용</li>
+                                <li><strong>모호한 요구사항:</strong> 프로토타이핑으로 명확화</li>
+                                <li><strong>범위 크리프:</strong> 명확한 범위 정의와 통제</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>현대적 요구 분석 도구와 방법론</h2>
+                        <p>최신 소프트웨어 개발 환경에서 사용되는 요구 분석 도구들과 애자일 방법론에서의 접근법을 살펴보겠습니다.</p>
+                        
+                        <div class="mermaid-diagram">
+                            <div class="mermaid">
+                            graph TB
+                                A[전통적 방법론] --> B[폭포수 모델]
+                                A --> C[완전한 사전 분석]
+                                A --> D[상세한 문서화]
+                                
+                                E[애자일 방법론] --> F[스크럼/칸반]
+                                E --> G[점진적 요구사항 발견]
+                                E --> H[사용자 스토리]
+                                
+                                B --> I[단계별 승인]
+                                F --> J[스프린트별 개발]
+                                
+                                style A fill:#fff3e0
+                                style E fill:#e8f5e8
+                                style B fill:#f3e5f5
+                                style F fill:#e1f5fe
+                            </div>
+                            <p class="img-caption">전통적 방법론 vs 애자일 방법론의 요구 분석 접근법</p>
+                        </div>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-language">
+                                    <i class="fas fa-tasks"></i>
+                                    <span>사용자 스토리 예시</span>
+                                </div>
+                                <button class="copy-btn" data-code="user-story">
+                                    <i class="far fa-copy"></i>
+                                    <span>복사</span>
+                                </button>
+                            </div>
+                            <pre><code class="language-text">
+사용자 스토리: 온라인 쇼핑몰 로그인
+
+As a: 온라인 쇼핑몰 고객 (사용자)
+I want: 이메일과 비밀번호로 로그인하고 싶다 (기능)
+So that: 개인화된 서비스를 받을 수 있다 (가치)
+
+인수 조건 (Acceptance Criteria):
+✓ 유효한 이메일 형식만 입력 가능해야 한다
+✓ 비밀번호는 8자 이상이어야 한다
+✓ 잘못된 정보 입력 시 명확한 오류 메시지를 표시해야 한다
+✓ 로그인 성공 시 개인 대시보드로 이동해야 한다
+✓ "로그인 유지" 옵션을 제공해야 한다
+
+예상 공수: 3 스토리 포인트
+우선순위: High
+                        </code></pre>
+                        </div>
+                        
+                        <h3>주요 요구 분석 도구:</h3>
+                        <ul>
+                            <li><strong>Jira + Confluence:</strong> 요구사항 추적, 백로그 관리, 문서화 통합 지원</li>
+                            <li><strong>Figma + Miro:</strong> 사용자 여정 맵핑, 와이어프레임, 프로토타입 제작</li>
+                            <li><strong>Azure DevOps:</strong> 요구사항부터 배포까지 전체 라이프사이클 관리</li>
+                            <li><strong>Notion:</strong> 협업 문서화 및 요구사항 정리</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>결론 및 핵심 포인트</h2>
+                        <p>소프트웨어 개발에서 요구 분석 과정의 특성과 중요성을 종합적으로 정리하겠습니다.</p>
+                        
+                        <div class="key-points">
+                            <h4>핵심 결론</h4>
+                            <ul>
+                                <li><strong>정답 ②번:</strong> 요구 분석은 개발 비용이 가장 많이 소요되는 단계가 아니다</li>
+                                <li><strong>실제 최고비용 단계:</strong> 구현(코딩) 단계가 40-50%로 가장 많은 비용 차지</li>
+                                <li><strong>요구 분석의 특성:</strong> 적은 비용(10-15%)으로 큰 영향을 미치는 고효율 단계</li>
+                                <li><strong>다른 선택지들:</strong> ①③④번은 모두 요구 분석의 올바른 특성을 설명</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mermaid-diagram">
+                            <div class="mermaid">
+                            pie title 소프트웨어 개발 단계별 비용 분포
+                                "구현/코딩 (45%)" : 45
+                                "시스템 설계 (22%)" : 22
+                                "테스트 (18%)" : 18
+                                "요구 분석 (12%)" : 12
+                                "기타 (3%)" : 3
+                            </div>
+                            <p class="img-caption">실제 프로젝트 데이터 기반 비용 분포 - 요구 분석은 가장 적은 비용 차지</p>
+                        </div>
+                        
+                        <div class="tip-box">
+                            <h4><i class="fas fa-lightbulb"></i> 마지막 인사이트</h4>
+                            <p>요구 분석의 진정한 가치는 <strong>"비용 절약"</strong>에 있습니다. 초기에 철저한 분석을 통해 후속 단계에서 발생할 수 있는 막대한 수정 비용을 예방할 수 있습니다. 1달러의 요구 분석 투자가 100달러의 수정 비용을 절약할 수 있다는 것이 업계의 정설입니다.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tags">
+                        <span class="tag">소프트웨어 엔지니어링</span>
+                        <span class="tag">요구 분석</span>
+                        <span class="tag">SDLC</span>
+                        <span class="tag">시스템 분석</span>
+                        <span class="tag">프로젝트 관리</span>
+                        <span class="tag">DFD</span>
+                        <span class="tag">요구사항 명세</span>
+                    </div>
+                    
+                    <div class="author-section">
+                        <div class="author-avatar">
+                            <img src="/api/placeholder/160/160" alt="저자 아바타">
+                        </div>
+                        <div class="author-info">
+                            <h4>김소프트</h4>
+                            <p>15년 경력의 시니어 시스템 분석가이자 소프트웨어 아키텍트. 대형 SI 프로젝트부터 스타트업 MVP까지 다양한 규모의 요구 분석 경험을 보유하고 있으며, 실무진을 위한 체계적인 방법론 교육에 힘쓰고 있습니다.</p>
+                            <div class="author-social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            <div class="related-posts" data-aos="fade-up">
+                <h3>관련 기사</h3>
+                <div class="posts-grid">
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="/api/placeholder/400/200" alt="UML 다이어그램">
+                        </div>
+                        <div class="post-content">
+                            <h4>UML을 활용한 시스템 모델링</h4>
+                            <p>현대 소프트웨어 개발에서 UML 다이어그램을 효과적으로 활용하여 시스템을 설계하고 문서화하는 방법을 알아보세요.</p>
+                            <a href="#" class="read-more">더 읽기 →</a>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="/api/placeholder/400/200" alt="애자일 방법론">
+                        </div>
+                        <div class="post-content">
+                            <h4>애자일 환경에서의 요구사항 관리</h4>
+                            <p>스크럼과 칸반 환경에서 사용자 스토리와 백로그를 효과적으로 관리하는 현대적 접근법을 소개합니다.</p>
+                            <a href="#" class="read-more">더 읽기 →</a>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-image">
+                            <img src="/api/placeholder/400/200" alt="프로젝트 관리">
+                        </div>
+                        <div class="post-content">
+                            <h4>소프트웨어 프로젝트 리스크 관리</h4>
+                            <p>소프트웨어 개발 프로젝트에서 발생할 수 있는 주요 위험 요소들을 식별하고 관리하는 체계적인 방법론을 다룹니다.</p>
+                            <a href="#" class="read-more">더 읽기 →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-code"></i>
+                    <span>CodeInsight</span>
+                </div>
+                <p>소프트웨어 개발의 모든 것을 명확하고 실용적으로 설명합니다.</p>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>콘텐츠</h4>
+                        <ul>
+                            <li><a href="#">기사</a></li>
+                            <li><a href="#">튜토리얼</a></li>
+                            <li><a href="#">리소스</a></li>
+                            <li><a href="#">실무 가이드</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>연결</h4>
+                        <ul>
+                            <li><a href="#">뉴스레터</a></li>
+                            <li><a href="#">트위터</a></li>
+                            <li><a href="#">깃허브</a></li>
+                            <li><a href="#">슬랙</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>법률</h4>
+                        <ul>
+                            <li><a href="#">개인정보 정책</a></li>
+                            <li><a href="#">서비스 약관</a></li>
+                            <li><a href="#">쿠키 정책</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CodeInsight. 모든 권리 보유.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+    
+    <!-- Initialize Mermaid diagrams -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: 'dark',
+                themeVariables: {
+                    primaryColor: '#6366f1',
+                    primaryTextColor: '#f3f4f6',
+                    primaryBorderColor: '#4b5563',
+                    lineColor: '#9ca3af',
+                    secondaryColor: '#10b981',
+                    tertiaryColor: '#374151'
+                }
+            });
+        });
+    </script>
+</body>
+</html>

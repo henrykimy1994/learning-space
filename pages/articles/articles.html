@@ -17,15 +17,15 @@
 <body>
     <header>
         <div class="container header-content">
-            <a href="index.html" class="logo">
+            <a href="/index.html" class="logo">
                 <i class="fas fa-code"></i>
                 <span>CodeInsight</span>
             </a>
             <nav>
                 <ul>
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="articles.html" class="active">Articles</a></li>
-                    <li><a href="../categories/categories.html">Categories</a></li>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/pages/articles/articles.html" class="active">Articles</a></li>
+                    <li><a href="/pages/categories/categories.html">Categories</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -56,84 +56,21 @@
                             <span>Category</span>
                             <i class="fas fa-chevron-down"></i>
                         </button>
-                        <div class="dropdown-content">
-                            <div class="dropdown-item">
-                                <input type="checkbox" id="cat-all" checked>
-                                <label for="cat-all">All Categories</label>
-                            </div>
-                            <div class="dropdown-item">
-                                <input type="checkbox" id="cat-CIPE">
-                                <label for="cat-CIPE">CIPE</label>
-                            </div>
-                            <div class="dropdown-item">
-                                <input type="checkbox" id="cat-algorithms">
-                                <label for="cat-algorithms">Algorithms</label>
-                            </div>
-                            <div class="dropdown-item">
-                                <input type="checkbox" id="cat-data-structures">
-                                <label for="cat-data-structures">Data Structures</label>
-                            </div>
-                            <div class="dropdown-item">
-                                <input type="checkbox" id="cat-javascript">
-                                <label for="cat-javascript">JavaScript</label>
-                            </div>
-                            <div class="dropdown-item">
-                                <input type="checkbox" id="cat-python">
-                                <label for="cat-python">Python</label>
-                            </div>
-                            <div class="dropdown-item">
-                                <input type="checkbox" id="cat-react">
-                                <label for="cat-react">React</label>
-                            </div>
-                            <div class="dropdown-item">
-                                <input type="checkbox" id="cat-devops">
-                                <label for="cat-devops">DevOps</label>
-                            </div>
-                        </div>
+                        <div class="dropdown-content" id="dropdown-cat"></div>
                     </div>
                     <div class="filter-dropdown">
                         <button class="dropdown-btn">
                             <span>Date</span>
                             <i class="fas fa-chevron-down"></i>
                         </button>
-                        <div class="dropdown-content">
-                            <div class="dropdown-item">
-                                <input type="radio" name="date-filter" id="date-all" checked>
-                                <label for="date-all">All Time</label>
-                            </div>
-                            <div class="dropdown-item">
-                                <input type="radio" name="date-filter" id="date-last-week">
-                                <label for="date-last-week">Last Week</label>
-                            </div>
-                            <div class="dropdown-item">
-                                <input type="radio" name="date-filter" id="date-last-month">
-                                <label for="date-last-month">Last Month</label>
-                            </div>
-                            <div class="dropdown-item">
-                                <input type="radio" name="date-filter" id="date-last-year">
-                                <label for="date-last-year">Last Year</label>
-                            </div>
-                        </div>
+                        <div class="dropdown-content" id="dropdown-date"></div>
                     </div>
                     <div class="filter-dropdown">
                         <button class="dropdown-btn">
                             <span>Sort By</span>
                             <i class="fas fa-chevron-down"></i>
                         </button>
-                        <div class="dropdown-content">
-                            <div class="dropdown-item">
-                                <input type="radio" name="sort-filter" id="sort-newest" checked>
-                                <label for="sort-newest">Newest First</label>
-                            </div>
-                            <div class="dropdown-item">
-                                <input type="radio" name="sort-filter" id="sort-oldest">
-                                <label for="sort-oldest">Oldest First</label>
-                            </div>
-                            <div class="dropdown-item">
-                                <input type="radio" name="sort-filter" id="sort-popular">
-                                <label for="sort-popular">Most Popular</label>
-                            </div>
-                        </div>
+                        <div class="dropdown-content" id="dropdown-sortby"></div>
                     </div>
                     <button id="clear-filters-btn">Clear Filters</button>
                 </div>
@@ -146,275 +83,7 @@
 
     <section class="articles-section">
         <div class="container">
-            <div class="articles-grid" id="articles-container">
-                <!-- CIPE -->
-                <article class="article-card" data-category="CIPE" data-date="2025-05-16" data-popularity="85">
-                    <a href="../detail/CIPE/software-design/OOA-methodology/yourdon-coad/index.html" class="article-link">
-                        <div class="article-image">
-                            <img src="../../assets/images/categories/detail/CIPE/software-design/OOA-methodology/yourdon-coad/coad-yourdon-methodology.png" alt="coad-yourdon-methodology">
-                            <div class="article-category">CIPE</div>
-                        </div>
-                        <div class="article-content">
-                            <h2>OOA Coad-Yourdon Methodology</h2>
-                            <p>
-                                The Coad-Yourdon methodology is an object-oriented analysis and design approach developed by Peter Coad and Edward Yourdon in the early 1990s. This methodology provides a systematic framework for understanding and modeling complex systems from an object-oriented perspective.
-                            </p>
-                            <div class="article-meta">
-                                <span><i class="far fa-calendar"></i> May 16, 2025</span>
-                                <span><i class="far fa-clock"></i> 8 min read</span>
-                                <span><i class="far fa-eye"></i> 1.2K views</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-
-                <!-- Article 1 -->
-                <article class="article-card" data-category="algorithms" data-date="2025-05-16" data-popularity="85">
-                    <a href="blog-post.html" class="article-link">
-                        <div class="article-image">
-                            <img src="/api/placeholder/400/250" alt="Recursion visualization">
-                            <div class="article-category">Algorithms</div>
-                        </div>
-                        <div class="article-content">
-                            <h2>Understanding Recursion</h2>
-                            <p>Explore the elegant and powerful concept of recursion in programming, with clear examples and visualizations to help solidify your understanding.</p>
-                            <div class="article-meta">
-                                <span><i class="far fa-calendar"></i> May 16, 2025</span>
-                                <span><i class="far fa-clock"></i> 8 min read</span>
-                                <span><i class="far fa-eye"></i> 1.2K views</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-
-                <!-- Article 1 -->
-                <article class="article-card" data-category="algorithms" data-date="2025-05-16" data-popularity="85">
-                    <a href="blog-post.html" class="article-link">
-                        <div class="article-image">
-                            <img src="/api/placeholder/400/250" alt="Recursion visualization">
-                            <div class="article-category">Algorithms</div>
-                        </div>
-                        <div class="article-content">
-                            <h2>Understanding Recursion</h2>
-                            <p>Explore the elegant and powerful concept of recursion in programming, with clear examples and visualizations to help solidify your understanding.</p>
-                            <div class="article-meta">
-                                <span><i class="far fa-calendar"></i> May 16, 2025</span>
-                                <span><i class="far fa-clock"></i> 8 min read</span>
-                                <span><i class="far fa-eye"></i> 1.2K views</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                
-                <!-- Article 2 -->
-                <article class="article-card" data-category="javascript" data-date="2025-05-10" data-popularity="92">
-                    <a href="#" class="article-link">
-                        <div class="article-image">
-                            <img src="/api/placeholder/400/250" alt="Promises diagram">
-                            <div class="article-category">JavaScript</div>
-                        </div>
-                        <div class="article-content">
-                            <h2>Mastering JavaScript Promises</h2>
-                            <p>Understand the asynchronous nature of JavaScript and how to leverage promises for cleaner, more maintainable code.</p>
-                            <div class="article-meta">
-                                <span><i class="far fa-calendar"></i> May 10, 2025</span>
-                                <span><i class="far fa-clock"></i> 12 min read</span>
-                                <span><i class="far fa-eye"></i> 2.4K views</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                
-                <!-- Article 3 -->
-                <article class="article-card" data-category="algorithms" data-date="2025-05-05" data-popularity="78">
-                    <a href="#" class="article-link">
-                        <div class="article-image">
-                            <img src="/api/placeholder/400/250" alt="Big O notation graph">
-                            <div class="article-category">Algorithms</div>
-                        </div>
-                        <div class="article-content">
-                            <h2>Demystifying Big O Notation</h2>
-                            <p>Learn how to analyze and optimize your algorithms with a clear understanding of time and space complexity.</p>
-                            <div class="article-meta">
-                                <span><i class="far fa-calendar"></i> May 5, 2025</span>
-                                <span><i class="far fa-clock"></i> 10 min read</span>
-                                <span><i class="far fa-eye"></i> 1.8K views</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                
-                <!-- Article 4 -->
-                <article class="article-card" data-category="devops" data-date="2025-05-12" data-popularity="65">
-                    <a href="#" class="article-link">
-                        <div class="article-image">
-                            <img src="/api/placeholder/400/250" alt="Docker containers">
-                            <div class="article-category">DevOps</div>
-                        </div>
-                        <div class="article-content">
-                            <h2>Containerization with Docker: A Beginner's Guide</h2>
-                            <p>Learn the fundamentals of Docker and how it's revolutionizing application deployment.</p>
-                            <div class="article-meta">
-                                <span><i class="far fa-calendar"></i> May 12, 2025</span>
-                                <span><i class="far fa-clock"></i> 11 min read</span>
-                                <span><i class="far fa-eye"></i> 980 views</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                
-                <!-- Article 5 -->
-                <article class="article-card" data-category="javascript" data-date="2025-05-08" data-popularity="72">
-                    <a href="#" class="article-link">
-                        <div class="article-image">
-                            <img src="/api/placeholder/400/250" alt="Functional programming">
-                            <div class="article-category">JavaScript</div>
-                        </div>
-                        <div class="article-content">
-                            <h2>Thinking Functionally: Pure Functions and Immutability</h2>
-                            <p>Understand the core principles of functional programming and how they lead to more maintainable code.</p>
-                            <div class="article-meta">
-                                <span><i class="far fa-calendar"></i> May 8, 2025</span>
-                                <span><i class="far fa-clock"></i> 7 min read</span>
-                                <span><i class="far fa-eye"></i> 1.5K views</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                
-                <!-- Article 6 -->
-                <article class="article-card" data-category="react" data-date="2025-05-06" data-popularity="88">
-                    <a href="#" class="article-link">
-                        <div class="article-image">
-                            <img src="/api/placeholder/400/250" alt="React hooks diagram">
-                            <div class="article-category">React</div>
-                        </div>
-                        <div class="article-content">
-                            <h2>Understanding React Hooks: useState and useEffect</h2>
-                            <p>Master the fundamentals of React's hook system for more efficient component development.</p>
-                            <div class="article-meta">
-                                <span><i class="far fa-calendar"></i> May 6, 2025</span>
-                                <span><i class="far fa-clock"></i> 8 min read</span>
-                                <span><i class="far fa-eye"></i> 2.1K views</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                
-                <!-- Article 7 -->
-                <article class="article-card" data-category="data-structures" data-date="2025-05-04" data-popularity="70">
-                    <a href="#" class="article-link">
-                        <div class="article-image">
-                            <img src="/api/placeholder/400/250" alt="Binary trees diagram">
-                            <div class="article-category">Data Structures</div>
-                        </div>
-                        <div class="article-content">
-                            <h2>Binary Trees: Implementation and Traversal</h2>
-                            <p>Learn how to implement binary trees and the different methods for traversing them efficiently.</p>
-                            <div class="article-meta">
-                                <span><i class="far fa-calendar"></i> May 4, 2025</span>
-                                <span><i class="far fa-clock"></i> 9 min read</span>
-                                <span><i class="far fa-eye"></i> 1.3K views</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                
-                <!-- Article 8 -->
-                <article class="article-card" data-category="python" data-date="2025-05-01" data-popularity="75">
-                    <a href="#" class="article-link">
-                        <div class="article-image">
-                            <img src="/api/placeholder/400/250" alt="Python generators illustration">
-                            <div class="article-category">Python</div>
-                        </div>
-                        <div class="article-content">
-                            <h2>Python Generators and Yield Statements</h2>
-                            <p>Explore Python's generator functions and how they can help you write more memory-efficient code.</p>
-                            <div class="article-meta">
-                                <span><i class="far fa-calendar"></i> May 1, 2025</span>
-                                <span><i class="far fa-clock"></i> 10 min read</span>
-                                <span><i class="far fa-eye"></i> 1.7K views</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                
-                <!-- Article 9 -->
-                <article class="article-card" data-category="devops" data-date="2025-04-28" data-popularity="60">
-                    <a href="#" class="article-link">
-                        <div class="article-image">
-                            <img src="/api/placeholder/400/250" alt="CI/CD pipeline diagram">
-                            <div class="article-category">DevOps</div>
-                        </div>
-                        <div class="article-content">
-                            <h2>Building CI/CD Pipelines with GitHub Actions</h2>
-                            <p>Learn how to automate your testing and deployment workflow using GitHub's powerful CI/CD platform.</p>
-                            <div class="article-meta">
-                                <span><i class="far fa-calendar"></i> April 28, 2025</span>
-                                <span><i class="far fa-clock"></i> 14 min read</span>
-                                <span><i class="far fa-eye"></i> 950 views</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                
-                <!-- Article 10 -->
-                <article class="article-card" data-category="data-structures" data-date="2025-04-25" data-popularity="82">
-                    <a href="#" class="article-link">
-                        <div class="article-image">
-                            <img src="/api/placeholder/400/250" alt="Hash tables visualization">
-                            <div class="article-category">Data Structures</div>
-                        </div>
-                        <div class="article-content">
-                            <h2>Hash Tables Explained: From Theory to Implementation</h2>
-                            <p>Understand how hash tables work under the hood and implement your own efficient hash table.</p>
-                            <div class="article-meta">
-                                <span><i class="far fa-calendar"></i> April 25, 2025</span>
-                                <span><i class="far fa-clock"></i> 12 min read</span>
-                                <span><i class="far fa-eye"></i> 1.9K views</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                
-                <!-- Article 11 -->
-                <article class="article-card" data-category="python" data-date="2025-04-20" data-popularity="68">
-                    <a href="#" class="article-link">
-                        <div class="article-image">
-                            <img src="/api/placeholder/400/250" alt="Python decorators illustration">
-                            <div class="article-category">Python</div>
-                        </div>
-                        <div class="article-content">
-                            <h2>Mastering Python Decorators</h2>
-                            <p>Learn how to use Python's decorator pattern to enhance functions and classes with additional functionality.</p>
-                            <div class="article-meta">
-                                <span><i class="far fa-calendar"></i> April 20, 2025</span>
-                                <span><i class="far fa-clock"></i> 11 min read</span>
-                                <span><i class="far fa-eye"></i> 1.4K views</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-                
-                <!-- Article 12 -->
-                <article class="article-card" data-category="react" data-date="2025-04-15" data-popularity="90">
-                    <a href="#" class="article-link">
-                        <div class="article-image">
-                            <img src="/api/placeholder/400/250" alt="React context API diagram">
-                            <div class="article-category">React</div>
-                        </div>
-                        <div class="article-content">
-                            <h2>State Management in React: Context API vs. Redux</h2>
-                            <p>Compare React's built-in Context API with Redux for managing state in your applications.</p>
-                            <div class="article-meta">
-                                <span><i class="far fa-calendar"></i> April 15, 2025</span>
-                                <span><i class="far fa-clock"></i> 13 min read</span>
-                                <span><i class="far fa-eye"></i> 2.3K views</span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-            </div>
+            <div class="articles-grid" id="articles-container"></div>
             
             <div class="pagination">
                 <button class="pagination-btn prev" disabled><i class="fas fa-chevron-left"></i> Previous</button>

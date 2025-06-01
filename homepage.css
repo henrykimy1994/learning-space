@@ -296,13 +296,6 @@ nav a.active::after {
     transform: rotate(180deg);
 }
 
-.hero-wave svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 100px;
-}
-
 /* Featured Section */
 .featured {
     padding: 6rem 0;

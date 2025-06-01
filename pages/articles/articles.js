@@ -1,5 +1,17 @@
+
+const pageInfo = {
+    articlesData: null,
+    articles: null,
+    currentPageNumber: 1,
+    filterOptions: {
+        categoryOption: 'all-categories',
+        dateOption: 'all-time',
+        sortbyOption: 'newest-first'
+    }
+}
+
 // Wait for the DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     // Initialize AOS (Animate On Scroll) library
     AOS.init({
         duration: 800,
@@ -7,6 +19,15 @@ document.addEventListener('DOMContentLoaded', function() {
         once: true,
         mirror: false
     });
+
+    // load articles
+    await getArticleData();
+
+    // insert articles HTML content
+    await generateArticles();
+
+    // insert filter select dropdown HTML content
+    await generateDropdownSelects();
     
     // Set up header scroll effect
     setupHeaderScroll();
@@ -29,6 +50,102 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set up newsletter form
     setupNewsletterForm();
 });
+
+const getArticleData = async () => {
+    try {
+        const response = await fetch('/assets/data/articles.json');
+        const articlesData = await response.json();
+        pageInfo.articles = Object.values(articlesData).flat().sort((a, b) => { return new Date(b.date) - new Date(a.date) })
+        pageInfo.articlesData = articlesData
+    } catch (error) {
+        log.error('Error loading articles: ', error);
+    }
+}
+
+const generateArticles = async () => {
+    const articlesContainer = document.getElementById('articles-container')
+
+    const articleElement =  
+
+    pageInfo.articles.forEach(articleItem => {
+        const articleElement = `
+        <article class="article-card" data-category="${articleItem.category}" data-date="${articleItem.date}" data-popularity="${articleItem.popularity}">
+                    <a href="${articleItem.link}" class="article-link">
+                        <div class="article-image">
+                            <img src="${articleItem.image}" alt="${articleItem.alt}">
+                            <div class="article-category">${articleItem.categoryDisplay}</div>
+                        </div>
+                        <div class="article-content">
+                            <h2>${articleItem.title}</h2>
+                            <p>
+                                ${articleItem.description}
+                            </p>
+                            <div class="article-meta">
+                                <span><i class="far fa-calendar"></i>${articleItem.date}</span>
+                                <span><i class="far fa-clock"></i>${articleItem.readTime}</span>
+                                <span><i class="far fa-eye"></i>${articleItem.views}</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+        `
+        articlesContainer.insertAdjacentHTML('afterbegin',articleElement)
+    })
+}
+
+const generateCategorySelectDropdown = async () => {
+    const dropdownCategoryContainer = document.getElementById('dropdown-cat');
+    dropdownCategoryContainer.insertAdjacentHTML('afterbegin', `<div class="dropdown-item">
+                                                                    <input type="checkbox" id="all-categories">
+                                                                    <label for="cat-all">All Categories</label>
+                                                                </div>`)
+
+    Object.keys(pageInfo.articlesData).sort((a,b) => b - a).forEach(categorySelectItem => {
+        const categoryElement = `
+        <div class="dropdown-item">
+            <input type="checkbox" id="${categorySelectItem}">
+            <label for="cat-all">${categorySelectItem.replaceAll('-', ' ').replace(/\b\w/g, (char) => char.toUpperCase())}</label>
+        </div>
+        `
+        dropdownCategoryContainer.insertAdjacentHTML('beforeend', categoryElement)
+    })
+}
+
+const generateDateSelectDropdown = async () => {
+    const dateCategories = ['all-time', 'last-week', 'last-month', 'last-year']
+    const dropdownCategoryContainer = document.getElementById('dropdown-date');
+    dateCategories.forEach(dateCategoryItem => {
+        dropdownCategoryContainer.insertAdjacentHTML('beforeend', `<div class="dropdown-item" id="dropdown-date">
+                                                                        <input type="radio" name="date-filter" id="${dateCategoryItem}">
+                                                                        <label for="date-all">${dateCategoryItem.replaceAll('-', ' ').replace(/\b\w/g, (char) => char.toUpperCase())}</label>
+                                                                    </div>`)
+    });
+}
+
+const generateSortbySelectDropdown = async () => {
+    const dateCategories = ['newest-first', 'oldest-first', 'most-popular']
+    const dropdownCategoryContainer = document.getElementById('dropdown-sortby');
+    dateCategories.forEach(sortbyCategoryItem => {
+        dropdownCategoryContainer.insertAdjacentHTML('beforeend', `<div class="dropdown-item">
+                                                                        <input type="radio" name="sort-filter" id="${sortbyCategoryItem}">
+                                                                        <label for="sort-newest">${sortbyCategoryItem.replaceAll('-', ' ').replace(/\b\w/g, (char) => char.toUpperCase())}</label>
+                                                                    </div>`)
+    });
+}
+
+const setFilterOptions = async () => {
+    document.getElementById(`${pageInfo.filterOptions.categoryOption}`).setAttribute('checked', 'checked');
+    document.getElementById(`${pageInfo.filterOptions.dateOption}`).setAttribute('checked', 'checked');
+    document.getElementById(`${pageInfo.filterOptions.sortbyOption}`).setAttribute('checked', 'checked');
+
+}
+
+const generateDropdownSelects = async () => {
+    await generateCategorySelectDropdown();
+    await generateDateSelectDropdown();
+    await generateSortbySelectDropdown();
+    await setFilterOptions();
+}
 
 /**
  * Set up header background change on scroll

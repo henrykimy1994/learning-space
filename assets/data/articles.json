@@ -1,0 +1,185 @@
+{
+  "algorithms": [
+    {
+      "category": "algorithms",
+      "categoryDisplay": "Algorithms",
+      "date": "2025-05-16",
+      "popularity": 85,
+      "link": "#",
+      "image": "https://placehold.co/400x250",
+      "alt": "Recursion visualization",
+      "title": "Understanding Recursion",
+      "description": "Explore the elegant and powerful concept of recursion in programming, with clear examples and visualizations to help solidify your understanding.",
+      "readTime": "8 min read",
+      "views": "1.2K views"
+    },
+    {
+      "category": "algorithms",
+      "categoryDisplay": "Algorithms",
+      "date": "2025-05-05",
+      "popularity": 78,
+      "link": "#",
+      "image": "https://placehold.co/400x250",
+      "alt": "Big O notation graph",
+      "title": "Demystifying Big O Notation",
+      "description": "Learn how to analyze and optimize your algorithms with a clear understanding of time and space complexity.",
+      "readTime": "10 min read",
+      "views": "1.8K views"
+    }
+  ],
+  "CIPE-Software-Design": [
+    {
+      "category": "CIPE-Software-Design",
+      "categoryDisplay": "CIPE Software Design",
+      "date": "2025-05-16",
+      "popularity": 85,
+      "link": "/pages/detail/CIPE/software-design/OOA-methodology/yourdon-coad/korean/index.html",
+      "image": "/assets/images/categories/detail/CIPE/software-design/OOA-methodology/yourdon-coad/coad-yourdon-methodology.png",
+      "alt": "coad-yourdon-methodology",
+      "title": "OOA Coad-Yourdon Methodology",
+      "description": "The Coad-Yourdon methodology is an object-oriented analysis and design approach developed by Peter Coad and Edward Yourdon in the early 1990s. This methodology provides a systematic framework for understanding and modeling complex systems from an object-oriented perspective.",
+      "readTime": "8 min read",
+      "views": "1.2K views"
+    }
+  ],
+  "data-structures": [
+    {
+      "category": "data-structures",
+      "categoryDisplay": "Data Structures",
+      "date": "2025-05-04",
+      "popularity": 70,
+      "link": "#",
+      "image": "https://placehold.co/400x250",
+      "alt": "Binary trees diagram",
+      "title": "Binary Trees: Implementation and Traversal",
+      "description": "Learn how to implement binary trees and the different methods for traversing them efficiently.",
+      "readTime": "9 min read",
+      "views": "1.3K views"
+    },
+    {
+      "category": "data-structures",
+      "categoryDisplay": "Data Structures",
+      "date": "2025-04-25",
+      "popularity": 82,
+      "link": "#",
+      "image": "https://placehold.co/400x250",
+      "alt": "Hash tables visualization",
+      "title": "Hash Tables Explained: From Theory to Implementation",
+      "description": "Understand how hash tables work under the hood and implement your own efficient hash table.",
+      "readTime": "12 min read",
+      "views": "1.9K views"
+    }
+  ],
+  "devops": [
+    {
+      "category": "devops",
+      "categoryDisplay": "DevOps",
+      "date": "2025-05-12",
+      "popularity": 65,
+      "link": "#",
+      "image": "https://placehold.co/400x250",
+      "alt": "Docker containers",
+      "title": "Containerization with Docker: A Beginner's Guide",
+      "description": "Learn the fundamentals of Docker and how it's revolutionizing application deployment.",
+      "readTime": "11 min read",
+      "views": "980 views"
+    },
+    {
+      "category": "devops",
+      "categoryDisplay": "DevOps",
+      "date": "2025-04-28",
+      "popularity": 60,
+      "link": "#",
+      "image": "https://placehold.co/400x250",
+      "alt": "CI/CD pipeline diagram",
+      "title": "Building CI/CD Pipelines with GitHub Actions",
+      "description": "Learn how to automate your testing and deployment workflow using GitHub's powerful CI/CD platform.",
+      "readTime": "14 min read",
+      "views": "950 views"
+    }
+  ],
+  "javascript": [
+    {
+      "category": "javascript",
+      "categoryDisplay": "JavaScript",
+      "date": "2025-05-10",
+      "popularity": 92,
+      "link": "#",
+      "image": "https://placehold.co/400x250",
+      "alt": "Promises diagram",
+      "title": "Mastering JavaScript Promises",
+      "description": "Understand the asynchronous nature of JavaScript and how to leverage promises for cleaner, more maintainable code.",
+      "readTime": "12 min read",
+      "views": "2.4K views"
+    },
+    {
+      "category": "javascript",
+      "categoryDisplay": "JavaScript",
+      "date": "2025-05-08",
+      "popularity": 72,
+      "link": "#",
+      "image": "https://placehold.co/400x250",
+      "alt": "Functional programming",
+      "title": "Thinking Functionally: Pure Functions and Immutability",
+      "description": "Understand the core principles of functional programming and how they lead to more maintainable code.",
+      "readTime": "7 min read",
+      "views": "1.5K views"
+    }
+  ],
+  "python": [
+    {
+      "category": "python",
+      "categoryDisplay": "Python",
+      "date": "2025-05-01",
+      "popularity": 75,
+      "link": "#",
+      "image": "https://placehold.co/400x250",
+      "alt": "Python generators illustration",
+      "title": "Python Generators and Yield Statements",
+      "description": "Explore Python's generator functions and how they can help you write more memory-efficient code.",
+      "readTime": "10 min read",
+      "views": "1.7K views"
+    },
+    {
+      "category": "python",
+      "categoryDisplay": "Python",
+      "date": "2025-04-20",
+      "popularity": 68,
+      "link": "#",
+      "image": "https://placehold.co/400x250",
+      "alt": "Python decorators illustration",
+      "title": "Mastering Python Decorators",
+      "description": "Learn how to use Python's decorator pattern to enhance functions and classes with additional functionality.",
+      "readTime": "11 min read",
+      "views": "1.4K views"
+    }
+  ],
+  "react": [
+    {
+      "category": "react",
+      "categoryDisplay": "React",
+      "date": "2025-05-06",
+      "popularity": 88,
+      "link": "#",
+      "image": "https://placehold.co/400x250",
+      "alt": "React hooks diagram",
+      "title": "Understanding React Hooks: useState and useEffect",
+      "description": "Master the fundamentals of React's hook system for more efficient component development.",
+      "readTime": "8 min read",
+      "views": "2.1K views"
+    },
+    {
+      "category": "react",
+      "categoryDisplay": "React",
+      "date": "2025-04-15",
+      "popularity": 90,
+      "link": "#",
+      "image": "https://placehold.co/400x250",
+      "alt": "React context API diagram",
+      "title": "State Management in React: Context API vs. Redux",
+      "description": "Compare React's built-in Context API with Redux for managing state in your applications.",
+      "readTime": "13 min read",
+      "views": "2.3K views"
+    }
+  ]
+}
