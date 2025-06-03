@@ -1,0 +1,27 @@
+[
+    {
+        "label": "Home",
+        "href": "index.html",
+        "active": true
+    },
+    {
+        "label": "Articles",
+        "href": "./pages/articles/articles.html",
+        "active": false
+    },
+    {
+        "label": "Categories",
+        "href": "./pages/categories/categories.html",
+        "active": false
+    },
+    {
+        "label": "About",
+        "href": "#",
+        "active": false
+    },
+    {
+        "label": "Contact",
+        "href": "#",
+        "active": false
+    }
+]

@@ -1,5 +1,9 @@
+window.pageInfo = {
+    menulist: null,
+}
+
 // Wait for the DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded',async function() {
     // Initialize AOS (Animate On Scroll) library
     AOS.init({
         duration: 800,
@@ -25,7 +29,34 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add code highlight animation
     setupCodeHighlight();
+
+    // Set up menu list
+    await getMenuList();
+
+    await generateMenuList();
 });
+
+const generateMenuList = async () => {
+    const navList = document.getElementById('nav-list');
+    const navLustMobile = document.getElementById('nav-list-mobile');
+
+    window.pageInfo.menulist.forEach(menuItem => {
+        navList.insertAdjacentHTML('beforeend', `<li><a href="${menuItem.href}" class="${menuItem.active ? 'active' : ''}">${menuItem.label}</a></li>`)
+        navLustMobile.insertAdjacentHTML('beforeend', `<li><a href="${menuItem.href}" class="${menuItem.active ? 'active' : ''}">${menuItem.label}</a></li>`)
+    })
+}
+
+/**
+ * Set up menu list
+ */
+const getMenuList = async () => {
+    try {
+        const menulist = await fetch('/assets/data/menu.json');
+        window.pageInfo.menulist = await menulist.json();
+    } catch (error) {
+        log.error(error);
+    }
+}
 
 /**
  * Set up header background change on scroll
@@ -42,76 +73,123 @@ function setupHeaderScroll() {
     });
 }
 
+function closeMenu() {
+    // Add closing class for animation
+    mobileMenu.classList.add('closing');
+    menuButton.classList.remove('active');
+    backdrop.classList.remove('active');
+    
+    // Change X back to hamburger
+    const icon = menuButton.querySelector('.fas');
+    icon.classList.remove('fa-times');
+    icon.classList.add('fa-bars');
+    
+    // Wait for animation to complete before removing active class
+    setTimeout(() => {
+        mobileMenu.classList.remove('active');
+        mobileMenu.classList.remove('closing');
+        document.body.style.overflow = '';
+        isOpen = false;
+    }, 400); // Match the CSS transition duration
+}
+
 /**
  * Set up mobile menu functionality
  */
 function setupMobileMenu() {
     const menuButton = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeButton = document.querySelector('.mobile-menu-close');
+    const backdrop = document.querySelector('.mobile-menu-backdrop');
     const nav = document.querySelector('nav ul');
     
-    if (!menuButton || !nav) return;
+    if (!menuButton || !mobileMenu) return;
     
-    menuButton.addEventListener('click', () => {
-        // Create mobile menu if it doesn't exist
-        if (!document.querySelector('.mobile-menu')) {
-            const mobileMenu = document.createElement('div');
-            mobileMenu.className = 'mobile-menu';
-            
-            // Clone the navigation items
-            const navClone = nav.cloneNode(true);
-            
-            // Append to the mobile menu
-            mobileMenu.appendChild(navClone);
-            
-            // Add styles to the mobile menu
-            mobileMenu.style.position = 'fixed';
-            mobileMenu.style.top = '60px';
-            mobileMenu.style.left = '0';
-            mobileMenu.style.right = '0';
-            mobileMenu.style.backgroundColor = 'var(--medium-bg)';
-            mobileMenu.style.padding = '1rem';
-            mobileMenu.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-            mobileMenu.style.zIndex = '999';
-            mobileMenu.style.display = 'none';
-            
-            // Add styles to the list
-            const list = mobileMenu.querySelector('ul');
-            list.style.display = 'flex';
-            list.style.flexDirection = 'column';
-            list.style.gap = '1rem';
-            
-            // Append the mobile menu to the header
-            document.querySelector('header').appendChild(mobileMenu);
-        }
+    let isOpen = false;
+    
+    // Toggle menu function
+    function toggleMobileMenu() {
+        isOpen = !isOpen;
         
-        // Toggle the mobile menu
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const isVisible = mobileMenu.style.display === 'block';
-        
-        mobileMenu.style.display = isVisible ? 'none' : 'block';
-        
-        // Animate icon change
-        if (isVisible) {
-            menuButton.innerHTML = '<i class="fas fa-bars"></i>';
+        if (isOpen) {
+            openMenu();
         } else {
-            menuButton.innerHTML = '<i class="fas fa-times"></i>';
+            closeMenu();
+        }
+    }
+    
+    // Open menu
+    function openMenu() {
+        mobileMenu.classList.add('active');
+        menuButton.classList.add('active');
+        backdrop.classList.add('active');
+        
+        // Change hamburger to X
+        const icon = menuButton.querySelector('.fas');
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+        
+        // Prevent body scroll
+        document.body.style.overflow = 'hidden';
+        
+        isOpen = true;
+    }
+    
+    // Close menu
+    function closeMenu() {
+        mobileMenu.classList.remove('active');
+        menuButton.classList.remove('active');
+        backdrop.classList.remove('active');
+        
+        // Change X back to hamburger
+        const icon = menuButton.querySelector('.fas');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+        
+        // Restore body scroll
+        document.body.style.overflow = '';
+        
+        isOpen = false;
+    }
+    
+    // Event listeners
+    menuButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMobileMenu();
+    });
+    
+    // Close button
+    if (closeButton) {
+        closeButton.addEventListener('click', () => {
+            if (isOpen) closeMenu();
+        });
+    }
+    
+    // Backdrop click to close
+    if (backdrop) {
+        backdrop.addEventListener('click', () => {
+            if (isOpen) closeMenu();
+        });
+    }
+    
+    // Close on escape key
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && isOpen) {
+            closeMenu();
         }
     });
     
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (event) => {
-        const mobileMenu = document.querySelector('.mobile-menu');
-        if (!mobileMenu) return;
-        
-        if (
-            event.target !== menuButton && 
-            !menuButton.contains(event.target) && 
-            event.target !== mobileMenu &&
-            !mobileMenu.contains(event.target) &&
-            mobileMenu.style.display === 'block'
-        ) {
-            mobileMenu.style.display = 'none';
-            menuButton.innerHTML = '<i class="fas fa-bars"></i>';
+    // Close menu when window is resized to desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && isOpen) {
+            closeMenu();
+        }
+    });
+    
+    // Close menu when clicking on menu links
+    mobileMenu.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            closeMenu();
         }
     });
 }
@@ -352,7 +430,6 @@ function setupCodeHighlight() {
  * Add parallax effect to the hero section
  * This is commented out by default, uncomment to enable
  */
-/*
 function setupParallax() {
     const heroSection = document.querySelector('.hero');
     const heroImage = document.querySelector('.hero-image');
@@ -373,7 +450,6 @@ function setupParallax() {
         }
     });
 }
-*/
 
 /**
  * Preload images for smoother experience

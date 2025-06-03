@@ -1,14 +1,17 @@
 
-const pageInfo = {
+window.pageInfo = {
     articlesData: null,
     articles: null,
     currentPageNumber: 1,
-    filterOptions: {
-        categoryOption: 'all-categories',
-        dateOption: 'all-time',
-        sortbyOption: 'newest-first'
-    }
 }
+
+// Store active filters
+window.activeFilters = {
+    itemsPerPage: 'items-10',
+    categories: [],
+    date: 'all-time',
+    sort: 'newest-first'
+};
 
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', async function() {
@@ -25,9 +28,6 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // insert articles HTML content
     await generateArticles();
-
-    // insert filter select dropdown HTML content
-    await generateDropdownSelects();
     
     // Set up header scroll effect
     setupHeaderScroll();
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     setupSearch();
     
     // Set up filter functionality
-    setupFilters();
+    await setupFilters();
     
     // Set up pagination
     setupPagination();
@@ -55,10 +55,10 @@ const getArticleData = async () => {
     try {
         const response = await fetch('/assets/data/articles.json');
         const articlesData = await response.json();
-        pageInfo.articles = Object.values(articlesData).flat().sort((a, b) => { return new Date(b.date) - new Date(a.date) })
-        pageInfo.articlesData = articlesData
+        window.pageInfo.articles = Object.values(articlesData).flat().filter(articleItem => {return window.activeFilters.categories.length > 0 ? articleItem.category.includes(window.activeFilters.categories) : true}).sort((a, b) => { return new Date(b.date) - new Date(a.date) })
+        window.pageInfo.articlesData = articlesData
     } catch (error) {
-        log.error('Error loading articles: ', error);
+        console.error('Error loading articles: ', error);
     }
 }
 
@@ -67,7 +67,7 @@ const generateArticles = async () => {
 
     const articleElement =  
 
-    pageInfo.articles.forEach(articleItem => {
+    window.pageInfo.articles.forEach(articleItem => {
         const articleElement = `
         <article class="article-card" data-category="${articleItem.category}" data-date="${articleItem.date}" data-popularity="${articleItem.popularity}">
                     <a href="${articleItem.link}" class="article-link">
@@ -91,60 +91,6 @@ const generateArticles = async () => {
         `
         articlesContainer.insertAdjacentHTML('afterbegin',articleElement)
     })
-}
-
-const generateCategorySelectDropdown = async () => {
-    const dropdownCategoryContainer = document.getElementById('dropdown-cat');
-    dropdownCategoryContainer.insertAdjacentHTML('afterbegin', `<div class="dropdown-item">
-                                                                    <input type="checkbox" id="all-categories">
-                                                                    <label for="cat-all">All Categories</label>
-                                                                </div>`)
-
-    Object.keys(pageInfo.articlesData).sort((a,b) => b - a).forEach(categorySelectItem => {
-        const categoryElement = `
-        <div class="dropdown-item">
-            <input type="checkbox" id="${categorySelectItem}">
-            <label for="cat-all">${categorySelectItem.replaceAll('-', ' ').replace(/\b\w/g, (char) => char.toUpperCase())}</label>
-        </div>
-        `
-        dropdownCategoryContainer.insertAdjacentHTML('beforeend', categoryElement)
-    })
-}
-
-const generateDateSelectDropdown = async () => {
-    const dateCategories = ['all-time', 'last-week', 'last-month', 'last-year']
-    const dropdownCategoryContainer = document.getElementById('dropdown-date');
-    dateCategories.forEach(dateCategoryItem => {
-        dropdownCategoryContainer.insertAdjacentHTML('beforeend', `<div class="dropdown-item" id="dropdown-date">
-                                                                        <input type="radio" name="date-filter" id="${dateCategoryItem}">
-                                                                        <label for="date-all">${dateCategoryItem.replaceAll('-', ' ').replace(/\b\w/g, (char) => char.toUpperCase())}</label>
-                                                                    </div>`)
-    });
-}
-
-const generateSortbySelectDropdown = async () => {
-    const dateCategories = ['newest-first', 'oldest-first', 'most-popular']
-    const dropdownCategoryContainer = document.getElementById('dropdown-sortby');
-    dateCategories.forEach(sortbyCategoryItem => {
-        dropdownCategoryContainer.insertAdjacentHTML('beforeend', `<div class="dropdown-item">
-                                                                        <input type="radio" name="sort-filter" id="${sortbyCategoryItem}">
-                                                                        <label for="sort-newest">${sortbyCategoryItem.replaceAll('-', ' ').replace(/\b\w/g, (char) => char.toUpperCase())}</label>
-                                                                    </div>`)
-    });
-}
-
-const setFilterOptions = async () => {
-    document.getElementById(`${pageInfo.filterOptions.categoryOption}`).setAttribute('checked', 'checked');
-    document.getElementById(`${pageInfo.filterOptions.dateOption}`).setAttribute('checked', 'checked');
-    document.getElementById(`${pageInfo.filterOptions.sortbyOption}`).setAttribute('checked', 'checked');
-
-}
-
-const generateDropdownSelects = async () => {
-    await generateCategorySelectDropdown();
-    await generateDateSelectDropdown();
-    await generateSortbySelectDropdown();
-    await setFilterOptions();
 }
 
 /**
@@ -317,13 +263,12 @@ function setupSearch() {
 /**
  * Set up filters functionality
  */
-function setupFilters() {
-    // Store active filters
-    window.activeFilters = {
-        categories: [],
-        date: 'all',
-        sort: 'newest'
-    };
+async function setupFilters() {
+
+    // insert filter select dropdown HTML content
+    await generateDropdownSelects();
+
+    await setInitialFilterOptions();
     
     // Set up category filters
     setupCategoryFilters();
@@ -347,8 +292,8 @@ function setupFilters() {
  * Set up category filters
  */
 function setupCategoryFilters() {
-    const allCategoriesCheckbox = document.getElementById('cat-all');
-    const categoryCheckboxes = document.querySelectorAll('.dropdown-item input[type="checkbox"]:not(#cat-all)');
+    const allCategoriesCheckbox = document.getElementById('all-categories');
+    const categoryCheckboxes = document.querySelectorAll('.dropdown-item input[type="checkbox"]:not(#all-categories)');
     
     // Handle "All Categories" checkbox
     if (allCategoriesCheckbox) {
@@ -462,6 +407,71 @@ function setupSortFilters() {
     });
 }
 
+const generateCategorySelectDropdown = async () => {
+    const dropdownCategoryContainer = document.getElementById('dropdown-cat');
+    dropdownCategoryContainer.insertAdjacentHTML('afterbegin', `<div class="dropdown-item">
+                                                                    <input type="checkbox" id="all-categories">
+                                                                    <label for="all-categories">All Categories</label>
+                                                                </div>`)
+
+    Object.keys(window.pageInfo.articlesData).sort((a,b) => b - a).forEach(categorySelectItem => {
+        const categoryElement = `
+        <div class="dropdown-item">
+            <input type="checkbox" id="${categorySelectItem}">
+            <label for="${categorySelectItem}">${categorySelectItem.replaceAll('-', ' ').replace(/\b\w/g, (char) => char.toUpperCase())}</label>
+        </div>
+        `
+        dropdownCategoryContainer.insertAdjacentHTML('beforeend', categoryElement)
+    })
+}
+
+const generateDateSelectDropdown = async () => {
+    const dateCategories = ['all-time', 'last-week', 'last-month', 'last-year']
+    const dropdownCategoryContainer = document.getElementById('dropdown-date');
+    dateCategories.forEach(dateCategoryItem => {
+        dropdownCategoryContainer.insertAdjacentHTML('beforeend', `<div class="dropdown-item" id="dropdown-date">
+                                                                        <input type="radio" name="date-filter" id="${dateCategoryItem}">
+                                                                        <label for="${dateCategoryItem}">${dateCategoryItem.replaceAll('-', ' ').replace(/\b\w/g, (char) => char.toUpperCase())}</label>
+                                                                    </div>`)
+    });
+}
+
+const generateSortbySelectDropdown = async () => {
+    const dateCategories = ['newest-first', 'oldest-first', 'most-popular']
+    const dropdownCategoryContainer = document.getElementById('dropdown-sortby');
+    dateCategories.forEach(sortbyCategoryItem => {
+        dropdownCategoryContainer.insertAdjacentHTML('beforeend', `<div class="dropdown-item">
+                                                                        <input type="radio" name="sort-filter" id="${sortbyCategoryItem}">
+                                                                        <label for="${sortbyCategoryItem}">${sortbyCategoryItem.replaceAll('-', ' ').replace(/\b\w/g, (char) => char.toUpperCase())}</label>
+                                                                    </div>`)
+    });
+}
+
+const generateItemsPerPageSelectDropdown = async () => {
+    const articlesPerPageCategories = ['items-10', 'items-20', 'items-30', 'items-50', 'items-100']
+    const dropdownArticlesPerPageContainer = document.getElementById('dropdown-articles-per-page');
+    articlesPerPageCategories.forEach(articlesPerPageItem => {
+        dropdownArticlesPerPageContainer.insertAdjacentHTML('beforeend', `<div class="dropdown-item">
+                                                                        <input type="radio" name="articles-per-page-filter" data-articlesPerPage="" id="${articlesPerPageItem}">
+                                                                        <label for="${articlesPerPageItem}">${articlesPerPageItem.replace('items-', '')}</label>
+                                                                    </div>`)
+    });
+}
+
+const setInitialFilterOptions = async () => {
+    document.getElementById(`${window.activeFilters.itemsPerPage}`).setAttribute('checked', 'checked');
+    document.getElementById(`all-categories`).setAttribute('checked', 'checked');
+    document.getElementById(`${window.activeFilters.date}`).setAttribute('checked', 'checked');
+    document.getElementById(`${window.activeFilters.sort}`).setAttribute('checked', 'checked');
+}
+
+const generateDropdownSelects = async () => {
+    await generateCategorySelectDropdown();
+    await generateDateSelectDropdown();
+    await generateSortbySelectDropdown();
+    await generateItemsPerPageSelectDropdown();
+}
+
 /**
  * Apply a filter and create a filter tag
  */
@@ -563,6 +573,7 @@ function removeFilter(type, value = null) {
 function clearAllFilters() {
     // Reset active filters
     window.activeFilters = {
+        articlesPerPage: 'items-10',
         categories: [],
         date: 'all',
         sort: 'newest'

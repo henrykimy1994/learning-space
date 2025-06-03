@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeInsight | Programming Concepts Explained</title>
-    
+
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- AOS for scroll animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="homepage.css">
 </head>
+
 <body>
     <header>
         <div class="container header-content">
@@ -22,18 +24,26 @@
                 <span>CodeInsight</span>
             </a>
             <nav>
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="./pages/articles/articles.html">Articles</a></li>
-                    <li><a href="./pages/categories/categories.html">Categories</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
+                <ul id="nav-list"></ul>
             </nav>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
+        <div class="mobile-menu">
+            <div class="mobile-menu-brand">
+                <i class="fas fa-code"></i>
+                <span>CodeInsight</span>
+            </div>
+
+            <button class="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <ul id="nav-list-mobile"></ul>
+        </div>
+
+        <div class="mobile-menu-backdrop"></div>
     </header>
 
     <section class="hero">
@@ -41,26 +51,29 @@
         <div class="container hero-content">
             <div class="hero-text" data-aos="fade-right">
                 <h1>Programming Concepts <span>Explained</span></h1>
-                <p>Clear, concise, and visual explanations of complex programming topics for developers at all levels.</p>
+                <p>Clear, concise, and visual explanations of complex programming topics for developers at all levels.
+                </p>
                 <div class="hero-btns">
                     <a href="#featured" class="btn btn-primary">Explore Topics</a>
                     <a href="#newsletter" class="btn btn-secondary">Subscribe</a>
                 </div>
             </div>
             <div class="hero-image" data-aos="fade-left">
-                <img src="/api/placeholder/600/500" alt="Programming concept visualization">
+                <img src="/assets/images/home-hero.png" alt="Programming concept visualization">
                 <div class="code-snippet">
-                    <pre><code>function explore() {
-  const concepts = [
-    "Recursion",
-    "Promises",
-    "Algorithms"
-  ];
-  
-  return concepts.map(
-    concept => learn(concept)
-  );
-}</code></pre>
+                    <pre><code>
+function explore() {
+    const concepts = [
+        "Recursion",
+        "Promises",
+        "Algorithms"
+    ];
+    
+    return concepts.map(
+        concept => learn(concept)
+    );
+}
+                        </code></pre>
                 </div>
             </div>
         </div>
@@ -72,57 +85,63 @@
                 <h2>Featured Articles</h2>
                 <p>Dive into our most popular programming concepts</p>
             </div>
-            
+
             <div class="featured-grid">
                 <div class="featured-card" data-aos="fade-up">
                     <div class="card-image">
-                        <img src="/api/placeholder/400/250" alt="Recursion visualization">
+                        <img src="https://placehold.co/400x250" alt="Recursion visualization">
                         <div class="card-category">Algorithms</div>
                     </div>
                     <div class="card-content">
                         <h3>Understanding Recursion</h3>
-                        <p>Explore the elegant and powerful concept of recursion in programming, with clear examples and visualizations.</p>
+                        <p>Explore the elegant and powerful concept of recursion in programming, with clear examples and
+                            visualizations.</p>
                         <div class="card-meta">
                             <span><i class="far fa-calendar"></i> May 16, 2025</span>
                             <span><i class="far fa-clock"></i> 8 min read</span>
                         </div>
-                        <a href="./pages/detail/index.html" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+                        <a href="./pages/detail/index.html" class="read-more">Read Article <i
+                                class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="featured-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-image">
-                        <img src="/api/placeholder/400/250" alt="Promises diagram">
+                        <img src="https://placehold.co/400x250" alt="Promises diagram">
                         <div class="card-category">JavaScript</div>
                     </div>
                     <div class="card-content">
                         <h3>Mastering JavaScript Promises</h3>
-                        <p>Understand the asynchronous nature of JavaScript and how to leverage promises for cleaner, more maintainable code.</p>
+                        <p>Understand the asynchronous nature of JavaScript and how to leverage promises for cleaner,
+                            more maintainable code.</p>
                         <div class="card-meta">
                             <span><i class="far fa-calendar"></i> May 10, 2025</span>
                             <span><i class="far fa-clock"></i> 12 min read</span>
                         </div>
-                        <a href="./pages/detail/index.html" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+                        <a href="./pages/detail/index.html" class="read-more">Read Article <i
+                                class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="featured-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="card-image">
-                        <img src="/api/placeholder/400/250" alt="Big O notation graph">
+                        <img src="https://placehold.co/400x250" alt="Big O notation graph">
                         <div class="card-category">Complexity</div>
                     </div>
                     <div class="card-content">
                         <h3>Demystifying Big O Notation</h3>
-                        <p>Learn how to analyze and optimize your algorithms with a clear understanding of time and space complexity.</p>
+                        <p>Learn how to analyze and optimize your algorithms with a clear understanding of time and
+                            space complexity.</p>
                         <div class="card-meta">
                             <span><i class="far fa-calendar"></i> May 5, 2025</span>
                             <span><i class="far fa-clock"></i> 10 min read</span>
                         </div>
-                        <a href="./pages/detail/index.html" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+                        <a href="./pages/detail/index.html" class="read-more">Read Article <i
+                                class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
-            
+
             <div class="see-all-container" data-aos="fade-up">
                 <a href="#" class="btn btn-outline">See All Articles</a>
             </div>
@@ -135,7 +154,7 @@
                 <h2>Browse by Category</h2>
                 <p>Find exactly what you're looking for</p>
             </div>
-            
+
             <div class="category-grid" data-aos="fade-up">
                 <a href="#" class="category-card">
                     <div class="category-icon">
@@ -144,7 +163,7 @@
                     <h3>Programming Languages</h3>
                     <p>25 articles</p>
                 </a>
-                
+
                 <a href="#" class="category-card">
                     <div class="category-icon">
                         <i class="fas fa-sitemap"></i>
@@ -152,7 +171,7 @@
                     <h3>Data Structures</h3>
                     <p>18 articles</p>
                 </a>
-                
+
                 <a href="#" class="category-card">
                     <div class="category-icon">
                         <i class="fas fa-cogs"></i>
@@ -160,7 +179,7 @@
                     <h3>Algorithms</h3>
                     <p>22 articles</p>
                 </a>
-                
+
                 <a href="#" class="category-card">
                     <div class="category-icon">
                         <i class="fas fa-database"></i>
@@ -168,7 +187,7 @@
                     <h3>Databases</h3>
                     <p>15 articles</p>
                 </a>
-                
+
                 <a href="#" class="category-card">
                     <div class="category-icon">
                         <i class="fas fa-server"></i>
@@ -176,7 +195,7 @@
                     <h3>Backend Development</h3>
                     <p>20 articles</p>
                 </a>
-                
+
                 <a href="#" class="category-card">
                     <div class="category-icon">
                         <i class="fas fa-paint-brush"></i>
@@ -193,7 +212,8 @@
             <div class="cta-content" data-aos="zoom-in">
                 <div class="cta-text">
                     <h2>Level Up Your Coding Skills</h2>
-                    <p>Join thousands of developers who've accelerated their learning journey with our visual, practical approach to programming concepts.</p>
+                    <p>Join thousands of developers who've accelerated their learning journey with our visual, practical
+                        approach to programming concepts.</p>
                 </div>
                 <div class="cta-stats">
                     <div class="stat">
@@ -219,26 +239,27 @@
                 <h2>Latest Articles</h2>
                 <p>Fresh content to keep you at the cutting edge</p>
             </div>
-            
+
             <div class="articles-grid">
                 <div class="article-card" data-aos="fade-up">
                     <div class="article-image">
-                        <img src="/api/placeholder/400/200" alt="GraphQL architecture">
+                        <img src="https://placehold.co/400x200" alt="GraphQL architecture">
                     </div>
                     <div class="article-content">
                         <div class="article-category">API Design</div>
                         <h3>GraphQL vs REST: A Practical Comparison</h3>
-                        <p>Explore the differences, advantages, and use cases for these two popular API architectures.</p>
+                        <p>Explore the differences, advantages, and use cases for these two popular API architectures.
+                        </p>
                         <div class="article-meta">
                             <span><i class="far fa-calendar"></i> May 14, 2025</span>
                             <span><i class="far fa-clock"></i> 9 min read</span>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="article-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="article-image">
-                        <img src="/api/placeholder/400/200" alt="Docker containers">
+                        <img src="https://placehold.co/400x200" alt="Docker containers">
                     </div>
                     <div class="article-content">
                         <div class="article-category">DevOps</div>
@@ -250,25 +271,26 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="article-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="article-image">
-                        <img src="/api/placeholder/400/200" alt="Functional programming">
+                        <img src="https://placehold.co/400x200" alt="Functional programming">
                     </div>
                     <div class="article-content">
                         <div class="article-category">Paradigms</div>
                         <h3>Thinking Functionally: Pure Functions and Immutability</h3>
-                        <p>Understand the core principles of functional programming and how they lead to more maintainable code.</p>
+                        <p>Understand the core principles of functional programming and how they lead to more
+                            maintainable code.</p>
                         <div class="article-meta">
                             <span><i class="far fa-calendar"></i> May 8, 2025</span>
                             <span><i class="far fa-clock"></i> 7 min read</span>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="article-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="article-image">
-                        <img src="/api/placeholder/400/200" alt="React hooks diagram">
+                        <img src="https://placehold.co/400x200" alt="React hooks diagram">
                     </div>
                     <div class="article-content">
                         <div class="article-category">React</div>
@@ -289,7 +311,8 @@
             <div class="newsletter-content" data-aos="fade-up">
                 <div class="newsletter-text">
                     <h2>Stay Updated with Latest Programming Insights</h2>
-                    <p>Join our newsletter and get fresh coding tips, tutorials, and articles delivered straight to your inbox. No spam, just valuable content.</p>
+                    <p>Join our newsletter and get fresh coding tips, tutorials, and articles delivered straight to your
+                        inbox. No spam, just valuable content.</p>
                 </div>
                 <form class="newsletter-form">
                     <div class="form-group">
@@ -313,41 +336,44 @@
                 <h2>What Our Readers Say</h2>
                 <p>Feedback from our community of developers</p>
             </div>
-            
+
             <div class="testimonial-slider" data-aos="fade-up">
                 <div class="testimonial-track">
                     <div class="testimonial">
                         <div class="testimonial-content">
-                            <p>"CodeInsight's explanation of recursion finally made it click for me. The visual aids and step-by-step breakdowns are incredibly helpful."</p>
+                            <p>"CodeInsight's explanation of recursion finally made it click for me. The visual aids and
+                                step-by-step breakdowns are incredibly helpful."</p>
                         </div>
                         <div class="testimonial-author">
-                            <img src="/api/placeholder/60/60" alt="Testimonial author">
+                            <img src="https://placehold.co/60x60" alt="Testimonial author">
                             <div class="author-info">
                                 <h4>Alex Johnson</h4>
                                 <p>Frontend Developer</p>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="testimonial">
                         <div class="testimonial-content">
-                            <p>"I've been programming for years but never truly understood Big O notation until I read your article. Now I can analyze algorithm efficiency with confidence."</p>
+                            <p>"I've been programming for years but never truly understood Big O notation until I read
+                                your article. Now I can analyze algorithm efficiency with confidence."</p>
                         </div>
                         <div class="testimonial-author">
-                            <img src="/api/placeholder/60/60" alt="Testimonial author">
+                            <img src="https://placehold.co/60x60" alt="Testimonial author">
                             <div class="author-info">
                                 <h4>Samantha Lee</h4>
                                 <p>Software Engineer</p>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="testimonial">
                         <div class="testimonial-content">
-                            <p>"The JavaScript Promises article saved me hours of debugging. Your code examples are practical and the diagrams make complex concepts easy to grasp."</p>
+                            <p>"The JavaScript Promises article saved me hours of debugging. Your code examples are
+                                practical and the diagrams make complex concepts easy to grasp."</p>
                         </div>
                         <div class="testimonial-author">
-                            <img src="/api/placeholder/60/60" alt="Testimonial author">
+                            <img src="https://placehold.co/60x60" alt="Testimonial author">
                             <div class="author-info">
                                 <h4>Michael Rodriguez</h4>
                                 <p>Full-Stack Developer</p>
@@ -355,7 +381,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="testimonial-controls">
                     <button class="control-prev"><i class="fas fa-chevron-left"></i></button>
                     <div class="control-dots">
@@ -385,7 +411,7 @@
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="footer-links">
                     <div class="footer-column">
                         <h4>Content</h4>
@@ -424,17 +450,18 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 CodeInsight. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    
+
     <!-- JavaScript Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    
+
     <!-- Custom JavaScript -->
     <script src="homepage.js"></script>
 </body>
+
 </html>
