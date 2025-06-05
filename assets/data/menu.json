@@ -1,17 +1,17 @@
 [
     {
         "label": "Home",
-        "href": "index.html",
+        "href": "/index.html",
         "active": true
     },
     {
         "label": "Articles",
-        "href": "./pages/articles/articles.html",
+        "href": "/pages/articles/articles.html",
         "active": false
     },
     {
         "label": "Categories",
-        "href": "./pages/categories/categories.html",
+        "href": "/pages/categories/categories.html",
         "active": false
     },
     {

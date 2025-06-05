@@ -1,5 +1,8 @@
 window.pageInfo = {
     menulist: null,
+    articlesData: null,
+    latestArticles: null,
+    featuredArticles: null,
 }
 
 // Wait for the DOM to be fully loaded
@@ -34,6 +37,10 @@ document.addEventListener('DOMContentLoaded',async function() {
     await getMenuList();
 
     await generateMenuList();
+
+    await getArticlesData();
+
+    await generateHomeContents();
 });
 
 const generateMenuList = async () => {
@@ -192,6 +199,102 @@ function setupMobileMenu() {
             closeMenu();
         }
     });
+}
+
+async function getArticlesData() {
+    const response = await fetch('/assets/data/articles.json');
+    window.pageInfo.articlesData = await response.json();
+}
+
+async function setFeaturedArticles() {
+    window.pageInfo.featuredArticles = Object.values(window.pageInfo.articlesData).flat().sort((a, b) => b.views - a.views).slice(0,4);
+}
+
+async function generateFeaturedArticles() {
+    const featuredArticlesContainer = document.getElementById('featured-grid');
+    window.pageInfo.featuredArticles.forEach(articleItem => {
+        const articleElement = `
+        <div class="featured-card" data-aos="fade-up">
+            <div class="card-image">
+                <img src="${articleItem.image}" alt="${articleItem.alt}">
+                <div class="card-category">
+                    ${articleItem.categoryDisplay}
+                </div>
+            </div>
+            <div class="card-content">
+                <h3>${articleItem.title}</h3>
+                <p>${articleItem.description}</p>
+                <div class="card-meta">
+                    <span><i class="far fa-calendar"></i> ${articleItem.date}</span>
+                    <span><i class="far fa-clock"></i> ${articleItem.readTime}</span>
+                </div>
+                <a href="${articleItem.link}" class="read-more">Read Article
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        `
+
+        featuredArticlesContainer.insertAdjacentHTML('beforeend', articleElement)
+    });
+}
+
+async function setLatestArticles() {
+    window.pageInfo.latestArticles = Object.values(window.pageInfo.articlesData).flat().sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0,3)
+}
+
+async function generateLatestArticles() {
+    const featuredArticlesContainer = document.querySelector('.articles-grid');
+    window.pageInfo.latestArticles.forEach(articleItem => {
+        const articleElement = `
+        <div class="article-card" data-aos="fade-up">
+            <div class="article-image">
+                <img src="${articleItem.image}" alt="${articleItem.alt}">
+            </div>
+            <div class="article-content">
+                <div class="article-category">${articleItem.category}</div>
+                <h3>${articleItem.title}</h3>
+                <p>${articleItem.description}</p>
+                <div class="article-meta">
+                    <span><i class="far fa-calendar"></i>${articleItem.date}</span
+                    >
+                    <span><i class="far fa-clock"></i>${articleItem.readTime} min read</span
+                    >
+                </div>
+            </div>
+        </div>
+        `
+
+        featuredArticlesContainer.insertAdjacentHTML('beforeend', articleElement)
+    });
+}
+
+async function generateCategorySection() {
+    const categoryGridContainer = document.querySelector('.category-grid');
+    Object.keys(window.pageInfo.articlesData).forEach(category => {
+        const categoryElement = `
+        <a href="#" class="category-card">
+            <div class="category-icon">
+                <i class="fas fa-code"></i>
+            </div>
+            <h3>${category.replaceAll('-', ' ').replace(/\b\w/g, (char) => char.toUpperCase())}</h3>
+            <p>${window.pageInfo.articlesData[category].length} articles</p>
+        </a>
+        `
+        categoryGridContainer.insertAdjacentHTML('beforeend', categoryElement);
+    });
+}
+
+async function generateHomeContents() {
+    await setFeaturedArticles();
+
+    await generateFeaturedArticles();
+
+    await setLatestArticles();
+
+    await generateLatestArticles();
+
+    await generateCategorySection();
 }
 
 /**

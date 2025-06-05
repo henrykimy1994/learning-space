@@ -10,8 +10,8 @@
       "alt": "Recursion visualization",
       "title": "Understanding Recursion",
       "description": "Explore the elegant and powerful concept of recursion in programming, with clear examples and visualizations to help solidify your understanding.",
-      "readTime": "8 min read",
-      "views": "1.2K views"
+      "readTime": "8",
+      "views": "1200"
     },
     {
       "category": "algorithms",
@@ -23,8 +23,8 @@
       "alt": "Big O notation graph",
       "title": "Demystifying Big O Notation",
       "description": "Learn how to analyze and optimize your algorithms with a clear understanding of time and space complexity.",
-      "readTime": "10 min read",
-      "views": "1.8K views"
+      "readTime": "10",
+      "views": "1800"
     }
   ],
   "CIPE-Software-Design": [
@@ -38,8 +38,8 @@
       "alt": "coad-yourdon-methodology",
       "title": "OOA Coad-Yourdon Methodology",
       "description": "The Coad-Yourdon methodology is an object-oriented analysis and design approach developed by Peter Coad and Edward Yourdon in the early 1990s. This methodology provides a systematic framework for understanding and modeling complex systems from an object-oriented perspective.",
-      "readTime": "8 min read",
-      "views": "1.2K views"
+      "readTime": "8",
+      "views": "1200"
     }
   ],
   "data-structures": [
@@ -53,8 +53,8 @@
       "alt": "Binary trees diagram",
       "title": "Binary Trees: Implementation and Traversal",
       "description": "Learn how to implement binary trees and the different methods for traversing them efficiently.",
-      "readTime": "9 min read",
-      "views": "1.3K views"
+      "readTime": "9",
+      "views": "1300"
     },
     {
       "category": "data-structures",
@@ -66,8 +66,8 @@
       "alt": "Hash tables visualization",
       "title": "Hash Tables Explained: From Theory to Implementation",
       "description": "Understand how hash tables work under the hood and implement your own efficient hash table.",
-      "readTime": "12 min read",
-      "views": "1.9K views"
+      "readTime": "12",
+      "views": "1900"
     }
   ],
   "devops": [
@@ -81,8 +81,8 @@
       "alt": "Docker containers",
       "title": "Containerization with Docker: A Beginner's Guide",
       "description": "Learn the fundamentals of Docker and how it's revolutionizing application deployment.",
-      "readTime": "11 min read",
-      "views": "980 views"
+      "readTime": "11",
+      "views": "980"
     },
     {
       "category": "devops",
@@ -94,8 +94,8 @@
       "alt": "CI/CD pipeline diagram",
       "title": "Building CI/CD Pipelines with GitHub Actions",
       "description": "Learn how to automate your testing and deployment workflow using GitHub's powerful CI/CD platform.",
-      "readTime": "14 min read",
-      "views": "950 views"
+      "readTime": "14",
+      "views": "950"
     }
   ],
   "javascript": [
@@ -109,8 +109,8 @@
       "alt": "Promises diagram",
       "title": "Mastering JavaScript Promises",
       "description": "Understand the asynchronous nature of JavaScript and how to leverage promises for cleaner, more maintainable code.",
-      "readTime": "12 min read",
-      "views": "2.4K views"
+      "readTime": "12",
+      "views": "2400"
     },
     {
       "category": "javascript",
@@ -122,8 +122,8 @@
       "alt": "Functional programming",
       "title": "Thinking Functionally: Pure Functions and Immutability",
       "description": "Understand the core principles of functional programming and how they lead to more maintainable code.",
-      "readTime": "7 min read",
-      "views": "1.5K views"
+      "readTime": "7",
+      "views": "1500"
     }
   ],
   "python": [
@@ -137,8 +137,8 @@
       "alt": "Python generators illustration",
       "title": "Python Generators and Yield Statements",
       "description": "Explore Python's generator functions and how they can help you write more memory-efficient code.",
-      "readTime": "10 min read",
-      "views": "1.7K views"
+      "readTime": "10",
+      "views": "1700"
     },
     {
       "category": "python",
@@ -150,8 +150,8 @@
       "alt": "Python decorators illustration",
       "title": "Mastering Python Decorators",
       "description": "Learn how to use Python's decorator pattern to enhance functions and classes with additional functionality.",
-      "readTime": "11 min read",
-      "views": "1.4K views"
+      "readTime": "11",
+      "views": "1400"
     }
   ],
   "react": [
@@ -165,8 +165,8 @@
       "alt": "React hooks diagram",
       "title": "Understanding React Hooks: useState and useEffect",
       "description": "Master the fundamentals of React's hook system for more efficient component development.",
-      "readTime": "8 min read",
-      "views": "2.1K views"
+      "readTime": "8",
+      "views": "2100"
     },
     {
       "category": "react",
@@ -178,8 +178,8 @@
       "alt": "React context API diagram",
       "title": "State Management in React: Context API vs. Redux",
       "description": "Compare React's built-in Context API with Redux for managing state in your applications.",
-      "readTime": "13 min read",
-      "views": "2.3K views"
+      "readTime": "13",
+      "views": "2300"
     }
   ]
 }

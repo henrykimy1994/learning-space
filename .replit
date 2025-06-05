@@ -5,3 +5,19 @@ channel = "stable-24_05"
 
 [deployment]
 run = ["npx", "serve", "-s", ".", "-l", "5000"]
+
+[workflows]
+runButton = "Serve Static Site"
+
+[[workflows.workflow]]
+name = "Serve Static Site"
+author = 43284166
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npx serve -s . -l 5000"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
