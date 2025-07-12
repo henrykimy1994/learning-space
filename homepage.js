@@ -34,34 +34,39 @@ document.addEventListener('DOMContentLoaded',async function() {
     setupCodeHighlight();
 
     // Set up menu list
-    await getMenuList();
-
-    await generateMenuList();
+    await setupMenuList();
 
     await getArticlesData();
 
-    await generateHomeContents();
+    setupFesturedArticles();
+
+    setupLatestArticles();
+
+    setupCategoryCards();
 });
 
-const generateMenuList = async () => {
+async function setupMenuList() {
     const navList = document.getElementById('nav-list');
     const navLustMobile = document.getElementById('nav-list-mobile');
 
-    window.pageInfo.menulist.forEach(menuItem => {
-        navList.insertAdjacentHTML('beforeend', `<li><a href="${menuItem.href}" class="${menuItem.active ? 'active' : ''}">${menuItem.label}</a></li>`)
-        navLustMobile.insertAdjacentHTML('beforeend', `<li><a href="${menuItem.href}" class="${menuItem.active ? 'active' : ''}">${menuItem.label}</a></li>`)
-    })
-}
+    await getMenuList();
+    await generateMenuList();
 
-/**
- * Set up menu list
- */
-const getMenuList = async () => {
-    try {
-        const menulist = await fetch('/assets/data/menu.json');
-        window.pageInfo.menulist = await menulist.json();
-    } catch (error) {
-        log.error(error);
+    async function getMenuList() {
+        try {
+            const menulist = await fetch('/assets/data/menu.json');
+            window.pageInfo.menulist = await menulist.json();
+        } catch (error) {
+            log.error(error);
+            alert('Encountered error while fetching menulist data.');
+        }
+    }
+
+    async function generateMenuList() {
+        window.pageInfo.menulist.forEach(menuItem => {
+            navList.insertAdjacentHTML('beforeend', `<li><a href="${menuItem.href}" class="${menuItem.active ? 'active' : ''}">${menuItem.label}</a></li>`)
+            navLustMobile.insertAdjacentHTML('beforeend', `<li><a href="${menuItem.href}" class="${menuItem.active ? 'active' : ''}">${menuItem.label}</a></li>`)
+        })
     }
 }
 
@@ -80,196 +85,91 @@ function setupHeaderScroll() {
     });
 }
 
-function closeMenu() {
-    // Add closing class for animation
-    mobileMenu.classList.add('closing');
-    menuButton.classList.remove('active');
-    backdrop.classList.remove('active');
-    
-    // Change X back to hamburger
-    const icon = menuButton.querySelector('.fas');
-    icon.classList.remove('fa-times');
-    icon.classList.add('fa-bars');
-    
-    // Wait for animation to complete before removing active class
-    setTimeout(() => {
-        mobileMenu.classList.remove('active');
-        mobileMenu.classList.remove('closing');
-        document.body.style.overflow = '';
-        isOpen = false;
-    }, 400); // Match the CSS transition duration
-}
 
-/**
- * Set up mobile menu functionality
- */
-function setupMobileMenu() {
-    const menuButton = document.querySelector('.mobile-menu-btn');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const closeButton = document.querySelector('.mobile-menu-close');
-    const backdrop = document.querySelector('.mobile-menu-backdrop');
-    const nav = document.querySelector('nav ul');
-    
-    if (!menuButton || !mobileMenu) return;
-    
-    let isOpen = false;
-    
-    // Toggle menu function
-    function toggleMobileMenu() {
-        isOpen = !isOpen;
-        
-        if (isOpen) {
-            openMenu();
-        } else {
-            closeMenu();
-        }
-    }
-    
-    // Open menu
-    function openMenu() {
-        mobileMenu.classList.add('active');
-        menuButton.classList.add('active');
-        backdrop.classList.add('active');
-        
-        // Change hamburger to X
-        const icon = menuButton.querySelector('.fas');
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-        
-        // Prevent body scroll
-        document.body.style.overflow = 'hidden';
-        
-        isOpen = true;
-    }
-    
-    // Close menu
-    function closeMenu() {
-        mobileMenu.classList.remove('active');
-        menuButton.classList.remove('active');
-        backdrop.classList.remove('active');
-        
-        // Change X back to hamburger
-        const icon = menuButton.querySelector('.fas');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-        
-        // Restore body scroll
-        document.body.style.overflow = '';
-        
-        isOpen = false;
-    }
-    
-    // Event listeners
-    menuButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleMobileMenu();
-    });
-    
-    // Close button
-    if (closeButton) {
-        closeButton.addEventListener('click', () => {
-            if (isOpen) closeMenu();
-        });
-    }
-    
-    // Backdrop click to close
-    if (backdrop) {
-        backdrop.addEventListener('click', () => {
-            if (isOpen) closeMenu();
-        });
-    }
-    
-    // Close on escape key
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && isOpen) {
-            closeMenu();
-        }
-    });
-    
-    // Close menu when window is resized to desktop
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 768 && isOpen) {
-            closeMenu();
-        }
-    });
-    
-    // Close menu when clicking on menu links
-    mobileMenu.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') {
-            closeMenu();
-        }
-    });
-}
 
 async function getArticlesData() {
-    const response = await fetch('/assets/data/articles.json');
-    window.pageInfo.articlesData = await response.json();
+    try {
+        const response = await fetch('/assets/data/articles.json');
+        window.pageInfo.articlesData = await response.json();
+    } catch(error) {
+        console.log(error);
+        alert('Error encountered while fetching article data.');
+        
+    }
 }
 
-async function setFeaturedArticles() {
-    window.pageInfo.featuredArticles = Object.values(window.pageInfo.articlesData).flat().sort((a, b) => b.views - a.views).slice(0,4);
-}
+function setupFesturedArticles() {
+    setFeaturedArticles();
+    generateFeaturedArticles()
 
-async function generateFeaturedArticles() {
-    const featuredArticlesContainer = document.getElementById('featured-grid');
-    window.pageInfo.featuredArticles.forEach(articleItem => {
-        const articleElement = `
-        <div class="featured-card" data-aos="fade-up">
-            <div class="card-image">
-                <img src="${articleItem.image}" alt="${articleItem.alt}">
-                <div class="card-category">
-                    ${articleItem.categoryDisplay}
+    function setFeaturedArticles() {
+        window.pageInfo.featuredArticles = Object.values(window.pageInfo.articlesData).flat().sort((a, b) => b.views - a.views).slice(0,3);
+    }
+
+    function generateFeaturedArticles() {
+        const featuredArticlesContainer = document.getElementById('featured-grid');
+        window.pageInfo.featuredArticles.forEach(articleItem => {
+            const articleElement = `
+            <div class="featured-card" data-aos="fade-up">
+                <div class="card-image">
+                    <img src="${articleItem.image}" alt="${articleItem.alt}">
+                    <div class="card-category">
+                        ${articleItem.categoryDisplay}
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>${articleItem.title}</h3>
+                    <p>${articleItem.description}</p>
+                    <div class="card-meta">
+                        <span><i class="far fa-calendar"></i> ${articleItem.date}</span>
+                        <span><i class="far fa-clock"></i> ${articleItem.readTime}</span>
+                    </div>
+                    <a href="${articleItem.link}" class="read-more">Read Article
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
-            <div class="card-content">
-                <h3>${articleItem.title}</h3>
-                <p>${articleItem.description}</p>
-                <div class="card-meta">
-                    <span><i class="far fa-calendar"></i> ${articleItem.date}</span>
-                    <span><i class="far fa-clock"></i> ${articleItem.readTime}</span>
+            `
+            featuredArticlesContainer.insertAdjacentHTML('beforeend', articleElement)
+        });
+    }
+}
+
+function setupLatestArticles() {
+    setLatestArticles();
+    generateLatestArticles();
+
+    function setLatestArticles() {
+        window.pageInfo.latestArticles = Object.values(window.pageInfo.articlesData).flat().sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0,6)
+    }
+
+    function generateLatestArticles() {
+        const featuredArticlesContainer = document.querySelector('.articles-grid');
+        window.pageInfo.latestArticles.forEach(articleItem => {
+            const articleElement = `
+            <div class="article-card" data-aos="fade-up">
+                <div class="article-image">
+                    <img src="${articleItem.image}" alt="${articleItem.alt}">
                 </div>
-                <a href="${articleItem.link}" class="read-more">Read Article
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-        `
-
-        featuredArticlesContainer.insertAdjacentHTML('beforeend', articleElement)
-    });
-}
-
-async function setLatestArticles() {
-    window.pageInfo.latestArticles = Object.values(window.pageInfo.articlesData).flat().sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0,3)
-}
-
-async function generateLatestArticles() {
-    const featuredArticlesContainer = document.querySelector('.articles-grid');
-    window.pageInfo.latestArticles.forEach(articleItem => {
-        const articleElement = `
-        <div class="article-card" data-aos="fade-up">
-            <div class="article-image">
-                <img src="${articleItem.image}" alt="${articleItem.alt}">
-            </div>
-            <div class="article-content">
-                <div class="article-category">${articleItem.category}</div>
-                <h3>${articleItem.title}</h3>
-                <p>${articleItem.description}</p>
-                <div class="article-meta">
-                    <span><i class="far fa-calendar"></i>${articleItem.date}</span
-                    >
-                    <span><i class="far fa-clock"></i>${articleItem.readTime} min read</span
-                    >
+                <div class="article-content">
+                    <div class="article-category">${articleItem.category}</div>
+                    <h3>${articleItem.title}</h3>
+                    <p>${articleItem.description}</p>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar"></i>${articleItem.date}</span
+                        >
+                        <span><i class="far fa-clock"></i>${articleItem.readTime} min read</span
+                        >
+                    </div>
                 </div>
             </div>
-        </div>
-        `
-
-        featuredArticlesContainer.insertAdjacentHTML('beforeend', articleElement)
-    });
+            `
+            featuredArticlesContainer.insertAdjacentHTML('beforeend', articleElement)
+        });
+    }
 }
 
-async function generateCategorySection() {
+function setupCategoryCards() {
     const categoryGridContainer = document.querySelector('.category-grid');
     Object.keys(window.pageInfo.articlesData).forEach(category => {
         const categoryElement = `
@@ -285,25 +185,12 @@ async function generateCategorySection() {
     });
 }
 
-async function generateHomeContents() {
-    await setFeaturedArticles();
-
-    await generateFeaturedArticles();
-
-    await setLatestArticles();
-
-    await generateLatestArticles();
-
-    await generateCategorySection();
-}
-
 /**
  * Initialize the testimonial slider
  */
 function initTestimonialSlider() {
     const track = document.querySelector('.testimonial-track');
     const slides = document.querySelectorAll('.testimonial');
-    const dotsContainer = document.querySelector('.control-dots');
     const dots = document.querySelectorAll('.dot');
     const prevButton = document.querySelector('.control-prev');
     const nextButton = document.querySelector('.control-next');
@@ -327,6 +214,9 @@ function initTestimonialSlider() {
     // Set up prev button
     if (prevButton) {
         prevButton.addEventListener('click', () => {
+            console.log((currentSlide - 1 + slides.length) + " / " + slides.length);
+            console.log((currentSlide - 1 + slides.length) % slides.length);
+            
             currentSlide = (currentSlide - 1 + slides.length) % slides.length;
             updateSliderPosition();
         });
@@ -643,6 +533,89 @@ function createLoadingAnimation() {
         setTimeout(() => {
             document.body.removeChild(loadingOverlay);
         }, 500);
+    });
+}
+
+/**
+ * Set up mobile menu functionality
+ */
+function setupMobileMenu() {
+    const menuButton = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeButton = document.querySelector('.mobile-menu-close');
+    const backdrop = document.querySelector('.mobile-menu-backdrop');
+    
+    if (!menuButton || !mobileMenu) return;
+    
+    let isOpen = false;
+    
+    // Toggle menu function
+    function toggleMobileMenu() {
+        isOpen = !isOpen;
+        
+        if (isOpen) {
+            openMenu();
+        } else {
+            closeMenu();
+        }
+    }
+    
+    // Open menu
+    function openMenu() {
+        mobileMenu.classList.add('active');
+        menuButton.classList.add('active');
+        backdrop.classList.add('active');
+        
+        // Prevent body scroll
+        document.body.style.overflow = 'hidden';
+        
+        isOpen = true;
+    }
+    
+    // Close menu
+    function closeMenu() {
+        mobileMenu.classList.remove('active');
+        menuButton.classList.remove('active');
+        backdrop.classList.remove('active');
+        
+        // Restore body scroll
+        document.body.style.overflow = '';
+        
+        isOpen = false;
+    }
+    
+    // Event listeners
+    menuButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMobileMenu();
+    });
+    
+    // Close button
+    if (closeButton) {
+        closeButton.addEventListener('click', () => {
+            if (isOpen) closeMenu();
+        });
+    }
+    
+    // Backdrop click to close
+    if (backdrop) {
+        backdrop.addEventListener('click', () => {
+            if (isOpen) closeMenu();
+        });
+    }
+    
+    // Close on escape key
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && isOpen) {
+            closeMenu();
+        }
+    });
+    
+    // Close menu when clicking on menu links
+    mobileMenu.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            closeMenu();
+        }
     });
 }
 

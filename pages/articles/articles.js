@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     await getArticleData();
 
     // insert articles HTML content
-    await generateArticles();
+    await setupArticles();
     
     // Set up header scroll effect
     setupHeaderScroll();
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     setupFilterDropdowns();
     
     // Set up search functionality
-    setupSearch();
+    // setupSearch();
     
     // Set up filter functionality
     await setupFilters();
@@ -62,7 +62,7 @@ const getArticleData = async () => {
     }
 }
 
-const generateArticles = async () => {
+const setupArticles = async () => {
     const articlesContainer = document.getElementById('articles-container')
 
     const articleElement =  
@@ -109,80 +109,6 @@ function setupHeaderScroll() {
 }
 
 /**
- * Set up mobile menu functionality
- */
-function setupMobileMenu() {
-    const menuButton = document.querySelector('.mobile-menu-btn');
-    const nav = document.querySelector('nav ul');
-    
-    if (!menuButton || !nav) return;
-    
-    menuButton.addEventListener('click', () => {
-        // Create mobile menu if it doesn't exist
-        if (!document.querySelector('.mobile-menu')) {
-            const mobileMenu = document.createElement('div');
-            mobileMenu.className = 'mobile-menu';
-            
-            // Clone the navigation items
-            const navClone = nav.cloneNode(true);
-            
-            // Append to the mobile menu
-            mobileMenu.appendChild(navClone);
-            
-            // Add styles to the mobile menu
-            mobileMenu.style.position = 'fixed';
-            mobileMenu.style.top = '60px';
-            mobileMenu.style.left = '0';
-            mobileMenu.style.right = '0';
-            mobileMenu.style.backgroundColor = 'var(--medium-bg)';
-            mobileMenu.style.padding = '1rem';
-            mobileMenu.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-            mobileMenu.style.zIndex = '999';
-            mobileMenu.style.display = 'none';
-            
-            // Add styles to the list
-            const list = mobileMenu.querySelector('ul');
-            list.style.display = 'flex';
-            list.style.flexDirection = 'column';
-            list.style.gap = '1rem';
-            
-            // Append the mobile menu to the header
-            document.querySelector('header').appendChild(mobileMenu);
-        }
-        
-        // Toggle the mobile menu
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const isVisible = mobileMenu.style.display === 'block';
-        
-        mobileMenu.style.display = isVisible ? 'none' : 'block';
-        
-        // Animate icon change
-        if (isVisible) {
-            menuButton.innerHTML = '<i class="fas fa-bars"></i>';
-        } else {
-            menuButton.innerHTML = '<i class="fas fa-times"></i>';
-        }
-    });
-    
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (event) => {
-        const mobileMenu = document.querySelector('.mobile-menu');
-        if (!mobileMenu) return;
-        
-        if (
-            event.target !== menuButton && 
-            !menuButton.contains(event.target) && 
-            event.target !== mobileMenu &&
-            !mobileMenu.contains(event.target) &&
-            mobileMenu.style.display === 'block'
-        ) {
-            mobileMenu.style.display = 'none';
-            menuButton.innerHTML = '<i class="fas fa-bars"></i>';
-        }
-    });
-}
-
-/**
  * Set up filter dropdowns
  */
 function setupFilterDropdowns() {
@@ -224,41 +150,41 @@ function setupFilterDropdowns() {
 /**
  * Set up search functionality
  */
-function setupSearch() {
-    const searchInput = document.getElementById('search-input');
-    const searchBtn = document.getElementById('search-btn');
+// function setupSearch() {
+//     const searchInput = document.getElementById('search-input');
+//     const searchBtn = document.getElementById('search-btn');
     
-    // Function to perform search
-    const performSearch = () => {
-        const searchTerm = searchInput.value.trim().toLowerCase();
+//     // Function to perform search
+//     const performSearch = () => {
+//         const searchTerm = searchInput.value.trim().toLowerCase();
         
-        if (searchTerm === '') {
-            // If search is empty, remove search filter
-            removeFilter('search');
-            return;
-        }
+//         if (searchTerm === '') {
+//             // If search is empty, remove search filter
+//             removeFilter('search');
+//             return;
+//         }
         
-        // Add search filter
-        applyFilter('search', searchTerm, `Search: "${searchTerm}"`);
+//         // Add search filter
+//         applyFilter('search', searchTerm, `Search: "${searchTerm}"`);
         
-        // Apply filters
-        filterArticles();
-    };
+//         // Apply filters
+//         filterArticles();
+//     };
     
-    // Search on button click
-    if (searchBtn) {
-        searchBtn.addEventListener('click', performSearch);
-    }
+//     // Search on button click
+//     if (searchBtn) {
+//         searchBtn.addEventListener('click', performSearch);
+//     }
     
-    // Search on Enter key press
-    if (searchInput) {
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
-        });
-    }
-}
+//     // Search on Enter key press
+//     if (searchInput) {
+//         searchInput.addEventListener('keypress', (e) => {
+//             if (e.key === 'Enter') {
+//                 performSearch();
+//             }
+//         });
+//     }
+// }
 
 /**
  * Set up filters functionality
@@ -267,6 +193,8 @@ async function setupFilters() {
 
     // insert filter select dropdown HTML content
     await generateDropdownSelects();
+    
+    generateCategorySelectDropdown();
 
     await setInitialFilterOptions();
     
@@ -278,6 +206,30 @@ async function setupFilters() {
     
     // Set up sort filters
     setupSortFilters();
+
+    const generateDropdownSelects = async () => {
+        await generateDateSelectDropdown();
+        await generateSortbySelectDropdown();
+        await generateItemsPerPageSelectDropdown();
+    }
+
+    const generateCategorySelectDropdown = () => {
+        const dropdownCategoryContainer = document.getElementById('dropdown-cat');
+        dropdownCategoryContainer.insertAdjacentHTML('afterbegin', `<div class="dropdown-item">
+                                                                        <input type="checkbox" id="all-categories">
+                                                                        <label for="all-categories">All Categories</label>
+                                                                    </div>`)
+
+        Object.keys(window.pageInfo.articlesData).sort((a,b) => b - a).forEach(categorySelectItem => {
+            const categoryElement = `
+            <div class="dropdown-item">
+                <input type="checkbox" id="${categorySelectItem}">
+                <label for="${categorySelectItem}">${categorySelectItem.replaceAll('-', ' ').replace(/\b\w/g, (char) => char.toUpperCase())}</label>
+            </div>
+            `
+            dropdownCategoryContainer.insertAdjacentHTML('beforeend', categoryElement)
+        })
+    }
     
     // Set up clear filters button
     const clearFiltersBtn = document.getElementById('clear-filters-btn');
@@ -313,6 +265,11 @@ function setupCategoryFilters() {
                 
                 // Apply filters
                 filterArticles();
+            } else {
+                // If no categories selected, check "All Categories" checkbox
+                if (window.activeFilters.categories.length === 0 && allCategoriesCheckbox) {
+                    allCategoriesCheckbox.checked = true;
+                }
             }
         });
     }
@@ -320,7 +277,7 @@ function setupCategoryFilters() {
     // Handle individual category checkboxes
     categoryCheckboxes.forEach(checkbox => {
         checkbox.addEventListener('change', () => {
-            const categoryId = checkbox.id.replace('cat-', '');
+            const categoryId = checkbox.id
             const categoryName = checkbox.nextElementSibling.textContent;
             
             if (checkbox.checked) {
@@ -364,9 +321,9 @@ function setupDateFilters() {
     dateRadios.forEach(radio => {
         radio.addEventListener('change', () => {
             if (radio.checked) {
-                const dateFilter = radio.id.replace('date-', '');
+                const dateFilter = radio.id;
                 const dateLabel = radio.nextElementSibling.textContent;
-                
+
                 // Update active filters
                 window.activeFilters.date = dateFilter;
                 
@@ -375,7 +332,7 @@ function setupDateFilters() {
                 dateFilterTags.forEach(tag => tag.remove());
                 
                 // Add new date filter tag if not "all"
-                if (dateFilter !== 'all') {
+                if (dateFilter !== 'all-time') {
                     applyFilter('date', dateFilter, dateLabel);
                 }
                 
@@ -407,23 +364,7 @@ function setupSortFilters() {
     });
 }
 
-const generateCategorySelectDropdown = async () => {
-    const dropdownCategoryContainer = document.getElementById('dropdown-cat');
-    dropdownCategoryContainer.insertAdjacentHTML('afterbegin', `<div class="dropdown-item">
-                                                                    <input type="checkbox" id="all-categories">
-                                                                    <label for="all-categories">All Categories</label>
-                                                                </div>`)
 
-    Object.keys(window.pageInfo.articlesData).sort((a,b) => b - a).forEach(categorySelectItem => {
-        const categoryElement = `
-        <div class="dropdown-item">
-            <input type="checkbox" id="${categorySelectItem}">
-            <label for="${categorySelectItem}">${categorySelectItem.replaceAll('-', ' ').replace(/\b\w/g, (char) => char.toUpperCase())}</label>
-        </div>
-        `
-        dropdownCategoryContainer.insertAdjacentHTML('beforeend', categoryElement)
-    })
-}
 
 const generateDateSelectDropdown = async () => {
     const dateCategories = ['all-time', 'last-week', 'last-month', 'last-year']
@@ -465,12 +406,7 @@ const setInitialFilterOptions = async () => {
     document.getElementById(`${window.activeFilters.sort}`).setAttribute('checked', 'checked');
 }
 
-const generateDropdownSelects = async () => {
-    await generateCategorySelectDropdown();
-    await generateDateSelectDropdown();
-    await generateSortbySelectDropdown();
-    await generateItemsPerPageSelectDropdown();
-}
+
 
 /**
  * Apply a filter and create a filter tag
@@ -575,7 +511,7 @@ function clearAllFilters() {
     window.activeFilters = {
         articlesPerPage: 'items-10',
         categories: [],
-        date: 'all',
+        date: 'all-time',
         sort: 'newest'
     };
     
@@ -846,4 +782,87 @@ function setupNewsletterForm() {
             }, 500);
         }, 5000);
     }
+}
+
+/**
+ * Set up mobile menu functionality
+ */
+function setupMobileMenu() {
+    const menuButton = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeButton = document.querySelector('.mobile-menu-close');
+    const backdrop = document.querySelector('.mobile-menu-backdrop');
+    
+    if (!menuButton || !mobileMenu) return;
+    
+    let isOpen = false;
+    
+    // Toggle menu function
+    function toggleMobileMenu() {
+        isOpen = !isOpen;
+        
+        if (isOpen) {
+            openMenu();
+        } else {
+            closeMenu();
+        }
+    }
+    
+    // Open menu
+    function openMenu() {
+        mobileMenu.classList.add('active');
+        menuButton.classList.add('active');
+        backdrop.classList.add('active');
+        
+        // Prevent body scroll
+        document.body.style.overflow = 'hidden';
+        
+        isOpen = true;
+    }
+    
+    // Close menu
+    function closeMenu() {
+        mobileMenu.classList.remove('active');
+        menuButton.classList.remove('active');
+        backdrop.classList.remove('active');
+        
+        // Restore body scroll
+        document.body.style.overflow = '';
+        
+        isOpen = false;
+    }
+    
+    // Event listeners
+    menuButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMobileMenu();
+    });
+    
+    // Close button
+    if (closeButton) {
+        closeButton.addEventListener('click', () => {
+            if (isOpen) closeMenu();
+        });
+    }
+    
+    // Backdrop click to close
+    if (backdrop) {
+        backdrop.addEventListener('click', () => {
+            if (isOpen) closeMenu();
+        });
+    }
+    
+    // Close on escape key
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && isOpen) {
+            closeMenu();
+        }
+    });
+    
+    // Close menu when clicking on menu links
+    mobileMenu.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            closeMenu();
+        }
+    });
 }

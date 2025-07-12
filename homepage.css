@@ -233,8 +233,8 @@ nav a.active::after {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
-    width: 48px;
-    height: 48px;
+    width: 30px;
+    height: 30px;
     border-radius: 0.5rem;
     background-color: var(--light-bg);
     border: 1px solid var(--border-color);
@@ -357,9 +357,13 @@ nav a.active::after {
 }
 
 .mobile-menu-btn {
-    transition: all 0.3s ease;
+    transition: all 1s ease;
     padding: 0.5rem;
     border-radius: 0.5rem;
+    display: none;
+}
+
+.mobile-menu-btn.active {
     display: none;
 }
 
